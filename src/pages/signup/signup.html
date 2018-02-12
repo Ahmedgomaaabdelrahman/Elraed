@@ -24,32 +24,24 @@
     <button ion-button class="upload" clear>تحميل الصوره الشخصيه</button>
    
    <form #f="ngForm">
-     <ion-input class="editinput" type="text" placeholder="اسم الكامل"></ion-input>
-     <ion-input class="editinput" type="text" placeholder="اسم المستخدم"></ion-input>
-     <ion-input class="editinput" type="tel" placeholder="رقم الهاتف"></ion-input>
-     <ion-input class="editinput" type="password" placeholder="كلمة المرور"></ion-input>
-     <ion-input class="editinput" type="password" placeholder="تاكيد كلمة المرور"></ion-input>
-     <ion-input class="editinput" type="email" placeholder="البريد الالكترونى"></ion-input>
+     <ion-input [(ngModel)]="name" name="name" class="editinput" type="text" placeholder="اسم الكامل"></ion-input>
+     <!-- <ion-input  [(ngModel)]="phone" name="phone"class="editinput" type="text" placeholder="اسم المستخدم"></ion-input> -->
+     <ion-input  [(ngModel)]="phone" name="phone" class="editinput" type="tel" placeholder="رقم الهاتف"></ion-input>
+     <ion-input [(ngModel)]="password" name="password" class="editinput" type="password" placeholder="كلمة المرور"></ion-input>
+     <ion-input [(ngModel)]="password_confirm" name="password_confirm" class="editinput" type="password" placeholder="تاكيد كلمة المرور"></ion-input>
+     <ion-input [(ngModel)]="email" name="email" class="editinput" type="email" placeholder="البريد الالكترونى"></ion-input>
      <ion-item  class="editinput" >
         <ion-label>المرحلة</ion-label>
         <ion-select >
-          <ion-option value="nes">NES</ion-option>
-          <ion-option value="n64">Nintendo64</ion-option>
-          <ion-option value="ps">PlayStation</ion-option>
-          <ion-option value="genesis">Sega Genesis</ion-option>
-          <ion-option value="saturn">Sega Saturn</ion-option>
-          <ion-option value="snes">SNES</ion-option>
+                <ion-option  (ionSelect)="getSelectedGrade(grade)"  *ngFor="let grade of grades;let i=index"  value={{grade.grade[i]}} required>{{grade.grade}}</ion-option>
+
         </ion-select>
       </ion-item>
       <ion-item  class="editinput" >
           <ion-label>السنة الدراسية</ion-label>
           <ion-select >
-            <ion-option value="nes">NES</ion-option>
-            <ion-option value="n64">Nintendo64</ion-option>
-            <ion-option value="ps">PlayStation</ion-option>
-            <ion-option value="genesis">Sega Genesis</ion-option>
-            <ion-option value="saturn">Sega Saturn</ion-option>
-            <ion-option value="snes">SNES</ion-option>
+            <ion-option (ionSelect)="getSelectedYear(year)" *ngFor="let year of years;let i=index"  value={{year.year[i]}} required>{{year.year}}</ion-option>
+          
           </ion-select>
         </ion-item>
 
