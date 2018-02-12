@@ -1,3 +1,83 @@
 page-studentanswer {
+    .editinput{
+        border-bottom:1px solid gray;
+        height: 30px;
+        margin: 10px auto 0;
+        direction: rtl;
+        .text-input{
+            margin: 5px ;
+            text-align: end;
+        }
+    
+        .input-cover{
+            position: static;
+        }
+    }
 
+    .topdiv{
+        margin-top: 70px;
+        text-align: end;
+        width:80%;
+        margin:70px auto 0;
+        overflow: scroll;
+        .divtitle{
+            font-size: 25px;
+            margin: 10px;
+        }
+     
+    }
+    // .scroll-content {
+    //     height: 90% !important;
+    // }
+
+   
+    .answer{
+        padding: 5px 10px;
+        height: 120px;
+        max-height: 120px;
+        overflow: scroll;
+        border: 1px solid gray;
+        margin-top: 20px;
+        padding: 5px 10px;
+        -webkit-box-shadow: 0px 5px 10px 3px #cccaca;
+        box-shadow: 0px 5px 10px 3px #cccaca;
+    }
+    .audio{
+        border: 1px solid gray;
+        border-radius: 5px;
+        height: 55px;
+        audio{
+            width: 100%;
+        }
+    }
+    .imgdiv{
+        text-align: center;
+        height: 130px;
+        background-color: #cccaca;
+        padding: 20px
+        
+    }
+    .prate{
+        text-align: center;
+        font-size: 18px;
+        margin: 5px 10px;
+    }
+    .raterow{
+        width: 60%;
+        font-size: 30px;
+        color: $topcolor;
+        margin: auto;
+    }
+    .enter{
+        font-size: 20px;
+        color: white;
+        font-weight: normal;
+        height: 35px;
+        border-radius: 25px;
+        padding: 10px;
+        font-family: cairobold;
+        background-color: #dfc262;
+        width: 45%;
+        margin: auto;
+    }
 }

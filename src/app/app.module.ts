@@ -1,3 +1,5 @@
+import { BankaccountsPage } from './../pages/bankaccounts/bankaccounts';
+import { ContactusPage } from './../pages/contactus/contactus';
 import { SubjcontentPage } from './../pages/subjcontent/subjcontent';
 import { StudenttabsPage } from './../pages/studenttabs/studenttabs';
 import { SignupPage } from './../pages/signup/signup';
@@ -5,7 +7,7 @@ import { LoginPage } from './../pages/login/login';
 import { HeaderComponent } from './../components/header/header';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, Nav } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -28,7 +30,9 @@ import { TeachertabsPage } from '../pages/teachertabs/teachertabs';
     StudentaskPage,
     StudentsubsPage,
     TeachertabsPage,
-    SubjcontentPage
+    SubjcontentPage,
+    ContactusPage,
+    BankaccountsPage
   ],
   imports: [
     BrowserModule,
@@ -47,11 +51,14 @@ import { TeachertabsPage } from '../pages/teachertabs/teachertabs';
     StudentaskPage,
     StudentsubsPage,
     TeachertabsPage,
-    SubjcontentPage
+    SubjcontentPage,
+    ContactusPage,
+    BankaccountsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

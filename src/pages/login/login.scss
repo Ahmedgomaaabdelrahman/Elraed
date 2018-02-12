@@ -52,7 +52,7 @@ page-login {
         position: static;
       
     }
-    .text-input-md{
+    .text-input-md ,.text-input-ios{
         direction: rtl;
         height: 38px;
     }
@@ -62,11 +62,7 @@ page-login {
         border-bottom: 1px solid gray
     }
     
-    .text-input-ios {
-        margin: 4px 38px 0;
-        padding: 0;
-        width: 65%;
-    }
+  
     
     .btn{
       color: #545353;

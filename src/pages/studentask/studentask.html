@@ -1,12 +1,46 @@
 <ion-header>
-
-
     <ion-title><header></header></ion-title>
-
-
 </ion-header>
 
 
 <ion-content >
+        <div class="topdiv">
+                <p class="divtitle">المرحلة الابتدائية</p>
+                <ion-item  class="editinput" >
+                    <ion-label>اختار المادة</ion-label>
+                    <ion-select >
+                        <ion-option value="nes">NES</ion-option>
+                        <ion-option value="n64">Nintendo64</ion-option>
+                        <ion-option value="ps">PlayStation</ion-option>
+                        <ion-option value="genesis">Sega Genesis</ion-option>
+                        <ion-option value="saturn">Sega Saturn</ion-option>
+                        <ion-option value="snes">SNES</ion-option>
+                    </ion-select>
+                </ion-item>
 
+                <ion-textarea class="question" placeholder="اكتب سؤالك هنا">
+                </ion-textarea>
+
+                <ion-row style="text-align:center">
+                    <ion-col col-6>
+                        <div>
+                            <img src="assets/imgs/uploadvioce.png"><br>
+                            <p>اضافة ملف صوت</p>
+                        </div>
+                    </ion-col>
+
+                    <ion-col col-6>
+                            <div>
+                                <img src="assets/imgs/uploadimg.png"><br>
+                                <p>اضافة صوره</p>
+                            </div>
+                        </ion-col>
+                    
+                </ion-row>
+                
+               
+        
+    
+                <button ion-button block class="enter">اطرح السوال</button>
+        </div>
 </ion-content>

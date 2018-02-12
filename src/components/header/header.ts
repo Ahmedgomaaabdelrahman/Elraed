@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MenuController, NavController } from 'ionic-angular';
 
 
@@ -14,11 +14,9 @@ import { MenuController, NavController } from 'ionic-angular';
 })
 export class HeaderComponent {
 
-  text: string;
-
+  @Input() name: string;
   constructor(public navCtrl: NavController,public menuCtrl: MenuController) {
     console.log('Hello HeaderComponent Component');
-    this.text = 'Hello World';
   }
   
   openMenu() {

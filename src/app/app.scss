@@ -22,15 +22,68 @@ $buttonBack :#dfc262;
     height: 60px;
     direction: rtl;
 }
-.scroll-content{
-    height: 100% !important;
-  }
+// .content{
+//     background-color: aliceblue;
+// }
+// .scroll-content{
+//     height: 100% !important;
+//   }
   .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
       background-image: none !important;
       top: 0;
       height: 0;
       bottom:0;
   }
+  .tabs-md .tab-button-text , .tabs-ios .tab-button-text {
+      font-size: 1.7rem;
+  }
+  .tabs-ios[tabsLayout=icon-hide] .tab-button, .tabs-ios .tab-button.has-title-only {
+    height: 60px;
+}
+.menubtn{
+    background-color:white;
+    color:  gray;
+    direction: rtl;
+    padding: 0;
+    ion-icon{
+        margin: 0 5px;
+    }
+}
+.micon{
+    text-align: center;
+    font-size: 30px;
+    padding-top: 2px;
+    color: #017c9a;
+   
+}
+.mp{
+    margin: 0;
+    font-size: 20px;
+    color: gray;
+    padding: 0 16px;
+}
+.item-md.item-block .item-inner ,.item-ios.item-block .item-inner{
+    padding-right: 0px; 
+}
+.input-wrapper {
+    border-bottom: 1px solid gray;
+}
+.menu-inner{
+    width:200px;
+}
+button.item-ios:not([detail-none]) .item-inner{
+    background-image: none;
+    padding-right:0;
+}
+// .menubtn{
+//     font-size: 1.7rem;
+//     border-radius: 0 50px 50px 0;
+//     width: 97%;
+//     direction: rtl;
+//     color: #4e4e4e;
+//     font-weight: normal;
+//    
+// }
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
