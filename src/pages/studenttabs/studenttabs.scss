@@ -1,0 +1,22 @@
+page-studenttabs {
+    .tabs-md .tab-button{
+        background-size:35px ;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 0px;
+        padding: 0;
+        background-color: $lowcolor;
+        color: white
+        }
+    .tabs-md .tab-button[aria-selected=true]{
+        background-size:75px ;
+        background-color: $iconcolor;
+      
+        }
+    
+        .tabs-md .tab-button[aria-selected=true]{
+            color: white;
+           
+        }
+
+}

@@ -1,0 +1,60 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+
+    <ion-title><header></header></ion-title>
+
+
+</ion-header>
+
+
+<ion-content>
+    <p class="topp">تسجيل مستخدم جديد</p>
+    <div class="topdiv">
+       
+        <div id="profileImage" >
+          <img height="25px" class="simg" (click)="profileImage()" src="assets/imgs/editicon.png" ></div>
+      </div>
+
+    <button ion-button class="upload" clear>تحميل الصوره الشخصيه</button>
+   
+   <form #f="ngForm">
+     <ion-input class="editinput" type="text" placeholder="اسم الكامل"></ion-input>
+     <ion-input class="editinput" type="text" placeholder="اسم المستخدم"></ion-input>
+     <ion-input class="editinput" type="tel" placeholder="رقم الهاتف"></ion-input>
+     <ion-input class="editinput" type="password" placeholder="كلمة المرور"></ion-input>
+     <ion-input class="editinput" type="password" placeholder="تاكيد كلمة المرور"></ion-input>
+     <ion-input class="editinput" type="email" placeholder="البريد الالكترونى"></ion-input>
+     <ion-item  class="editinput" >
+        <ion-label>المرحلة</ion-label>
+        <ion-select >
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item  class="editinput" >
+          <ion-label>السنة الدراسية</ion-label>
+          <ion-select >
+            <ion-option value="nes">NES</ion-option>
+            <ion-option value="n64">Nintendo64</ion-option>
+            <ion-option value="ps">PlayStation</ion-option>
+            <ion-option value="genesis">Sega Genesis</ion-option>
+            <ion-option value="saturn">Sega Saturn</ion-option>
+            <ion-option value="snes">SNES</ion-option>
+          </ion-select>
+        </ion-item>
+
+  
+   
+       <button ion-button block class="btn" (click)="home()">تسجيل</button>
+   </form>
+</ion-content>

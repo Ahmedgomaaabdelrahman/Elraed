@@ -1,6 +1,36 @@
 // http://ionicframework.com/docs/theming/
 
-
+$topcolor:   #017C9A;
+$lowcolor:   #03A4CA;
+$iconcolor:  #00CAFA;
+$buttonBack :#dfc262;
+@font-face {
+    font-family: 'basefont';
+    src: url('../assets/fonts/Bahij_Janna-Bold.ttf') ;
+  }
+*{
+    font-family: basefont;
+}
+.input-cover{
+    position: static !important;
+}
+.toolbar-title{
+    padding: 0;
+}
+.tabbar{
+    top: 55px !important;
+    height: 60px;
+    direction: rtl;
+}
+.scroll-content{
+    height: 100% !important;
+  }
+  .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+      background-image: none !important;
+      top: 0;
+      height: 0;
+      bottom:0;
+  }
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These

@@ -1,0 +1,40 @@
+header {
+    div{
+        background-color:$topcolor; 
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 55px;
+        color: white;
+        z-index: 11;
+    }
+    .headerrow{
+        .imgcol{
+                text-align: center;
+        }
+        img{
+            height: 15px;
+    }
+    }
+    .line{
+        height: 35px !important;
+    }
+    .notify{
+        font-size: 23px;
+        padding-top: 10px;
+    }
+    .menu{
+        font-size: 30px;
+    padding-top: 7px;
+    }
+
+    .col7{
+        text-align: center;
+        font-size: 20px;
+        padding-top: 14px;
+        p{
+            margin: 0;
+        }
+    }
+    
+    }
+    
