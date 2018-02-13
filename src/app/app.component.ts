@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { EditaccountPage } from '../pages/editaccount/editaccount';
 @Component({
   templateUrl: 'app.html'
 })
@@ -32,6 +33,10 @@ export class MyApp {
   opencontanct(){
     this.menuCtrl.close();
     this.nav.push(ContactusPage);
+  }
+  edit(){
+    this.menuCtrl.close();
+    this.nav.push(EditaccountPage); 
   }
 }
 

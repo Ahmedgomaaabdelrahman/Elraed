@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { StudenttestPage } from '../studenttest/studenttest';
 
 
 @Component({
@@ -14,5 +15,8 @@ export class SubjcontentPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SubjcontentPage');
   }
-
+ 
+  test(){
+    this.navCtrl.push(StudenttestPage);
+  }
 }

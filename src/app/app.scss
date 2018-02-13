@@ -11,6 +11,9 @@ $buttonBack :#dfc262;
 *{
     font-family: basefont;
 }
+.button-md.activated , .button-ios.activated{
+    background-color: $buttonBack;
+}
 .input-cover{
     position: static !important;
 }

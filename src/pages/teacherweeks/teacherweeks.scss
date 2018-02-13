@@ -1,0 +1,18 @@
+page-teacherweeks {
+    .topdiv{
+        text-align: center;
+        font-size: 30px;
+        direction: rtl;
+        color: $topcolor;
+        margin-top: 20px;
+        p{
+            display: inline-block;
+            margin: 0 5px;
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+        
+    }
+}

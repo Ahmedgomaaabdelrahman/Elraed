@@ -1,16 +1,18 @@
+import { TeacherquesPage } from './../teacherques/teacherques';
+import { StudentaskPage } from './../studentask/studentask';
+import { StudentsubsPage } from './../studentsubs/studentsubs';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { TeacherweeksPage } from '../teacherweeks/teacherweeks';
 
 @Component({
   selector: 'page-teachertabs',
   templateUrl: 'teachertabs.html',
 })
 export class TeachertabsPage {
-  // tab1Root: any = HomePage;
-  // tab2Root: any = CategoryPage;
-  // tab3Root: any = FavoritePage;
-  // tab4Root: any = HistoryPage;
-  // tab5Root: any = SettingsPage
+  tab1Root: any = TeacherweeksPage; 
+  tab2Root: any = TeacherquesPage;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

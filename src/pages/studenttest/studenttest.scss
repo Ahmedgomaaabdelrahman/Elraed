@@ -1,0 +1,66 @@
+page-studenttest {
+    .toppar{
+        text-align: center;
+        color: gray;
+        font-size: 30px;
+        margin: 10px 0;
+    }
+    .input-wrapper{
+        border-bottom: none;
+        label{
+          font-size: 22px;
+          margin: 10px;
+
+        }
+    }
+
+    .answer{
+        width: 33%;
+        float: right;
+        display: inline-block;
+        padding: 3px;
+        font-weight: normal;
+        font-size: 17px;
+    }
+
+    .queslab{
+        font-size: 25px;
+        margin: 0 10px;
+    }
+
+    .answerlab{
+        font-size: 15px;
+        margin: 0 10px;
+        direction: rtl
+    }
+    .radio-md .radio-checked ,.radio-ios .radio-checked{
+        border-color: gray;
+       
+    }
+    .item-radio-checked.item-md ion-label , .item-radio-checked.item-ios ion-label{
+        color:gray
+    }
+    .radio-md .radio-inner ,.radio-ios .radio-inner{
+
+        background-color: gray;
+    }
+    .answer .item item-block item-md item-radio item-radio-checked{
+        color: gray
+    }
+
+    ion-list {
+        height: 130px !important;
+    }
+
+    .scroll-content{
+        margin-bottom: 0  !important;
+        height: 90%  !important;
+    }
+    .finish{
+        width: 55%;
+        font-size: 20px;
+        background: $buttonBack;
+        margin: auto;
+        border-radius: 15px;
+    }
+}

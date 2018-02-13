@@ -1,0 +1,21 @@
+page-testresult {
+    .toppar{
+        text-align: center;
+        color: gray;
+        font-size: 30px;
+        margin: 10px 0;
+    }
+    .result{
+        text-align: center;
+        color: $topcolor;
+        font-size: 50px;
+        margin: 50px 0;
+    }
+    .finish{
+        width: 55%;
+        font-size: 20px;
+        background: #dfc262;
+        margin: 100px auto 0;
+        border-radius: 15px;
+    }
+}
