@@ -1,3 +1,50 @@
 page-teacherques {
+.topdiv{
+    margin-top: 70px;
+    direction: rtl;
+    width: 95%;
+    margin: 70px auto;
+    .total{
+        border: 1px solid gray;
+    }
+p{
+    margin: 0;
+}
+.aud{
+    border: 1px solid gray;
+    height: 50px;
+    audio{
+        width: 100%;
+    }
+}
+}
 
+.question{
+    height: 170px;
+    border: 1px solid gray;
+    margin: 25px auto;
+
+    direction: rtl;
+    position: static;
+}
+textarea.text-input {
+    display: block;
+    height: 85%;
+}
+
+.enter{
+    font-size: 20px;
+    color: white;
+    font-weight: normal;
+    height: 35px;
+    border-radius: 25px;
+    padding: 10px;
+    font-family: cairobold;
+    background-color: #dfc262;
+    width: 45%;
+    margin:20px auto;
+}
+  .scroll-content {
+        height: 90% !important;
+    }
 }

@@ -1,3 +1,4 @@
+import { LessonshowPage } from './../lessonshow/lessonshow';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -14,5 +15,8 @@ export class AddlessonsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddlessonsPage');
   }
-
+  
+  showVideo(){
+    this.navCtrl.push(LessonshowPage); 
+  }
 }
