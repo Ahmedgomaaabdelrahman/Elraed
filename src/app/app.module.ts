@@ -31,6 +31,16 @@ import { LessonshowPage } from '../pages/lessonshow/lessonshow';
 import { TeacherquesPage } from '../pages/teacherques/teacherques';
 import { TeacherweeksPage } from '../pages/teacherweeks/teacherweeks';
 import { TestquestionsPage } from '../pages/testquestions/testquestions';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { CommonServicesProvider } from '../providers/common-services/common-services';
+// import { Base64 } from '@ionic-native/base64';
+import { ActionSheet, ActionSheetOptions } from '@ionic-native/action-sheet';
+// import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+// import { File } from '@ionic-native/file';
+import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
+import { IonicStorageModule } from '@ionic/storage';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +69,9 @@ import { TestquestionsPage } from '../pages/testquestions/testquestions';
   ],
   imports: [
   BrowserModule,HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -88,11 +100,12 @@ import { TestquestionsPage } from '../pages/testquestions/testquestions';
     TestquestionsPage
   ],
   providers: [
-    StatusBar,User,Statics,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    StatusBar,User,Statics,FileTransfer, MediaCapture, 
+    SplashScreen,Camera,ActionSheet,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},{ provide: IonicStorageModule, useClass: IonicStorageModule},
     AuthProvider,
-    CommonServerStaticsProvider
+    CommonServerStaticsProvider,
+    CommonServicesProvider
   ]
 })
 export class AppModule {}

@@ -6,6 +6,7 @@ import {User} from '../../model/UserModel'
 import {CommonServerStaticsProvider} from '../../providers/common-server-statics/common-server-statics'
 import { AuthProvider } from '../../providers/auth/auth';
 import { Statics } from '../../model/StaticsModel';
+import { CommonServicesProvider } from '../../providers/common-services/common-services';
 
 @Component({
   selector: 'page-signup',
@@ -25,10 +26,12 @@ grade
 year
   constructor(
     private user:User,
+    private common:CommonServicesProvider,
     public navCtrl: NavController,
-     public navParams: NavParams,public statics:Statics,
-  public commonServerStaticsProvider:CommonServerStaticsProvider,
-  private auth:AuthProvider
+    public navParams: NavParams,
+    public statics:Statics,
+    public commonServerStaticsProvider:CommonServerStaticsProvider,
+    private auth:AuthProvider
     ) {
   
     }
@@ -37,7 +40,6 @@ year
 this.assignGradesAndYearslists();
   }
   home(){
-
 let user={
   'name':this.name,
   'phone':this.phone,
@@ -51,11 +53,15 @@ let user={
   }
   
 
-
+  console.log(user)
+  this.user.setuser(user);
+// return;
 
     this.auth.signUp().subscribe(res=>{
 
-    },(e)=>{});
+    },(e)=>{
+      console.log(e)
+    });
     // this.navCtrl.push(StudenttabsPage);
   }
 
@@ -78,13 +84,23 @@ console.log(e)
  });
 }
 getSelectedYear(year){
-  this.year=year['year']
+  this.year=year['year_id']
 console.log(year)
 
 }
 getSelectedGrade(grade){
-  this.grade=grade['grade']
+  this.grade=grade['grade_id']
   console.log(this.grade)
   
+  }
+  profileImage(){
+    let self=this;
+
+    this.common.presentActionSheet(this.statics.USE_GALARY,this.statics.USE_GALARY).then(cameraType=>{
+      self.common.camPic(cameraType).then(encodedImage=>{
+        self.image=encodedImage
+
+})
+    })
   }
 }
