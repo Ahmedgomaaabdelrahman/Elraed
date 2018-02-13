@@ -1,4 +1,3 @@
-import { StudenttabsPage } from './../studenttabs/studenttabs';
 import { SignupPage } from './../signup/signup';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -34,7 +33,6 @@ export class LoginPage {
   ionViewWillEnter(){
    
   }
-<<<<<<< HEAD
  
 logIn(){
   this.common.presentLoadingDefault()
@@ -65,15 +63,11 @@ afterSignIn(res){
   signup(type){
 
     this.navCtrl.push(SignupPage,{'type':type});
-
-=======
+  }
   gohome(){
       this.navCtrl.push(StudenttabsPage);
  }
-  signup(){
-    this.navCtrl.push(SignupPage);
->>>>>>> 1837fd0f14cf49b96ec3dfdf84f4a79ea82ef57b
-  }
+
   teacher(){ 
     this.navCtrl.push(TeachertabsPage); 
   }
