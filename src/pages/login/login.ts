@@ -25,6 +25,6 @@ export class LoginPage {
     this.navCtrl.push(SignupPage);
   }
   teacher(){ 
-    this.navCtrl.push(TeachertabsPage); 
+    this.navCtrl.push(TeachertabsPage);
   }
 } 
