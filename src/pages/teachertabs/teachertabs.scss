@@ -1,3 +1,16 @@
 page-teachertabs {
-
+    .tabs-md .tab-button , .tabs-ios .tab-button{
+        background-size:35px ;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 0px;
+        padding: 0;
+        background-color: $lowcolor;
+        color: white
+        }
+    .tabs-md .tab-button[aria-selected=true] , .tabs-ios .tab-button[aria-selected=true]{
+        background-size:75px ;
+        background-color: $iconcolor;
+        color: white;
+        }
 }

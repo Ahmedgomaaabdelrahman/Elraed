@@ -1,0 +1,88 @@
+page-editaccount {
+  
+    .topp{
+      text-align: center;
+      font-size: 20px;
+      margin: 5px;
+      color:gray
+    }
+    .upload{
+        width: 100%;
+        color: gray;
+    }
+    .topdiv{
+        height: 100px;
+        text-align: center;
+        padding: 7px;
+        .heart{
+            position: absolute;
+            left: 10px;
+            height: 25px;
+            margin: 10px 0;
+        }
+    
+
+        .simg{
+            height: 90px;
+            margin-top: 10px;
+            width: 90px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            
+        }
+    }
+    
+    .editinput , .btn{
+        border-bottom:1px solid gray;
+        width: 80%;
+        height: 30px;
+        margin: 10px auto 0;
+        direction: rtl;
+        .text-input{
+            margin: 5px ;
+            text-align: end;
+        }
+    
+        .input-cover{
+            position: static;
+        }
+    }
+    .btn{
+        background-color: $buttonBack;
+        font-family: Appfont;
+        width: 50%;
+        border-radius: 25px
+    }
+    .text-input{
+        direction: ltr;
+    }
+    .text-input[name="service_details_en"] ,
+    .text-input[name="service_name_en"] ,
+    .text-input[name="service_adress_en"],
+    
+    {
+        direction: rtl;
+        ::placeholder{
+            position: fixed;
+            right: 0;
+        }
+      }
+      .text{
+        width: 90%;
+        height: 30px;
+        margin: 10px auto 0;
+        ::placeholder{
+          font-family: Appfont;
+        }
+        .text-input{
+          margin: 5px ;
+          text-align: end;
+        }
+    
+        .input-cover{
+          position: static;
+        }
+      }
+}

@@ -1,3 +1,5 @@
+import { TestresultPage } from './../pages/testresult/testresult';
+import { StudenttestPage } from './../pages/studenttest/studenttest';
 import { BankaccountsPage } from './../pages/bankaccounts/bankaccounts';
 import { ContactusPage } from './../pages/contactus/contactus';
 import { SubjcontentPage } from './../pages/subjcontent/subjcontent';
@@ -22,6 +24,13 @@ import { AuthProvider } from '../providers/auth/auth';
 import { CommonServerStaticsProvider } from '../providers/common-server-statics/common-server-statics';
 import { User } from '../model/UserModel';
 import { Statics } from '../model/StaticsModel';
+import { AddlessonsPage } from '../pages/addlessons/addlessons';
+import { AddtestsPage } from '../pages/addtests/addtests';
+import { EditaccountPage } from '../pages/editaccount/editaccount';
+import { LessonshowPage } from '../pages/lessonshow/lessonshow';
+import { TeacherquesPage } from '../pages/teacherques/teacherques';
+import { TeacherweeksPage } from '../pages/teacherweeks/teacherweeks';
+import { TestquestionsPage } from '../pages/testquestions/testquestions';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { CommonServicesProvider } from '../providers/common-services/common-services';
 // import { Base64 } from '@ionic-native/base64';
@@ -47,7 +56,16 @@ import { IonicStorageModule } from '@ionic/storage';
     TeachertabsPage,
     SubjcontentPage,
     ContactusPage,
-    BankaccountsPage
+    BankaccountsPage,
+    StudenttestPage,
+    TestresultPage,
+    AddlessonsPage,
+    AddtestsPage,
+    EditaccountPage,
+    LessonshowPage,
+    TeacherquesPage,
+    TeacherweeksPage,
+    TestquestionsPage
   ],
   imports: [
   BrowserModule,HttpClientModule,
@@ -70,7 +88,16 @@ import { IonicStorageModule } from '@ionic/storage';
     TeachertabsPage,
     SubjcontentPage,
     ContactusPage,
-    BankaccountsPage
+    BankaccountsPage,
+    StudenttestPage,
+    TestresultPage,
+    AddlessonsPage,
+    AddtestsPage,
+    EditaccountPage,
+    LessonshowPage,
+    TeacherquesPage,
+    TeacherweeksPage,
+    TestquestionsPage
   ],
   providers: [
     StatusBar,User,Statics,FileTransfer, MediaCapture, 

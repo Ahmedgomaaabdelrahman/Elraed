@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+
 @Component({
-  selector: 'page-bankaccounts',
-  templateUrl: 'bankaccounts.html',
+  selector: 'page-addlessons',
+  templateUrl: 'addlessons.html',
 })
-export class BankaccountsPage {
+export class AddlessonsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BankaccountsPage');
+    console.log('ionViewDidLoad AddlessonsPage');
   }
 
 }

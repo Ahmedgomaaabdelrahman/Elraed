@@ -1,0 +1,30 @@
+
+<ion-header>
+
+
+    <ion-title><header name="تعديل البيانات الشخصية"></header></ion-title>
+
+
+</ion-header>
+
+
+<ion-content>
+    <div class="topdiv">
+       
+        <div id="profileImage" >
+          <img height="25px" class="simg" (click)="profileImage()" src="assets/imgs/editicon.png" ></div>
+      </div>
+
+    <button ion-button class="upload" clear>تحميل الصوره الشخصيه</button>
+   
+   <form #f="ngForm">
+     <ion-input name="name" class="editinput" type="text" placeholder="اسم الكامل"></ion-input>
+     <ion-input  class="editinput" type="text" placeholder="اسم المستخدم"></ion-input>
+     <ion-input name="phone" class="editinput" type="tel" placeholder="رقم الهاتف"></ion-input>
+     <ion-input name="password" class="editinput" type="password" placeholder="كلمة المرور"></ion-input>
+     <ion-input name="password_confirm" class="editinput" type="password" placeholder="تاكيد كلمة المرور"></ion-input>
+     <ion-input name="email" class="editinput" type="email" placeholder="البريد الالكترونى"></ion-input>
+
+       <button ion-button block class="btn">تم</button>
+   </form>
+</ion-content>
