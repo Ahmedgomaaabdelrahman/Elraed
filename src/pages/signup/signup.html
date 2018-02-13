@@ -19,7 +19,7 @@
        
         <div id="profileImage" >
           <img *ngIf="image==''"  height="25px" class="simg" (click)="profileImage()" src="assets/imgs/editicon.png" ></div>
-          <img *ngIf="image!=''"  height="25px" class="simg" (click)="profileImage()" src={{image}} >
+          <img *ngIf="image!=''"  height="25px" class="simg" (click)="profileImage()" src='data:image/jpeg;base64,'{{image}} >
 
         </div>
 
@@ -31,6 +31,9 @@
      <ion-input  [(ngModel)]="phone" name="phone" class="editinput" type="tel" placeholder="رقم الهاتف"></ion-input>
      <ion-input [(ngModel)]="password" name="password" class="editinput" type="password" placeholder="كلمة المرور"></ion-input>
      <ion-input [(ngModel)]="password_confirm" name="password_confirm" class="editinput" type="password" placeholder="تاكيد كلمة المرور"></ion-input>
+    <p style="    color: red;
+    align-items: start;
+    margin-left: 46%;" id="passwordCheck">عفوا كلمة المرور غير متطابقة</p>
      <ion-input [(ngModel)]="email" name="email" class="editinput" type="email" placeholder="البريد الالكترونى"></ion-input>
      <ion-item  class="editinput" >
         <ion-label>المرحلة</ion-label>

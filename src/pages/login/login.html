@@ -16,10 +16,10 @@
       <ion-input [(ngModel)]="password" id="password" name="password" type="password" placeholder="كلمه المرور" required></ion-input>
     </ion-item>
 
-    <button ion-button clear class="enter" (click)="gohome()">الدخول</button>
+    <button (click)='logIn()' ion-button clear class="enter">الدخول</button>
     <ion-row>
-      <ion-col col-6>   <button clear class="btn" (click)="signup()" ion-button block>تسجيل كطالب</button></ion-col>
-      <ion-col col-6>   <button clear class="btn" (click)="signup()" ion-button block>تسجيل كمعلم</button></ion-col>
+      <ion-col col-6>   <button clear class="btn" (click)="signup(1)" ion-button block>تسجيل كطالب</button></ion-col>
+      <ion-col col-6>   <button clear class="btn" (click)="signup(2)" ion-button block>تسجيل كمعلم</button></ion-col>
     </ion-row>
    <button clear  class="btn" ion-button block>نسيت كلمه المرور؟</button>
    <button clear  class="btn" ion-button block (click)="teacher()">تست للمدرس</button>

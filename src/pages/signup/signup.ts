@@ -16,7 +16,9 @@ export class SignupPage {
   grades:object=[];
   years:object=[];
   image:string='';
-name
+  // profileimage:string='';
+
+  name
 phone
 password
 type
@@ -33,13 +35,24 @@ year
     public commonServerStaticsProvider:CommonServerStaticsProvider,
     private auth:AuthProvider
     ) {
-  
+  console.log(this.navParams.get('type'))
+this.type=this.navParams.get('type');
+  this.user.USER_TYPE=this.type
     }
 
   ionViewWillEnter(){
+    document.getElementById("passwordCheck").style.display = "none"
+
 this.assignGradesAndYearslists();
   }
+  checkPasswords():boolean{
+
+return this.password==this.password_confirm;
+  }
   home(){
+    document.getElementById("passwordCheck").style.display = "none"
+console.log(this.checkPasswords())
+    if(this.checkPasswords()){
 let user={
   'name':this.name,
   'phone':this.phone,
@@ -56,16 +69,36 @@ let user={
   console.log(user)
   this.user.setuser(user);
 // return;
-
+this.common.presentLoadingDefault()
     this.auth.signUp().subscribe(res=>{
-
+this.afterSignUp(res)
     },(e)=>{
-      console.log(e)
+      this.common.loadDismess();
+
+      console.log('error',e)
     });
     // this.navCtrl.push(StudenttabsPage);
+  }else{
+    document.getElementById("passwordCheck").style.display = "block"
+  }
   }
 
-
+afterSignUp(res){
+  console.log('error',res['error'])
+  if(res['error']!=undefined){
+    this.password=this.password_confirm=null
+    this.common.loadDismess();
+  
+    this.common.presentToast(res['error'])
+  
+  return;
+  }
+  this.common.loadDismess();
+  this.common.storeValue(this.statics.CURRENT_USER,res).then(()=>{
+    this.navCtrl.setRoot(StudenttabsPage)
+  
+  })
+}
 assignGradesAndYearslists(){
   this.grades=[]
   this.years=[]
@@ -96,7 +129,7 @@ getSelectedGrade(grade){
   profileImage(){
     let self=this;
 
-    this.common.presentActionSheet(this.statics.USE_GALARY,this.statics.USE_GALARY).then(cameraType=>{
+    this.common.presentActionSheet(this.statics.USE_CAMERA,this.statics.USE_GALARY).then(cameraType=>{
       self.common.camPic(cameraType).then(encodedImage=>{
         self.image=encodedImage
 
