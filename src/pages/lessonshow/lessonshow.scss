@@ -1,3 +1,14 @@
 page-lessonshow {
+.vid{
+    text-align: center;
+    border: 1px solid gray;
+    margin: 100px auto;
+    width: 80%;
+    height: 275px;
 
+    video{
+        height: 100%;
+        width: 100%;
+    }
+}
 }

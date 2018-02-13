@@ -75,6 +75,6 @@ afterSignIn(res){
  }
 
   teacher(){ 
-    this.navCtrl.push(TeachertabsPage); 
+    this.navCtrl.push(TeachertabsPage);
   }
 } 

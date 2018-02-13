@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { TestquestionsPage } from '../testquestions/testquestions';
 
 @Component({
   selector: 'page-addtests',
@@ -13,5 +14,8 @@ export class AddtestsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddtestsPage');
   }
-
+ 
+  addtest(){
+    this.navCtrl.push(TestquestionsPage);
+  }
 }

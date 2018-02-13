@@ -1,21 +1,25 @@
 <ion-header>
-    <ion-title><header></header></ion-title>
+    <ion-title><header name="الاسبوع الاول"></header></ion-title>
 </ion-header>
 
 <ion-content>
     <div style=" margin-top: 70px;">
-      <p></p>
+      <p class="topp">(الدروس)<br><ion-icon name="add"></ion-icon></p>
+
+
       <ion-row class="topdiv">
-      <ion-col col-2>
-          <p><img src="assets/imgs/watch.png"></p>
-      </ion-col>
-      <ion-col col-8>
-          <p>توحيد الربوبية</p>
-      </ion-col>
-      <ion-col col-2>
-          <p><img src="assets/imgs/delete.png"></p>
-      </ion-col>
+        <ion-col col-2>
+            <p (click)="showVideo()"><img src="assets/imgs/watch.png"></p>
+        </ion-col>
+        <ion-col col-8>
+            <p>توحيد الربوبية</p>
+        </ion-col>
+        <ion-col col-2>
+            <p><img src="assets/imgs/delete.png"></p>
+        </ion-col>
       </ion-row>
+
+
       <ion-row class="topdiv">
           <ion-col col-2>
               <p><img src="assets/imgs/watch.png"></p>
