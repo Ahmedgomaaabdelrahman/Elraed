@@ -15,7 +15,7 @@ export class AuthProvider {
 private url
 public readonly LOGIN:string='login'
 public readonly REGISTER:string='register'
-
+public readonly UPDATE_USER:string='updateuser'
   constructor(
     public http: HttpClient,
     private usermodel:User ,
@@ -36,5 +36,9 @@ public readonly REGISTER:string='register'
 
    return this.http.post(this.url+this.REGISTER,this.usermodel.getuser())
   }
+  editUp(user_id,user){
+
+    return this.http.put(this.url+this.UPDATE_USER+'/'+user_id,user)
+   }
 
 }
