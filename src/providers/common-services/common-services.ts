@@ -99,7 +99,7 @@ return promise
                     }
                 },
                 {
-                    text: 'Cancel',
+                    text: 'الغاء',
                     role: 'cancel',
                     handler: () => {
                         console.log('Cancel clicked');
@@ -190,7 +190,7 @@ return promise
         toast.present();
 
     }
-    presentLoadingDefault(msg?:any) {
+    presentLoadingDefault(msg='رجاء الانتظار') {
         this.loading = this.loadingCtrl.create({
             spinner:'ios',
             content: msg

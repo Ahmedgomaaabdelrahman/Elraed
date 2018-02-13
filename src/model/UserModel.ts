@@ -2,6 +2,7 @@
 
 export class User{
 public USER
+public USER_TYPE
 // public  USER_ID
 // public  NAME
 // public  PHONE       

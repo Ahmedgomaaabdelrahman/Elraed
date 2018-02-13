@@ -13,6 +13,9 @@ import { Statics } from './../../model/StaticsModel';
 @Injectable()
 export class AuthProvider {
 private url
+public readonly LOGIN:string='login'
+public readonly REGISTER:string='register'
+
   constructor(
     public http: HttpClient,
     private usermodel:User ,
@@ -22,12 +25,16 @@ private url
     console.log('Hello AuthProvider Provider');
   this.url=this.statics.getURL();
   }
-  login(){
-    // this.http.post()
+  login(phone,password){
+    let user={
+      'phone':phone,
+      'password':password
+    }
+    return this.http.post(this.url+this.LOGIN,user)
   }
   signUp(){
 
-   return this.http.post(this.url+'register',this.usermodel.getuser())
+   return this.http.post(this.url+this.REGISTER,this.usermodel.getuser())
   }
 
 }
