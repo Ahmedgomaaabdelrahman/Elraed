@@ -19,7 +19,7 @@
        
         <div id="profileImage" >
           <img *ngIf="image==''"  height="25px" class="simg" (click)="profileImage()" src="assets/imgs/editicon.png" ></div>
-          <img *ngIf="image!=''"  height="25px" class="simg" (click)="profileImage()" src='data:image/jpeg;base64,'{{image}} >
+          <img *ngIf="image!=''"  height="25px" class="simg" (click)="profileImage()" src='data:image/jpeg;base64,`${{image}}`' >
 
         </div>
 

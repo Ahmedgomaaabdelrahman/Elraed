@@ -18,8 +18,7 @@ export class EditaccountPage {
   grades:object=[];
   years:object=[];
   image
-  // profileimage:string='';
-
+  displayImage
   name
 phone
 password
@@ -158,6 +157,7 @@ getSelectedGrade(grade){
     this.common.presentActionSheet(this.statics.USE_CAMERA,this.statics.USE_GALARY).then(cameraType=>{
       self.common.camPic(cameraType).then(encodedImage=>{
         self.image=encodedImage
+        
 
 })
     })
