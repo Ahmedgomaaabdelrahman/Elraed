@@ -40,6 +40,8 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 // import { File } from '@ionic-native/file';
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { IonicStorageModule } from '@ionic/storage';
+import { AskProvider } from '../providers/ask/ask';
+import { SelectingSubjectsProvider } from '../providers/selecting-subjects/selecting-subjects';
 
 
 @NgModule({
@@ -105,7 +107,9 @@ import { IonicStorageModule } from '@ionic/storage';
     {provide: ErrorHandler, useClass: IonicErrorHandler},{ provide: IonicStorageModule, useClass: IonicStorageModule},
     AuthProvider,
     CommonServerStaticsProvider,
-    CommonServicesProvider
+    CommonServicesProvider,
+    AskProvider,
+    SelectingSubjectsProvider
   ]
 })
 export class AppModule {}
