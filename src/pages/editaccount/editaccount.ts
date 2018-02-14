@@ -59,6 +59,8 @@ year
 }
 
   ionViewWillEnter(){
+    console.log('params',this.user.getuser())
+
     document.getElementById("passwordCheck").style.display = "none"
 
 this.assignGradesAndYearslists();
@@ -79,7 +81,7 @@ console.log(this.checkPasswords())
   'password':this.password,
   'password_confirm':this.password_confirm,
   'mail':this.email,
-  'type':this.statics.USER_TYPE,
+  'type':this.user.USER_TYPE,
   'grade':this.grade,
   'year':this.year,
   'image':this.image
@@ -92,9 +94,18 @@ console.log(this.checkPasswords())
    
     }
 
+
 // return;
 this.common.presentLoadingDefault()
+
+
+
+
 console.log('params',this.user.getuser().user_id,user)
+
+
+
+
     this.auth.editUp(this.user.getuser().user_id,user).subscribe(res=>{
 this.afterSignUp(res)
     },(e)=>{
