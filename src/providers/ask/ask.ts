@@ -29,17 +29,17 @@ export class AskProvider {
   }
    
  ask(question){
-    let q={
-      'student_id':question.student_id,
-      'subject_id':question.subject_id,
-      'grade_id':question.grade_id,
-      'question':question.question,
-      'image_url':question.image_url,//base 64
-      'audio_url':question.audio_url,//base 64
+    // let q={
+    //   'student_id':question.student_id,
+    //   'subject_id':question.subject_id,
+    //   'grade_id':question.grade_id,
+    //   'question':question.question,
+    //   'image_url':question.image_url,//base 64
+    //   'audio_url':question.audio_url,//base 64
       
-      }
+    //   }
       
-    return this.http.post(this.url+this.ASK,q);
+    return this.http.post(this.url+this.ASK,question);
   }  
   getmyquestion(){
     return this.http.get(this.url+this.GET_MY_QUESTIONS+'/'+

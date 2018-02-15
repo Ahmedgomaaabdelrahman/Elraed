@@ -36,7 +36,8 @@ public USER_TYPE
             mail:user.mail,
             type:user.type,
             grade:user.grade,
-            year:user.year,
+            grade_id:user.grade_id,
+            year_id:user.year_id,
             image:user.image
             
         }

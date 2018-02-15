@@ -28,7 +28,7 @@ export class SelectingSubjectsProvider {
     
   }
    
-  getSubject(){
-    return this.http.get(this.url+this.GET_SUPJECT);
+  getSubject(grade_id){
+    return this.http.get(this.url+this.GET_SUPJECT+'/'+grade_id);
   }  
 }

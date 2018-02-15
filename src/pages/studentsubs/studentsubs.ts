@@ -21,6 +21,8 @@ import { CommonServicesProvider } from '../../providers/common-services/common-s
 export class StudentsubsPage {
   password
   phone
+  subs:object;
+  grade
   constructor(
     
     private user:User,
@@ -34,7 +36,13 @@ export class StudentsubsPage {
   }
 
   ionViewWillEnter(){
-   
+    this.grade=this.user.getuser().grade
+    this.subs=[]
+    console.log(this.user.getuser().grade_id)
+   this.supjectsProvider.getSubject(this.user.getuser().grade_id).subscribe(subs=>{
+     console.log(subs)
+     this.subs=subs
+   })
   }
  
   ionViewDidLoad() {

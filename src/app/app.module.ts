@@ -33,7 +33,7 @@ import { TeacherweeksPage } from '../pages/teacherweeks/teacherweeks';
 import { TestquestionsPage } from '../pages/testquestions/testquestions';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { CommonServicesProvider } from '../providers/common-services/common-services';
-// import { Base64 } from '@ionic-native/base64';
+import { Base64 } from '@ionic-native/base64';
 import { ActionSheet, ActionSheetOptions } from '@ionic-native/action-sheet';
 // import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
@@ -105,7 +105,7 @@ import { SelectingSubjectsProvider } from '../providers/selecting-subjects/selec
     StatusBar,User,Statics,FileTransfer, MediaCapture, 
     SplashScreen,Camera,ActionSheet,
     {provide: ErrorHandler, useClass: IonicErrorHandler},{ provide: IonicStorageModule, useClass: IonicStorageModule},
-    AuthProvider,
+    AuthProvider,Base64,
     CommonServerStaticsProvider,
     CommonServicesProvider,
     AskProvider,
