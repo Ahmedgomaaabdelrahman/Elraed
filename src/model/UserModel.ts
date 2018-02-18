@@ -1,7 +1,20 @@
 
 
 export class User{
-public USER
+public USER={
+    user_id:'',
+    name:'',
+    phone:'',
+    password:'',
+    password_confirm:'',
+    mail:'',
+    type:'',
+    grade:'',
+    grade_id:'',
+    year_id:'',
+    image:''
+    
+}
 public USER_TYPE
 // public  USER_ID
 // public  NAME

@@ -41,9 +41,9 @@ export class AskProvider {
       
     return this.http.post(this.url+this.ASK,question);
   }  
-  getmyquestion(){
+  getmyquestions(){
     return this.http.get(this.url+this.GET_MY_QUESTIONS+'/'+
-    this.usermodel.getuser().user_id);
+    this.usermodel.USER.user_id);
 
   }
   getanserquestion(question_id){
