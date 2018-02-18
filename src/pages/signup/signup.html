@@ -35,14 +35,14 @@
     align-items: start;
     margin-left: 46%;" id="passwordCheck">عفوا كلمة المرور غير متطابقة</p>
      <ion-input [(ngModel)]="email" name="email" class="editinput" type="email" placeholder="البريد الالكترونى"></ion-input>
-     <ion-item  class="editinput" >
+     <ion-item *ngIf="!teacherFlag"  class="editinput" >
         <ion-label>المرحلة</ion-label>
         <ion-select >
                 <ion-option  (ionSelect)="getSelectedGrade(grade)"  *ngFor="let grade of grades;let i=index"  value={{grade.grade[i]}} required>{{grade.grade}}</ion-option>
 
         </ion-select>
       </ion-item>
-      <ion-item  class="editinput" >
+      <ion-item  *ngIf="!teacherFlag" class="editinput" >
           <ion-label>السنة الدراسية</ion-label>
           <ion-select >
             <ion-option (ionSelect)="getSelectedYear(year)" *ngFor="let year of years;let i=index"  value={{year.year[i]}} required>{{year.year}}</ion-option>

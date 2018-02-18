@@ -12,6 +12,8 @@ public USER={
     grade:'',
     grade_id:'',
     year_id:'',
+    year:'',
+
     image:''
     
 }
@@ -51,6 +53,8 @@ public USER_TYPE
             grade:user.grade,
             grade_id:user.grade_id,
             year_id:user.year_id,
+            year:user.year,
+
             image:user.image
             
         }

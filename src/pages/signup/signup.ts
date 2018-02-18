@@ -13,6 +13,7 @@ import { CommonServicesProvider } from '../../providers/common-services/common-s
   templateUrl: 'signup.html',
 })
 export class SignupPage {
+  teacherFlag:boolean
   grades:object=[];
   years:object=[];
   image:string='';
@@ -35,12 +36,20 @@ year
     public commonServerStaticsProvider:CommonServerStaticsProvider,
     private auth:AuthProvider
     ) {
+
   console.log(this.navParams.get('type'))
 this.type=this.navParams.get('type');
   this.user.USER_TYPE=this.type
     }
 
   ionViewWillEnter(){
+    if(this.navParams.get('type')==1){
+      this.teacherFlag=false
+
+    }else{
+      this.teacherFlag=true
+
+    }
     document.getElementById("passwordCheck").style.display = "none"
 
 this.assignGradesAndYearslists();
@@ -94,6 +103,7 @@ afterSignUp(res){
   
   return;
   }
+  this.user.setuser(res)
   this.common.loadDismess();
   this.common.storeValue(this.statics.CURRENT_USER,res).then(()=>{
     this.navCtrl.setRoot(StudenttabsPage)
@@ -129,6 +139,7 @@ getSelectedGrade(grade){
   }
   profileImage(){
     let self=this;
+
 
     this.common.presentActionSheet(this.statics.USE_CAMERA,this.statics.USE_GALARY).then(cameraType=>{
       self.common.camPic(cameraType).then(encodedImage=>{

@@ -33,8 +33,8 @@ public readonly UPDATE_USER:string='updateuser'
     return this.http.post(this.url+this.LOGIN,user)
   }
   signUp(){
-
-   return this.http.post(this.url+this.REGISTER,this.usermodel.getuser())
+console.log('sign up object : ',this.usermodel.USER)
+   return this.http.post(this.url+this.REGISTER,this.usermodel.USER)
   }
   editUp(user_id,user){
 
