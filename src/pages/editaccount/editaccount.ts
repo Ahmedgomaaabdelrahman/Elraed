@@ -41,7 +41,8 @@ year
 // this.type=this.navParams.get('type');
   // this.user.USER_TYPE=this.type
   console.log(this.user.getuser())
-  let saveduser=this.user.getuser()
+  let 
+  saveduser=this.user.USER
   this.name=saveduser.name
   this.phone=saveduser.phone
   this.password=null
@@ -50,7 +51,7 @@ year
   this.email=saveduser.mail
   // this.statics.USER_TYPE,
   this.grade=saveduser.grade
-  this.year=saveduser.year
+  this.year=saveduser.year_id
   this.image=saveduser.image
 
 
