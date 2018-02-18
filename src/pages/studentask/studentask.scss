@@ -44,7 +44,14 @@ page-studentask {
         height: 85%;
     }
 
-   
+    .audio{
+        border: 1px solid gray;
+        border-radius: 5px;
+        height: 55px;
+        audio{
+            width: 100%;
+        }
+    }
     .answer{
         padding: 5px 10px;
         height: 120px;

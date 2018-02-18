@@ -1,29 +1,29 @@
 <ion-header>
 
 
-    <ion-title><header></header></ion-title>
+    <ion-title><header name={{grade}}></header></ion-title>
 
 
 </ion-header>
 <ion-content >
-<p class="topp">المرحله الابتدائيه</p>
+<p class="topp">{{grade}}</p>
 
-<ion-row class="controw">
-  <ion-col col-6>
+<ion-row  class="controw">
+  <ion-col *ngFor="let subj of subs" col-6>
     <div (click)="details()">
-     <img src="assets/imgs/english.png"><br>
-     <h6>انجليزى</h6>
+     <img src={{subj.image}}><br>
+     <h6>{{subj.name}}</h6>
    </div>
   </ion-col>
-  <ion-col col-6>
+  <!-- <ion-col col-6>
      <div (click)="details()">
       <img src="assets/imgs/math.png"><br>
       <h6>رياضيات</h6>
     </div>
-  </ion-col>
+  </ion-col> -->
 </ion-row>
 
-<ion-row class="controw">
+<!-- <ion-row class="controw">
     <ion-col col-6>
       <div (click)="details()">
        <img src="assets/imgs/science.png"><br>
@@ -36,5 +36,5 @@
         <h6></h6>
       </div>
     </ion-col>
-  </ion-row>
+  </ion-row> -->
 </ion-content>

@@ -25,6 +25,8 @@ public USER_TYPE
     }
 
     setuser(user) {
+        console.log(user)
+        this.USER_TYPE=user.type
         this.USER={
             user_id:user.user_id,
             name:user.name,
@@ -34,7 +36,8 @@ public USER_TYPE
             mail:user.mail,
             type:user.type,
             grade:user.grade,
-            year:user.year,
+            grade_id:user.grade_id,
+            year_id:user.year_id,
             image:user.image
             
         }

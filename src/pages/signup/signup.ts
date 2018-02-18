@@ -59,7 +59,7 @@ let user={
   'password':this.password,
   'password_confirm':this.password_confirm,
   'mail':this.email,
-  'type':this.statics.USER_TYPE,
+  'type':this.navParams.get('type'),
   'grade':this.grade,
   'year':this.year,
   'image':this.image
@@ -68,6 +68,7 @@ let user={
 
   console.log(user)
   this.user.setuser(user);
+  this.user.USER_TYPE=this.navParams.get('type')
 // return;
 this.common.presentLoadingDefault()
     this.auth.signUp().subscribe(res=>{

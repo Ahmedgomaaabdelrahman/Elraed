@@ -60,6 +60,7 @@ afterSignIn(res){
   }
   this.user.setuser(res)
 
+  
   this.common.loadDismess();
   this.common.storeValue(this.statics.CURRENT_USER,res).then(()=>{
     this.navCtrl.setRoot(StudenttabsPage)
