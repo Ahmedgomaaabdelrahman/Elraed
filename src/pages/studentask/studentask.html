@@ -46,9 +46,10 @@
                 <p class="audio">
                         <audio src={{audioRecord}} controls></audio>
                        </p>  
-        
+                       <ion-spinner class="spinners" *ngIf="spinnerFlag" name="bubbles"></ion-spinner>
+
     
-                <button (click)="ask()" ion-button block class="enter">اطرح السوال</button>
+                <button *ngIf="!spinnerFlag"  (click)="ask()" ion-button block class="enter">اطرح السوال</button>
             </form>
 
             </div>
