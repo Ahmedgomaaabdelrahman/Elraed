@@ -11,7 +11,7 @@
                     <ion-label>اختار المادة</ion-label>
                     <ion-select >
                         <ion-option   (ionSelect)="selectSubject( subj )"   *ngFor="let subj of subs;
-                        let i=index"  value={{subj[i]}}>{{subj.name}}
+                        let i=index"  value={{subj.name}}>{{subj.name}}
                            </ion-option>
                        
                     </ion-select>

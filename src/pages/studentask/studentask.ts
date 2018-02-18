@@ -22,14 +22,14 @@ import { CommonServicesProvider } from '../../providers/common-services/common-s
 export class StudentaskPage {
   password
   image:string='';
-  audioRecord
-  audioSend
-questionText:string
+  audioRecord:string=''
+  audioSend:string=''
+questionText:string=''
   phone
   subs:object;
   subject_id
-grade_id
-  grade
+grade_id:any=''
+  grade:any=''
 /////////////////////////////////////
 // 'student_id':, =>int
 // 'grade_id':,   =>int
@@ -41,7 +41,7 @@ grade_id
 
 ////////////////////////////////////
   constructor(
-    
+
     private user:User,
     private common:CommonServicesProvider,
     public navCtrl: NavController,
@@ -56,7 +56,7 @@ grade_id
     console.log(subj)
     this.subject_id=subj.subject_id
     this.grade_id=subj.grade_id
-    
+
   }
   ionViewWillEnter(){
     this.grade=this.user.getuser().grade
@@ -72,11 +72,11 @@ grade_id
     this.common.media().then(audioFile=>{
 console.log(audioFile[0].fullPath)
 self.audioRecord=audioFile[0].fullPath
-    
+
 this.common.toBase64(audioFile[0].fullPath).then(base64=>{
   var str = base64;
   var res = str.split("data:image/*;charset=utf-8;base64,");
-self.audioSend=res;  
+self.audioSend=res;
 }).catch(e=>{
   console.log(e)
   this.common.presentToast('خطأ')
@@ -87,14 +87,14 @@ self.audioSend=res;
       console.log(e)
     })
   }
-  sendImage
+  sendImage:string=''
   addImage(){
     let self=this;
 
     this.common.presentActionSheet(this.statics.USE_CAMERA,this.statics.USE_GALARY).then(cameraType=>{
       self.common.camPic(cameraType).then(encodedImage=>{
 
-        
+
         self.image='data:image/jpeg;base64,'+encodedImage
        self. sendImage=encodedImage;
 
@@ -102,6 +102,7 @@ self.audioSend=res;
     })
   }
  ask(){
+
    let question={
      'student_id':this.user.getuser().user_id,
 'grade_id':this.grade_id,
@@ -112,6 +113,7 @@ self.audioSend=res;
 'audio_url': this.audioSend
 
    }
+   console.log(question)
    this.askProvider.ask(question).subscribe(res=>{
 
     console.log('response : ',res)

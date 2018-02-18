@@ -8,12 +8,10 @@
             <ion-item  class="editinput" >
                 <ion-label>اختار السوال</ion-label>
                 <ion-select >
-                    <ion-option value="nes">NES</ion-option>
-                    <ion-option value="n64">Nintendo64</ion-option>
-                    <ion-option value="ps">PlayStation</ion-option>
-                    <ion-option value="genesis">Sega Genesis</ion-option>
-                    <ion-option value="saturn">Sega Saturn</ion-option>
-                    <ion-option value="snes">SNES</ion-option>
+                    <ion-option   (ionSelect)="selectSubject( subj )"   *ngFor="let subj of questions;
+                    let i=index"  value={{subj.question}}>{{subj.question}}
+                       </ion-option>
+                   
                 </ion-select>
             </ion-item>
             <p class="answer">
