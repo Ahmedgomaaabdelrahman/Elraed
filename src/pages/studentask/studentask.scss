@@ -38,7 +38,7 @@ page-studentask {
     // .scroll-content {
     //     height: 90% !important;
     // }
-
+  
     textarea.text-input {
         display: block;
         height: 85%;
@@ -75,5 +75,10 @@ page-studentask {
         background-color: #dfc262;
         width: 45%;
         margin: auto;
+    }
+
+    .input-cover {
+        height: 0 !important;
+        display: none !important;
     }
 }

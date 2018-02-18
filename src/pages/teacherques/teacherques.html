@@ -10,7 +10,13 @@
                 <ion-col col-1><img src="assets/imgs/student.png"></ion-col>
                 <ion-col col-5><p>محمد محمود</p></ion-col>
                 <ion-col col-5><p>12/12/2018</p></ion-col>
-                <ion-col col-1><img src="assets/imgs/block.png"></ion-col>
+                <ion-col col-1 (click)="writeBlock()"><img src="assets/imgs/block.png" ></ion-col>
+                <div id="blockitem" class="block">
+                    <ion-input type="text" placeholder="اكتب تقرير عن الطالب">
+
+                    </ion-input>
+                    <button ion-button clear class="sendbtn">ارسال</button>
+                </div>
         </ion-row>
         
         <div style="margin:0 25px">

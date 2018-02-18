@@ -18,25 +18,24 @@ page-subjcontent {
       .timeline {
         position: relative;
         max-width: 1200px;
-        margin: auto;
+        margin:15px auto 0;
       }
       
       /* The actual timeline (the vertical ruler) */
       .timeline::after {
-      
         content: '';
         position: absolute;
         width: 2px;
         background-color: gray;
         top: 0;
+        height: 70px;
         bottom: 0;
         right: 50%;
         margin-left: -3px;
       }
       
       /* Container around content */
-      .container {
-        padding: 10px 40px;
+      .container ,.conttrue {
         position: relative;
         background-color: inherit;
         width: 50%;
@@ -44,12 +43,25 @@ page-subjcontent {
       
       /* The circles on the timeline */
       .container::after {
+    
         content: '';
         position: absolute;
         width: 25px;
         height: 25px;
         background-color: white;
+        border: 1px solid #017C9A;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .conttrue::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background-image: url('../assets/imgs/true.png');
         border: 1px solid $topcolor;
+        background-size: cover;
         top: 15px;
         border-radius: 50%;
         z-index: 1;
@@ -107,7 +119,7 @@ page-subjcontent {
         }
       
       /* Full-width containers */
-        .container {
+        .container ,.conttrue {
             width: 100%;
             padding-left: 10px;
             padding-right: 40px;
@@ -115,7 +127,7 @@ page-subjcontent {
         }
       
       /* Make sure that all arrows are pointing leftwards */
-        .container::before {
+        .container::before , .conttrue::before {
           left: 60px;
           border: 1px solid gray;
           border-width: 10px 10px 10px 0;

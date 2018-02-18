@@ -4,115 +4,97 @@
 
 
 <ion-content >
-   
-        <ion-row class="titlerow">
-                <ion-col col-7><h4>انجليزى</h4></ion-col>
-                <ion-col col-5><img src="assets/imgs/english.png"></ion-col>
-            </ion-row>
+    <ion-row class="titlerow">
+        <ion-col col-7><h4>انجليزى</h4></ion-col>
+        <ion-col col-5><img src="assets/imgs/english.png"></ion-col>
+    </ion-row>
     <div class="timeline">
-           
-        <div class="container left">
-          <div class="lesson">
-            <ion-row>
-                <ion-col col-1 style="    padding-top: 18px;"><img src="assets/imgs/video.png"></ion-col>
-                <ion-col col-5>
-                    <div>
-                        <p style="font-size: 15px;font-weight:bold" >الاسبوع الاول</p>
-                        <p style="font-size: 12px;">الدرس الاول-<span>محمد محمود</span></p>
-                    </div>
-                </ion-col>
-                <ion-col col-4>
-                        <ion-row class="raterow"> 
-                                <ion-col col-1></ion-col>
-                                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                <ion-col col-2><ion-icon name="star-outline"></ion-icon></ion-col>
-                                <ion-col col-1></ion-col>
-                            </ion-row>
-                </ion-col>
-                <ion-col col-2 style="padding-top: 15px;color:#017c9a"><p>
-                    مشاهدة
-                </p></ion-col>
-            </ion-row>
-          </div>
-        </div>
-        <div class="container right">
-                <div class="lesson">
-                        <ion-row>
-                            <ion-col col-1 style="    padding-top: 18px;"><img src="assets/imgs/video.png"></ion-col>
-                            <ion-col col-5>
-                                <div>
-                                    <p style="font-size: 15px;font-weight:bold" >الاسبوع الاول</p>
-                                    <p style="font-size: 12px;">الدرس الاول-<span>محمد محمود</span></p>
-                                </div>
-                            </ion-col>
-                            <ion-col col-4>
-                                    <ion-row class="raterow"> 
-                                            <ion-col col-1></ion-col>
-                                            <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                            <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                            <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                            <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                            <ion-col col-2><ion-icon name="star-outline"></ion-icon></ion-col>
-                                            <ion-col col-1></ion-col>
-                                        </ion-row>
-                            </ion-col>
-                            <ion-col col-2 style="padding-top: 15px;color:#017c9a"><p>
-                                مشاهدة
-                            </p></ion-col>
-                        </ion-row>
-                      </div>
-        </div>
-      </div>
-
-      <div class="timeline">
-           
-            <div class="container left">
-              <div class="lesson">
+        <div class="conttrue left">
+            <div class="lesson">
                 <ion-row>
-                    <ion-col col-1 style="    padding-top: 18px;"><img src="assets/imgs/video.png"></ion-col>
+                    <ion-col col-1 style="padding-top: 18px;"><img src="assets/imgs/video.png"></ion-col>
                     <ion-col col-5>
                         <div>
                             <p style="font-size: 15px;font-weight:bold" >الاسبوع الاول</p>
                             <p style="font-size: 12px;">الدرس الاول-<span>محمد محمود</span></p>
                         </div>
                     </ion-col>
-                    <ion-col col-4>
-                            <ion-row class="raterow"> 
-                                    <ion-col col-1></ion-col>
-                                    <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                    <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                    <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                    <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                                    <ion-col col-2><ion-icon name="star-outline"></ion-icon></ion-col>
-                                    <ion-col col-1></ion-col>
-                                </ion-row>
+                    <ion-col col-3>
+                        <ion-row class="raterow">        
+                            <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                            <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                            <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                            <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                            <ion-col col-2><ion-icon name="star-outline"></ion-icon></ion-col>
+                        </ion-row>
                     </ion-col>
-                    <ion-col col-2 style="padding-top: 15px;color:#017c9a"><p>
+                    <ion-col col-3 style="padding-top: 15px;color:#017c9a;    text-align: center;">
+                        <p>
                         مشاهدة
-                    </p></ion-col>
+                        </p>
+                    </ion-col>
                 </ion-row>
-              </div>
             </div>
-            <div class="container right" >
-                    <div (click)="test()" class="lesson">
-                            <ion-row>
-                                <ion-col col-1 style="    padding-top: 18px;"><img src="assets/imgs/exam.png"></ion-col>
-                                <ion-col col-5>
-                                    <div>
-                                        <p style="font-size: 15px;font-weight:bold" >الاسبوع الاول</p>
-                                        <p style="font-size: 12px;">الاختبار الاول</p>
-                                    </div>
-                                </ion-col>
-                                <ion-col col-4>
-                                </ion-col>
-                                <ion-col col-2 style="padding-top: 15px;color:#017c9a" ><p>
-                                    اختبر
-                                </p></ion-col>
+        </div>
+    </div>
+
+    <div class="timeline">
+            <div class="conttrue left">
+                <div class="lesson">
+                    <ion-row>
+                        <ion-col col-1 style="padding-top: 18px;"><img src="assets/imgs/video.png"></ion-col>
+                        <ion-col col-5>
+                            <div>
+                                <p style="font-size: 15px;font-weight:bold" >الاسبوع الاول</p>
+                                <p style="font-size: 12px;">الدرس الاول-<span>محمد محمود</span></p>
+                            </div>
+                        </ion-col>
+                        <ion-col col-3>
+                            <ion-row class="raterow">        
+                                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                                <ion-col col-2><ion-icon name="star-outline"></ion-icon></ion-col>
                             </ion-row>
-                          </div>
+                        </ion-col>
+                        <ion-col col-3 style="padding-top: 15px;color:#017c9a;    text-align: center;">
+                            <p>
+                            مشاهدة
+                            </p>
+                        </ion-col>
+                    </ion-row>
+                </div>
             </div>
-          </div>
+    </div>
+
+    <div class="timeline">
+            <div class="container left">
+                <div class="lesson">
+                    <ion-row>
+                        <ion-col col-1 style="padding-top: 18px;" (click)="test()"><img src="assets/imgs/exam.png"></ion-col>
+                        <ion-col col-5>
+                            <div>
+                                <p style="font-size: 15px;font-weight:bold" >الاسبوع الاول</p>
+                                <p style="font-size: 12px;">الدرس الاول-<span>محمد محمود</span></p>
+                            </div>
+                        </ion-col>
+                        <ion-col col-3>
+                            <ion-row class="raterow">        
+                                <!-- <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
+                                <ion-col col-2><ion-icon name="star-outline"></ion-icon></ion-col> -->
+                            </ion-row>
+                        </ion-col>
+                        <ion-col col-3 style="padding-top: 15px;color:#017c9a;    text-align: center;">
+                            <p>
+                            اختبر
+                            </p>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
+        </div>
 </ion-content>

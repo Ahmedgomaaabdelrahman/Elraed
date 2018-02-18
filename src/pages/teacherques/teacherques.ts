@@ -13,5 +13,13 @@ export class TeacherquesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeacherquesPage');
   }
-
+ 
+  writeBlock(){
+   if(document.getElementById('blockitem').style.display == 'block'){
+    document.getElementById('blockitem').style.display = 'none'
+   }
+   else {
+    document.getElementById('blockitem').style.display = 'block'
+   }
+  }
 }
