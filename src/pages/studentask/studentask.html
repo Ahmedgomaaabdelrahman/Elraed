@@ -3,7 +3,7 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content no-bounce>
      
     <div class="topdiv">
                 <p class="divtitle">{{grade}} </p>
@@ -18,7 +18,9 @@
                 </ion-item>
                 <form #f="ngForm">
 
-                <ion-textarea [(ngModel)]="questionText" name="questionText" class="question" placeholder="اكتب سؤالك هنا">
+                <ion-textarea [(ngModel)]="questionText" name="questionText" 
+                class="question"
+                 placeholder="اكتب سؤالك هنا">
                 </ion-textarea>
 
                 <ion-row style="text-align:center">

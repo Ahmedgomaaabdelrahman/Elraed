@@ -52,6 +52,7 @@ grade_id:any=''
     public supjectsProvider:SelectingSubjectsProvider,
     public commonServerStaticsProvider:CommonServerStaticsProvider,
     private auth:AuthProvider) {
+      
   }
   selectSubject(subj){
     console.log(subj)
@@ -98,7 +99,6 @@ self.audioSend=res;
 
 console.log(encodedImage)
         self.image='data:image/jpeg;base64,'+encodedImage
-       self. sendImage=encodedImage;
 
 })
     })
@@ -111,12 +111,13 @@ this.spinnerFlag=true
 
 'subject_id':this.subject_id,
 'question':this.questionText,
-'image_url':this.sendImage,
+'image_url':this.image,
 'audio_url': this.audioSend[1]
 
    }
    console.log(question)
    this.askProvider.ask(question).subscribe(res=>{
+     this.common.presentToast('تم')
     this.spinnerFlag=false
 
     console.log('response : ',res)

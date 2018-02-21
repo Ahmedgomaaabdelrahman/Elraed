@@ -1,3 +1,4 @@
+import { TeachertabsPage } from './../teachertabs/teachertabs';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -17,9 +18,9 @@ export class SignupPage {
   grades:object=[];
   years:object=[];
   image:string='';
+  displayImage:string=''
   // profileimage:string='';
-
-  name
+name
 phone
 password
 type
@@ -71,7 +72,7 @@ let user={
   'type':this.navParams.get('type'),
   'grade':this.grade,
   'year':this.year,
-  'image':this.image
+  'image':this.displayImage
   }
   
 
@@ -106,7 +107,11 @@ afterSignUp(res){
   this.user.setuser(res)
   this.common.loadDismess();
   this.common.storeValue(this.statics.CURRENT_USER,res).then(()=>{
-    this.navCtrl.setRoot(StudenttabsPage)
+    if(res.type==2){
+    this.navCtrl.setRoot(TeachertabsPage)}else{
+
+      this.navCtrl.setRoot(StudenttabsPage)
+    }
   
   })
 }
@@ -144,7 +149,7 @@ getSelectedGrade(grade){
     this.common.presentActionSheet(this.statics.USE_CAMERA,this.statics.USE_GALARY).then(cameraType=>{
       self.common.camPic(cameraType).then(encodedImage=>{
         self.image=encodedImage
-
+self.displayImage='data:image/jpeg;base64,'+self.image
 })
     })
   }

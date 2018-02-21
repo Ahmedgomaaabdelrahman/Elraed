@@ -27,6 +27,7 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+  
   closeMenu(){
     this.menuCtrl.close();
   }
@@ -41,6 +42,10 @@ export class MyApp {
   edit(){
     this.menuCtrl.close();
     this.nav.push(EditaccountPage); 
+  }
+  exit(){
+    this.menuCtrl.close()
+    this.nav.setRoot(LoginPage)
   }
 }
 
