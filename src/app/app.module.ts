@@ -42,6 +42,7 @@ import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ion
 import { IonicStorageModule } from '@ionic/storage';
 import { AskProvider } from '../providers/ask/ask';
 import { SelectingSubjectsProvider } from '../providers/selecting-subjects/selecting-subjects';
+import { AnswersProvider } from '../providers/answers/answers';
 
 
 @NgModule({
@@ -109,7 +110,8 @@ import { SelectingSubjectsProvider } from '../providers/selecting-subjects/selec
     CommonServerStaticsProvider,
     CommonServicesProvider,
     AskProvider,
-    SelectingSubjectsProvider
+    SelectingSubjectsProvider,
+    AnswersProvider
   ]
 })
 export class AppModule {}

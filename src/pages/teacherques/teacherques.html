@@ -5,40 +5,36 @@
 
 <ion-content>
         <div class="grade">
-                <ion-item class="editinput" >
-                    <ion-label>المرحلة</ion-label>
-                    <ion-select >
-                            <ion-option value="nes">NES</ion-option>
-                            <ion-option value="n64">Nintendo64</ion-option>
-                            <ion-option value="ps">PlayStation</ion-option>
-                    </ion-select>
-                  </ion-item>
-        
-                  <ion-item  class="editinput" >
+            <ion-item (click)="reset()" class="editinput" >
+                <ion-label>المرحلة</ion-label>
+                <ion-select >
+                  <ion-option (ionSelect)="getSelectedGrade(grade)" *ngFor="let grade of gradeArr;let i=index"  value={{grade.grade[i]}} required>{{grade.grade}}</ion-option>
+                
+                </ion-select>
+              </ion-item>
+                  <ion-item *ngIf="grade_id!=''" class="editinput" >
                     <ion-label>السنة الدراسية</ion-label>
                     <ion-select >
-                            <ion-option value="nes">NES</ion-option>
-                            <ion-option value="n64">Nintendo64</ion-option>
-                            <ion-option value="ps">PlayStation</ion-option>
+                      <ion-option (ionSelect)="getSelectedYear(year)" *ngFor="let year of yearsArr;let i=index"  value={{year.year[i]}} required>{{year.year}}</ion-option>
                     
                     </ion-select>
                   </ion-item>
-
-                  <ion-item class="editinput" >
-                        <ion-label>المواد</ion-label>
-                        <ion-select >
-                                <ion-option value="nes">NES</ion-option>
-                                <ion-option value="n64">Nintendo64</ion-option>
-                                <ion-option value="ps">PlayStation</ion-option>
-                        </ion-select>
-                      </ion-item>
+                  <ion-item   *ngIf="year_id!=''" class="editinput" >
+                    <ion-label>المواد</ion-label>
+                    <ion-select >
+                      <ion-option (ionSelect)="getSelectedSubject(subject)" *ngFor="let subject of subjectsArr;let i=index"  value={{subject.name[i]}} required>{{subject.name}}</ion-option>
+                    
+                    </ion-select>
+                  </ion-item>
             </div>
 <div class="topdiv">
-    <div class="total">
+    <div *ngFor="let question of questionsArr;let i=index" class="total">
         <ion-row>
-                <ion-col col-1><img src="assets/imgs/student.png"></ion-col>
-                <ion-col col-5><p>محمد محمود</p></ion-col>
-                <ion-col col-5><p>12/12/2018</p></ion-col>
+                <ion-col *ngIf="question.image !=null" col-1><img src={{question.image}}></ion-col>
+                <ion-col *ngIf="question.image ==null" col-1><img src="assets/imgs/student.png"></ion-col>
+
+                <ion-col col-5><p>{{question.name}} </p></ion-col>
+                <ion-col col-5><p>{{question.created_at}}</p></ion-col>
                 <ion-col col-1 (click)="writeBlock()"><img src="assets/imgs/block.png" ></ion-col>
                 <div id="blockitem" class="block">
                     <ion-input type="text" placeholder="اكتب تقرير عن الطالب">
@@ -50,13 +46,15 @@
         
         <div style="margin:0 25px">
             <ion-row>
-                    <ion-col col-12><p >السوال ؟</p></ion-col>
+                    <ion-col col-12><p >{{question.question}}</p></ion-col>
             </ion-row>
             <ion-row>
-                    <ion-col col-2 style="text-align: center;"><img height="100%" width="100%" src="assets/imgs/uploadimg.png"></ion-col>
+                    <ion-col *ngIf="question.image_url ==null" col-2 style="text-align: center;"><img height="100%" width="100%" src="assets/imgs/uploadimg.png"></ion-col>
+                    <ion-col *ngIf="question.image_url !=null" col-2 style="text-align: center;"><img height="100%" width="100%" src={{question.image_url}}></ion-col>
+
                     <ion-col col-10>
                         <div class="aud">
-                            <audio controls></audio>
+                            <audio src={{question.audio_url}} controls></audio>
                        </div>
                 </ion-col>
             </ion-row>

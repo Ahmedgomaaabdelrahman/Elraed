@@ -24,7 +24,7 @@ export class StudentaskPage {
   password
   image:string='';
   audioRecord:string=''
-  audioSend:string=''
+  audioSend:any
 questionText:string=''
   phone
   subs:object;
@@ -104,17 +104,26 @@ console.log(encodedImage)
     })
   }
  ask(){
-this.spinnerFlag=true
-   let question={
-     'student_id':this.user.getuser().user_id,
+  var question={
+    'student_id':this.user.getuser().user_id,
 'grade_id':this.grade_id,
-
+'year_id':this.user.getuser().year_id,
 'subject_id':this.subject_id,
 'question':this.questionText,
 'image_url':this.image,
-'audio_url': this.audioSend[1]
+'audio_url': ''
 
-   }
+  }    
+  if(this.audioSend=='' ||this.audioSend==null||this.audioSend==undefined){
+    question.audio_url=''
+  }else{
+   
+ question.audio_url=this.audioSend[1]
+ 
+    
+  }
+this.spinnerFlag=true
+  
    console.log(question)
    this.askProvider.ask(question).subscribe(res=>{
      this.common.presentToast('تم')
