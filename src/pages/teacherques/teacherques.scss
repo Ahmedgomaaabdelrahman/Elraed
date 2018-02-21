@@ -1,9 +1,18 @@
 page-teacherques {
-.topdiv{
+.grade{
     margin-top: 70px;
     direction: rtl;
+    width: 90%;
+    margin: 70px auto 30px;
+    .item{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}    
+.topdiv {
+    direction: rtl;
     width: 95%;
-    margin: 70px auto;
+    margin: 10px auto;
     .total{
         border: 1px solid gray;
         position: relative;
