@@ -15,11 +15,10 @@ page-studentanswer {
     }
 
     .topdiv{
-        margin-top: 70px;
         text-align: end;
         width:80%;
         margin:70px auto 0;
-        overflow: scroll;
+        height: 103%;
         .divtitle{
             font-size: 25px;
             margin: 10px;
@@ -67,6 +66,11 @@ page-studentanswer {
         font-size: 30px;
         color: $topcolor;
         margin: auto;
+    }
+
+    .scroll-content {
+        height: 90% !important;
+        padding-bottom: 0 !important;
     }
     .enter{
         font-size: 20px;

@@ -27,17 +27,17 @@ page-studentask {
         text-align: end;
         width: 80%;
         margin: 70px auto 0;
-        height: 90%;
-        overflow: scroll;
+        height: 100%;
         .divtitle{
             font-size: 25px;
             margin: 10px;
         }
      
     }
-    // .scroll-content {
-    //     height: 90% !important;
-    // }
+    .scroll-content {
+        height: 90% !important;
+        padding-bottom: 0 !important;
+    }
   
     textarea.text-input {
         display: block;
