@@ -1,3 +1,4 @@
+import { TeachertabsPage } from './../teachertabs/teachertabs';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -13,12 +14,13 @@ import { CommonServicesProvider } from '../../providers/common-services/common-s
   templateUrl: 'signup.html',
 })
 export class SignupPage {
+  teacherFlag:boolean
   grades:object=[];
   years:object=[];
   image:string='';
+  displayImage:string=''
   // profileimage:string='';
-
-  name
+name
 phone
 password
 type
@@ -35,12 +37,20 @@ year
     public commonServerStaticsProvider:CommonServerStaticsProvider,
     private auth:AuthProvider
     ) {
+
   console.log(this.navParams.get('type'))
 this.type=this.navParams.get('type');
   this.user.USER_TYPE=this.type
     }
 
   ionViewWillEnter(){
+    if(this.navParams.get('type')==1){
+      this.teacherFlag=false
+
+    }else{
+      this.teacherFlag=true
+
+    }
     document.getElementById("passwordCheck").style.display = "none"
 
 this.assignGradesAndYearslists();
@@ -62,7 +72,7 @@ let user={
   'type':this.navParams.get('type'),
   'grade':this.grade,
   'year':this.year,
-  'image':this.image
+  'image':this.displayImage
   }
   
 
@@ -94,9 +104,14 @@ afterSignUp(res){
   
   return;
   }
+  this.user.setuser(res)
   this.common.loadDismess();
   this.common.storeValue(this.statics.CURRENT_USER,res).then(()=>{
-    this.navCtrl.setRoot(StudenttabsPage)
+    if(res.type==2){
+    this.navCtrl.setRoot(TeachertabsPage)}else{
+
+      this.navCtrl.setRoot(StudenttabsPage)
+    }
   
   })
 }
@@ -130,10 +145,11 @@ getSelectedGrade(grade){
   profileImage(){
     let self=this;
 
+
     this.common.presentActionSheet(this.statics.USE_CAMERA,this.statics.USE_GALARY).then(cameraType=>{
       self.common.camPic(cameraType).then(encodedImage=>{
         self.image=encodedImage
-
+self.displayImage='data:image/jpeg;base64,'+self.image
 })
     })
   }

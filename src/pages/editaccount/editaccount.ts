@@ -52,7 +52,7 @@ year
   // this.statics.USER_TYPE,
   this.grade=saveduser.grade
   this.year=saveduser.year_id
-  this.image=saveduser.image
+  // this.image=saveduser.image
 
 
 
@@ -168,7 +168,8 @@ getSelectedGrade(grade){
 
     this.common.presentActionSheet(this.statics.USE_CAMERA,this.statics.USE_GALARY).then(cameraType=>{
       self.common.camPic(cameraType).then(encodedImage=>{
-        self.image=encodedImage
+        // self.image=encodedImage
+        self.image='data:image/jpeg;base64,'+encodedImage
         
 
 })

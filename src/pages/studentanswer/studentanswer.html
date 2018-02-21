@@ -15,24 +15,19 @@
                 </ion-select>
             </ion-item>
             <p class="answer">
- asdasf
-            </p>
+{{answer}}            </p>
             <p class="audio">
-             <audio controls></audio>
+             <audio src={{audio_url}} controls></audio>
             </p>
-            <div class="imgdiv">
-                <img src="assets/imgs/imgavat.png">
+            <div *ngIf="image_url!=null && image_url!=''" class="imgdiv">
+                <img src={{image_url}}>
             </div>
             <p class="prate">
                     تقييم الاجابه
             </p>
             <ion-row class="raterow"> 
                 <ion-col col-1></ion-col>
-                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                <ion-col col-2><ion-icon name="star"></ion-icon></ion-col>
-                <ion-col col-2><ion-icon name="star-outline"></ion-icon></ion-col>
+                <ion-col *ngFor='let star of rateStars;let i=index'  (click)="addRate(i)" col-2><ion-icon name={{star}}></ion-icon></ion-col>
                 <ion-col col-1></ion-col>
             </ion-row>
 

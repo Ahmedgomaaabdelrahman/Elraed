@@ -63,7 +63,11 @@ afterSignIn(res){
   
   this.common.loadDismess();
   this.common.storeValue(this.statics.CURRENT_USER,res).then(()=>{
-    this.navCtrl.setRoot(StudenttabsPage)
+    console.log(res.type)
+    if(res.type=='1'){
+    this.navCtrl.setRoot(StudenttabsPage)}else{
+      this.navCtrl.setRoot(TeachertabsPage)
+    }
   
   })
 }

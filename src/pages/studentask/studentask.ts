@@ -20,6 +20,7 @@ import { CommonServicesProvider } from '../../providers/common-services/common-s
   templateUrl: 'studentask.html',
 })
 export class StudentaskPage {
+  spinnerFlag:boolean
   password
   image:string='';
   audioRecord:string=''
@@ -51,6 +52,7 @@ grade_id:any=''
     public supjectsProvider:SelectingSubjectsProvider,
     public commonServerStaticsProvider:CommonServerStaticsProvider,
     private auth:AuthProvider) {
+      
   }
   selectSubject(subj){
     console.log(subj)
@@ -59,6 +61,7 @@ grade_id:any=''
 
   }
   ionViewWillEnter(){
+    this.spinnerFlag=false
     this.grade=this.user.getuser().grade
     this.subs=[]
     console.log(this.user.getuser().grade_id)
@@ -94,30 +97,33 @@ self.audioSend=res;
     this.common.presentActionSheet(this.statics.USE_CAMERA,this.statics.USE_GALARY).then(cameraType=>{
       self.common.camPic(cameraType).then(encodedImage=>{
 
-
+console.log(encodedImage)
         self.image='data:image/jpeg;base64,'+encodedImage
-       self. sendImage=encodedImage;
 
 })
     })
   }
  ask(){
-
+this.spinnerFlag=true
    let question={
      'student_id':this.user.getuser().user_id,
 'grade_id':this.grade_id,
 
 'subject_id':this.subject_id,
 'question':this.questionText,
-'image_url':this.sendImage,
-'audio_url': this.audioSend
+'image_url':this.image,
+'audio_url': this.audioSend[1]
 
    }
    console.log(question)
    this.askProvider.ask(question).subscribe(res=>{
+     this.common.presentToast('تم')
+    this.spinnerFlag=false
 
     console.log('response : ',res)
    },(e)=>{
+    this.spinnerFlag=false
+
      console.log(e)
    })
  }
