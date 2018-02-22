@@ -3,7 +3,7 @@
 </ion-header>
 
 
-<ion-content no-bounce>
+<ion-content >
      
     <div class="topdiv">
                 <p class="divtitle">{{grade}} </p>
@@ -51,7 +51,7 @@
                        <ion-spinner class="spinners" *ngIf="spinnerFlag" name="bubbles"></ion-spinner>
 
     
-                <button *ngIf="!spinnerFlag"  (click)="ask()" ion-button block class="enter">اطرح السوال</button>
+                <button *ngIf="!spinnerFlag"  (click)="ask()" ion-button block class="enter">اطرح السؤال</button>
             </form>
 
             </div>

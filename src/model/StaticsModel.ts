@@ -1,5 +1,5 @@
 export class Statics{
-    public readonly URL='http://alraedapp.com/api/'
+    public readonly URL='http://muthaber-admin.muthaberapp.com/api/'
     public  USER_TYPE : number;
     public CURRENT_USER:'current_user';
 

@@ -28,6 +28,8 @@
                   </ion-item>
             </div>
 <div class="topdiv">
+        <form #f="ngForm">
+
     <div *ngFor="let question of questionsArr;let i=index" class="total">
         <ion-row>
                 <ion-col *ngIf="question.image !=null" col-1><img src={{question.image}}></ion-col>
@@ -58,28 +60,30 @@
                        </div>
                 </ion-col>
             </ion-row>
-            <ion-textarea class="question" placeholder="اكتب الاجابة هنا">
+            <ion-textarea  [(ngModel)]="questionText[i]" name="questionText[i]" class="question" placeholder="اكتب الاجابة هنا">
             </ion-textarea>
             <ion-row style="text-align:center">
                     <ion-col col-6>
-                        <div>
-                            <img src="assets/imgs/uploadvioce.png"><br>
-                            <p>اضافة ملف صوت</p>
-                        </div>
+                            <div (click)='record(i)'>
+                                    <img src="assets/imgs/uploadvioce.png"><br>
+                                    <p>اضافة ملف صوت</p>
+                                </div>
                     </ion-col>
 
                     <ion-col col-6>
-                            <div>
-                                <img src="assets/imgs/uploadimg.png"><br>
-                                <p>اضافة صوره</p>
-                            </div>
+                                    <div (click)="addImage(i)">
+                                            <img *ngIf="imageAnswer[i] ==''" src="assets/imgs/uploadimg.png"><br>
+                                            <img *ngIf="imageAnswer[i] !=''" src={{imageAnswer[i]}}><br>
+            
+                                            <p>اضافة صوره</p>
+                                        </div>
                         </ion-col>
                     
                 </ion-row>
-                <button ion-button block class="enter">تم</button>
+                <button  *ngIf="questionText[i]!=''" (click)="answerAQuestion(question,questionText[i],i)" ion-button block class="enter">تم</button>
         </div>
             
     </div>
-   
+</form>
 </div>
 </ion-content>

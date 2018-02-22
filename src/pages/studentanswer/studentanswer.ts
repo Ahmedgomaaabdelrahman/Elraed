@@ -45,8 +45,10 @@ rateStars:string[]
     public commonServerStaticsProvider:CommonServerStaticsProvider,
     private auth:AuthProvider) {
   }
+  quetison_id
   selectSubject(question){
 this.rateStars=[]
+this.quetison_id=question.quetison_id
     this.askProvider.getanserquestion(question.quetison_id).subscribe(res=>{
 
    this.assignQuestion(res)
@@ -88,6 +90,7 @@ if(rateValue>=i){
 }else{
       this.rateStars.push('star-outline')}
     }
+
   }
   ionViewWillEnter(){
     this.rateStars=[]
@@ -101,7 +104,11 @@ if(rateValue>=i){
   }
 
   addRate(index){
-    
   this.assignStars(index)
+  this.askProvider.rateAnswer(index,this.quetison_id).subscribe(res=>{
+    this.common.presentToast('تم ارسال تقييم','اغلاق')
+    console.log(res)
+  });
+
   }
 }

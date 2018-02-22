@@ -79,6 +79,7 @@ self.audioRecord=audioFile[0].fullPath
 this.common.toBase64(audioFile[0].fullPath).then(base64=>{
   var str = base64;
   var res = str.split("data:image/*;charset=utf-8;base64,");
+  // var str = res;
 self.audioSend=res;
 }).catch(e=>{
   console.log(e)
@@ -104,6 +105,7 @@ console.log(encodedImage)
     })
   }
  ask(){
+   console.log(this.audioSend[1])
   var question={
     'student_id':this.user.getuser().user_id,
 'grade_id':this.grade_id,
@@ -111,7 +113,7 @@ console.log(encodedImage)
 'subject_id':this.subject_id,
 'question':this.questionText,
 'image_url':this.image,
-'audio_url': ''
+'audio_url': '' 
 
   }    
   if(this.audioSend=='' ||this.audioSend==null||this.audioSend==undefined){
@@ -128,7 +130,10 @@ this.spinnerFlag=true
    this.askProvider.ask(question).subscribe(res=>{
      this.common.presentToast('تم')
     this.spinnerFlag=false
-
+    this.questionText=''
+    this.image=''
+    this.audioRecord=''
+    this.audioSend=''
     console.log('response : ',res)
    },(e)=>{
     this.spinnerFlag=false

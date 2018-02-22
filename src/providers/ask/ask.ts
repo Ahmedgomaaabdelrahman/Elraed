@@ -18,6 +18,8 @@ export class AskProvider {
   public readonly ASK:string='ask'
   public readonly GET_MY_QUESTIONS:string='getmyquestion'
   public readonly GET_ANSWER_QUESTION:string='getanserquestion'
+  public readonly RATE_ANSWER:string='rateanswer'
+
     constructor(
       public http: HttpClient,
       private usermodel:User ,
@@ -45,11 +47,15 @@ export class AskProvider {
     return this.http.get(this.url+this.GET_MY_QUESTIONS+'/'+
     this.usermodel.USER.user_id);
 
+
   }
   getanserquestion(question_id){
     return this.http.get(this.url+this.GET_ANSWER_QUESTION+'/'+
     question_id);
 
   }
-
+rateAnswer(rate,question_id){
+  //http://muthaber-admin.muthaberapp.com/api/rateanswer/question_id
+  return this.http.put(this.url+this.RATE_ANSWER+'/'+question_id,{rate:rate});
+}
 }
