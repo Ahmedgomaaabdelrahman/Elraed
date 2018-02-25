@@ -1,3 +1,5 @@
+import { TestquestionsPage } from './../testquestions/testquestions';
+import { TestProvider } from './../../providers/test/test';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AddlessonsPage } from '../addlessons/addlessons';
@@ -14,8 +16,7 @@ import { Statics } from '../../model/StaticsModel';
 })
 export class TeacherweeksPage {
 
-  questionText:any
-
+  weeks:any
   year_id=''
   grade_id=''
   subject_id=''
@@ -25,7 +26,7 @@ export class TeacherweeksPage {
   questionsArr
   constructor(
     public statics:Statics,
-public user:User,
+public user:User,private testProvider:TestProvider,
     public commonStatics:CommonServerStaticsProvider,
     public common:CommonServicesProvider,
     public answer:AnswersProvider,public navCtrl: NavController, public navParams: NavParams
@@ -33,7 +34,8 @@ public user:User,
   
   ) {
   }
-  ionViewDidLoad() {
+  ionViewWillEnter() {
+    this.weeks=[]
     this.commonStatics.getGrades().subscribe(grades=>{
 
       console.log(grades)
@@ -71,12 +73,21 @@ this.yearsArr=res
       
       }
       getWeeks(){
-
+        this.weeks=[]
+this.testProvider.getWeeks(this.subject_id,this.grade_id,this.year_id).subscribe(res=>{
+  console.log(res )
+  this.weeks=res
+})
       }
   golessons(){
     this.navCtrl.push(AddlessonsPage);
   }
-  gotoexams(){
-    this.navCtrl.push(AddtestsPage);
+  gotoexams(week){
+    if(this.weeks.length===0){
+      this.navCtrl.push(TestquestionsPage,{addNewWeek:false,weekIndex:0});
+    }else{
+      this.navCtrl.push(TestquestionsPage,{addNewWeek:true,weekIndex:week});
+    }
+    // console.log(this.weeks.length)
   }
 }

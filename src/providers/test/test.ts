@@ -13,8 +13,8 @@ import { Statics } from './../../model/StaticsModel';
 @Injectable()
 export class TestProvider {
   private url
-  public readonly CREATE_TEST:string='api/createtest'
-
+  public readonly CREATE_TEST:string='createtest'
+  public readonly GET_TEACHER_WEEKS:string='getteacherweek'
   constructor(
     public http: HttpClient,
     private usermodel:User ,
@@ -25,12 +25,24 @@ export class TestProvider {
   
 }
 
+getWeeks(subject_id,grade_id,year_id){
+  return this.http.get(this.url+this.GET_TEACHER_WEEKS+'/'+this.usermodel.USER.user_id+'/'+subject_id+'/'+grade_id+
+  '/'+year_id)
+//  api/getteacherweek/{teacher_id}/{subject_id}/{grade_id}/{year_id}
+
+}
 
 
+createTest(subject_id,teacher_id,week_id,quetsion=[{}]){
+  let maketest={
+    'subject_id':subject_id,
+     'teacher_id':teacher_id,
+    'week_id':week_id,
+    'quetsion':quetsion
+     }
+    
 
-createTest(subject_id,teacher_id,weak_id,quetsion=[{}]){
-
-  // return this.http.post(this.url+this.CREATE_TEST,);
+  return this.http.post(this.url+this.CREATE_TEST,maketest);
 }
 
 

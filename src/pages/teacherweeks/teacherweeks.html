@@ -29,16 +29,14 @@
         </div>
   <div style="
   margin-top: 70px;">
-    <div class="topdiv">
-      <p>الاسبوع الاول</p>
+    <div *ngFor="let week of weeks;let i=index" class="topdiv">
+      <p> {{week['week']}} </p>
       <p (click)="golessons()"><img src="assets/imgs/lesson.png"></p>
-      <p (click)="gotoexams()"><img src="assets/imgs/exam.png"></p>
+      <p (click)="gotoexams(week)"><img src="assets/imgs/exam.png"></p>
     </div>
-    <div class="topdiv">
-      <p> ا لاسبوع الثانى</p>
-      <p (click)="golessons()"><img src="assets/imgs/lesson.png"></p>
-      <p (click)="gotoexams()"><img src="assets/imgs/exam.png"></p>
-    </div>
-  </div>
 
+  </div>
+  <div class="addItem">
+      <ion-icon (click)="gotoexams(0)" class="add" name="add"></ion-icon>
+    </div>
 </ion-content>

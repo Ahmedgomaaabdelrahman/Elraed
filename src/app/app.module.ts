@@ -44,7 +44,7 @@ import { AskProvider } from '../providers/ask/ask';
 import { SelectingSubjectsProvider } from '../providers/selecting-subjects/selecting-subjects';
 import { AnswersProvider } from '../providers/answers/answers';
 import { TestProvider } from '../providers/test/test';
-import { Test } from '../model/Test';
+import { Test } from '../model/TestModel';
 
 
 @NgModule({
@@ -105,7 +105,7 @@ import { Test } from '../model/Test';
     TestquestionsPage
   ],
   providers: [
-    StatusBar,User,Statics,FileTransfer, MediaCapture, 
+    StatusBar,User,Test,Statics,FileTransfer, MediaCapture, 
     SplashScreen,Camera,ActionSheet,
     {provide: ErrorHandler, useClass: IonicErrorHandler},{ provide: IonicStorageModule, useClass: IonicStorageModule},
     AuthProvider,Base64,
