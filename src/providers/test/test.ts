@@ -30,7 +30,7 @@ export class TestProvider {
 
 createTest(subject_id,teacher_id,weak_id,quetsion=[{}]){
 
-  return this.http.post(this.url+this.CREATE_TEST,);
+  // return this.http.post(this.url+this.CREATE_TEST,);
 }
 
 
