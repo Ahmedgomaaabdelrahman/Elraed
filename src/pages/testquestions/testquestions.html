@@ -10,26 +10,62 @@
     
         <ion-list radio-group>
           <ion-list-header class="queslab">
-            السوال الاول<span style="color:#03A4CA;margin:0 5px">؟</span> 
+            <ion-item style="width:80%;display: inline-block;">
+                <ion-input type="text" placeholder="اكتب السوال"></ion-input> 
+            </ion-item>
+            <span style="color:#03A4CA;margin:0 5px;font-size: 40px;">؟</span> 
           </ion-list-header>
-        
+
+
+      <div class="answerdiv">
           <ion-item class="answer">
-            <ion-label  class="answerlab">الاجابه الاولى </ion-label>
-            <ion-radio value="go"></ion-radio>
+          
+              <ion-radio value="go"></ion-radio>
+            </ion-item>
+          <ion-item style="width:60%;display: inline-block;">
+              <ion-input type="text"  placeholder="الاجابة الاولى"></ion-input>
           </ion-item>
         
-          <ion-item class="answer">
-            <ion-label  class="answerlab">الاجابه الثانيه</ion-label>
-            <ion-radio value="rust"></ion-radio>
-          </ion-item>
-        
-          <ion-item class="answer">
-            <ion-label  class="answerlab" >الاجابه الثالثة</ion-label>
-            <ion-radio value="python"></ion-radio>
-          </ion-item>
-        </ion-list>
+      </div>
     
-          <ion-icon  class="add" name="add"></ion-icon>
+      <div class="answerdiv">
+          <ion-item class="answer">
+             
+              <ion-radio value="rust"></ion-radio>
+            </ion-item>
+          <ion-item style="width:60%;display: inline-block;">
+              <ion-input type="text"  placeholder="الاجابه الثانيه"></ion-input>
+          </ion-item>
+        
+      </div>
+
+      <div class="answerdiv">
+          <ion-item class="answer">
+            
+              <ion-radio value="python"></ion-radio>
+            </ion-item>
+          <ion-item style="width:60%;display: inline-block;">
+              <ion-input type="text"  placeholder="الاجابه الثالثة"></ion-input>
+          </ion-item>
+        
+      </div>
+
+
+
+          <!-- <ion-item class="answer">
+            <ion-label  class="answerlab"></ion-label>
+            <ion-radio value=""></ion-radio>
+          </ion-item>
+        
+          <ion-item class="answer">
+            <ion-label  class="answerlab" ></ion-label>
+            <ion-radio value=""></ion-radio>
+          </ion-item> -->
+        </ion-list>
+      <div class="addItem">
+        <ion-icon  class="add" name="add"></ion-icon>
+      </div>
+         
     
       </div>
      <button class="finish" ion-button block (click)="finish()">انهاء الاختبار</button>
