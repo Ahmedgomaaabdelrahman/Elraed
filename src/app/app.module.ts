@@ -43,6 +43,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AskProvider } from '../providers/ask/ask';
 import { SelectingSubjectsProvider } from '../providers/selecting-subjects/selecting-subjects';
 import { AnswersProvider } from '../providers/answers/answers';
+import { TestProvider } from '../providers/test/test';
+import { Test } from '../model/Test';
 
 
 @NgModule({
@@ -111,7 +113,8 @@ import { AnswersProvider } from '../providers/answers/answers';
     CommonServicesProvider,
     AskProvider,
     SelectingSubjectsProvider,
-    AnswersProvider
+    AnswersProvider,
+    TestProvider
   ]
 })
 export class AppModule {}

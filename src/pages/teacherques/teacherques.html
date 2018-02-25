@@ -37,12 +37,13 @@
 
                 <ion-col col-5><p>{{question.name}} </p></ion-col>
                 <ion-col col-5><p>{{question.created_at}}</p></ion-col>
-                <ion-col col-1 (click)="writeBlock()"><img src="assets/imgs/block.png" ></ion-col>
-                <div id="blockitem" class="block">
-                    <ion-input type="text" placeholder="اكتب تقرير عن الطالب">
+                <ion-col col-1 (click)="writeBlock(i)"><img src="assets/imgs/block.png" ></ion-col>
+                <div *ngIf="reportBlockArray[i]" id="blockitem" class="block">
+                    <ion-input   [(ngModel)]="reportStudent[i]" name="reportStudent[i]" type="text" placeholder="اكتب تقرير عن الطالب">
+
 
                     </ion-input>
-                    <button ion-button clear class="sendbtn">ارسال</button>
+                    <button (click)="report(question,i)" ion-button clear class="sendbtn">ارسال</button>
                 </div>
         </ion-row>
         

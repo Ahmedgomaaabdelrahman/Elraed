@@ -1,3 +1,4 @@
+import { User } from './../../model/UserModel';
 import { CommonServicesProvider } from './../../providers/common-services/common-services';
 import { CommonServerStaticsProvider } from './../../providers/common-server-statics/common-server-statics';
 import { AnswersProvider } from './../../providers/answers/answers';
@@ -13,8 +14,8 @@ export class TeacherquesPage {
   questionText:any
 audioAnswer:any;
 imageAnswer:any;
-
-
+reportBlockes:any
+reportStudent:any;
   year_id=''
   grade_id=''
   subject_id=''
@@ -24,7 +25,7 @@ imageAnswer:any;
   questionsArr
   constructor(
     public statics:Statics,
-
+public user:User,
     public commonStatics:CommonServerStaticsProvider,
     public common:CommonServicesProvider,
     public answer:AnswersProvider,public navCtrl: NavController, public navParams: NavParams
@@ -34,7 +35,8 @@ imageAnswer:any;
   }
 
   ionViewDidLoad() {
-
+    this.reportBlockes=[]
+this.reportStudent=[]
     console.log('ionViewDidLoad TeacherquesPage');
     this.commonStatics.getGrades().subscribe(grades=>{
 
@@ -42,14 +44,22 @@ imageAnswer:any;
       this.gradeArr=grades
     })
   }
- 
-  writeBlock(){
-   if(document.getElementById('blockitem').style.display == 'block'){
-    document.getElementById('blockitem').style.display = 'none'
-   }
-   else {
-    document.getElementById('blockitem').style.display = 'block'
-   }
+ reportBlockArray:any
+  writeBlock(index){
+  console.log(this.reportBlockArray[index])
+  if(this.reportBlockArray[index]){
+    this.reportBlockArray[index]=false
+    
+  }else{
+    this.reportBlockArray[index]=true
+
+  }
+    //  if(document.getElementById('blockitem').style.display == 'block'){
+  //   document.getElementById('blockitem').style.display = 'none'
+  //  }
+  //  else {
+  //   document.getElementById('blockitem').style.display = 'block'
+  //  }
   }
   reset(){
     this.year_id=''
@@ -92,11 +102,13 @@ this.yearsArr=res
 console.log(questions['length'])
 this.questionText=[]
 this.audioAnswer=[];
-this.imageAnswer=[]
+this.imageAnswer=[];
+this.reportBlockArray=[];
 for(let i=0;i<questions['length'];i++){
 this.questionText.push('')
 this.audioAnswer.push('')
 this.imageAnswer.push('')
+this.reportBlockArray.push(false)
 
 }
 this.questionsArr=questions
@@ -149,4 +161,17 @@ this.answer.answerQuestion(question.quetison_id,this.audioAnswer[index],this.ima
   })
       })
     }
+    report(question,index){
+
+      // console.log(question['user_id'],this.reportStudent[index],this.user.USER.user_id)
+      this.answer.createReport(question['user_id'],this.reportStudent[index],this.user.USER.user_id)  .subscribe(res=>{
+        // console.log(res)
+this.common.presentToast('تم الارسال')
+      },e=>{
+        this.common.presentToast('فشل الارسال')
+
+  // console.log(e)
+})  
+
+}
 }
