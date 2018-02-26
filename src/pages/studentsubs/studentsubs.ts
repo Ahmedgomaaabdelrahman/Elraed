@@ -12,7 +12,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { Statics } from '../../model/StaticsModel';
 import { CommonServicesProvider } from '../../providers/common-services/common-services';
 
-
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'page-studentsubs',
@@ -24,8 +24,8 @@ export class StudentsubsPage {
   subs:object;
   grade
   constructor(
-    
-    private user:User,
+    private sanitizer: DomSanitizer,
+  private user:User,
     private common:CommonServicesProvider,
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -39,21 +39,25 @@ export class StudentsubsPage {
     this.grade=this.user.getuser().grade
     this.subs=[]
     console.log(this.user.getuser().grade_id)
-   this.supjectsProvider.getSubject(this.user.getuser().grade_id).subscribe(subs=>{
+   this.supjectsProvider.getSubject(this.user.USER.grade_id,this.user.USER.year_id).subscribe(subs=>{
      console.log(subs)
      this.subs=subs
+     // this.sanitizer.bypassSecurityTrustStyle(this.subs[0]['image']);
+
    })
   }
- 
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentsubsPage');
   }
-  
+
 
   gotosign(){
     this.navCtrl.push(SignupPage);
   }
-  details(){
-    this.navCtrl.push(SubjcontentPage);
+  details(subject){
+    console.log(subject)
+    this.navCtrl.push(SubjcontentPage,{subject_id:subject.subject_id,image:subject.image
+      ,name:subject.name});
   }
 }

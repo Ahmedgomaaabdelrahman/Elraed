@@ -52,7 +52,7 @@ grade_id:any=''
     public supjectsProvider:SelectingSubjectsProvider,
     public commonServerStaticsProvider:CommonServerStaticsProvider,
     private auth:AuthProvider) {
-      
+
   }
   selectSubject(subj){
     console.log(subj)
@@ -65,7 +65,7 @@ grade_id:any=''
     this.grade=this.user.getuser().grade
     this.subs=[]
     console.log(this.user.getuser().grade_id)
-   this.supjectsProvider.getSubject(this.user.getuser().grade_id).subscribe(subs=>{
+   this.supjectsProvider.getSubject(this.user.USER.grade_id,this.user.USER.year_id).subscribe(subs=>{
      console.log('subss',subs)
      this.subs=subs
    })
@@ -107,25 +107,24 @@ console.log(encodedImage)
  ask(){
    console.log(this.audioSend[1])
   var question={
-    'student_id':this.user.getuser().user_id,
+     'student_id':this.user.getuser().user_id,
 'grade_id':this.grade_id,
 'year_id':this.user.getuser().year_id,
 'subject_id':this.subject_id,
 'question':this.questionText,
 'image_url':this.image,
-'audio_url': '' 
-
-  }    
+'audio_url': ''
+  }
   if(this.audioSend=='' ||this.audioSend==null||this.audioSend==undefined){
     question.audio_url=''
   }else{
-   
+
  question.audio_url=this.audioSend[1]
- 
-    
+
+
   }
 this.spinnerFlag=true
-  
+
    console.log(question)
    this.askProvider.ask(question).subscribe(res=>{
      this.common.presentToast('تم')

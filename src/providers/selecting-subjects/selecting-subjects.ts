@@ -23,12 +23,12 @@ export class SelectingSubjectsProvider {
       private usermodel:User ,
       private statics:Statics
     ) {
-  
+
     this.url=this.statics.getURL();
-    
+
   }
-   
-  getSubject(grade_id){
-    return this.http.get(this.url+this.GET_SUPJECT+'/'+grade_id);
-  }  
+
+  getSubject(grade_id,year_id){
+    return this.http.get(this.url+this.GET_SUPJECT+'/'+grade_id+'/'+year_id);
+  }
 }

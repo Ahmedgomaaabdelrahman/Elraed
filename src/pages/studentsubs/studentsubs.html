@@ -10,8 +10,15 @@
 
 <ion-row  class="controw">
   <ion-col *ngFor="let subj of subs" col-6>
-    <div (click)="details()">
-     <img src={{subj.image}}><br>
+    <div (click)="details(subj)">
+      <div   [ngStyle]="{'background-image': 'url('+subj.image+')',
+      'background-repeat': 'no-repeat','padding': '18px', 'position': 'relative',
+    'left': '70px'
+      }">
+
+        <img /></div>
+        <br>
+      <!--<div [ngStyle]="{'background-image': 'url('+subj.image+')'}"></div>-->
      <h6>{{subj.name}}</h6>
    </div>
   </ion-col>

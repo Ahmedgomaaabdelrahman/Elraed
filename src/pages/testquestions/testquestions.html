@@ -8,70 +8,59 @@
         <form #f="ngForm">
 
     <div  *ngFor="let q of questions;let i=index"style="direction: rtl;">
-     
-    
-    
+
+
+
         <ion-list radio-group>
           <ion-list-header class="queslab">
             <ion-item style="width:80%;display: inline-block;">
-                <ion-input  [(ngModel)]="question[i]" name="question[i]"  type="text" placeholder="اكتب السوال"></ion-input> 
+                <ion-input  [(ngModel)]="question[i]" name="question[i]"  type="text" placeholder="اكتب السوال"></ion-input>
             </ion-item>
-            <span style="color:#03A4CA;margin:0 5px;font-size: 40px;">؟</span> 
+            <span style="color:#03A4CA;margin:0 5px;font-size: 40px;">؟</span>
           </ion-list-header>
 
 
       <div class="answerdiv">
           <ion-item class="answer">
-          
-              <ion-radio value="go"></ion-radio>
+
+              <ion-radio (click)="radio(answer_1[i],i)" ></ion-radio>
             </ion-item>
           <ion-item style="width:60%;display: inline-block;">
               <ion-input [(ngModel)]="answer_1[i]" name="answer_1[i]" type="text"  placeholder="الاجابة الاولى"></ion-input>
           </ion-item>
-        
+
       </div>
-    
+
       <div class="answerdiv">
           <ion-item class="answer">
-             
-              <ion-radio value="rust"></ion-radio>
+
+              <ion-radio (click)="radio(answer_2[i],i)" ></ion-radio>
             </ion-item>
           <ion-item style="width:60%;display: inline-block;">
               <ion-input [(ngModel)]="answer_2[i]" name="answer_2[i]" type="text"  placeholder="الاجابه الثانيه"></ion-input>
           </ion-item>
-        
+
       </div>
 
       <div class="answerdiv">
           <ion-item class="answer">
-            
-              <ion-radio value="python"></ion-radio>
+
+              <ion-radio (click)="radio(answer_3[i],i)" ></ion-radio>
             </ion-item>
           <ion-item style="width:60%;display: inline-block;">
               <ion-input [(ngModel)]="answer_3[i]" name="answer_3[i]" type="text"  placeholder="الاجابه الثالثة"></ion-input>
           </ion-item>
-        
+
       </div>
-    <!-- </form> -->
 
-
-          <!-- <ion-item class="answer">
-            <ion-label  class="answerlab"></ion-label>
-            <ion-radio value=""></ion-radio>
-          </ion-item>
-        
-          <ion-item class="answer">
-            <ion-label  class="answerlab" ></ion-label>
-            <ion-radio value=""></ion-radio>
-          </ion-item> -->
         </ion-list>
-     
-         
-    
+
+
+
       </div>
       <div class="addItem">
             <ion-icon (click)='pushQuestion()' class="add" name="add"></ion-icon>
-          </div> 
+          </div>
           <button class="finish" ion-button block (click)="finish()">انهاء الاختبار</button>
         </form>
     </div>

@@ -22,7 +22,7 @@ export class TestProvider {
   ) {
 
   this.url=this.statics.getURL();
-  
+
 }
 
 getWeeks(subject_id,grade_id,year_id){
@@ -33,14 +33,16 @@ getWeeks(subject_id,grade_id,year_id){
 }
 
 
-createTest(subject_id,teacher_id,week_id,quetsion=[{}]){
+createTest(subject_id,teacher_id,week_id,quetsion=[{}],grade_id,year_id){
   let maketest={
     'subject_id':subject_id,
      'teacher_id':teacher_id,
+    'grade_id':grade_id,
+    'year_id':year_id,
     'week_id':week_id,
     'quetsion':quetsion
      }
-    
+
 
   return this.http.post(this.url+this.CREATE_TEST,maketest);
 }

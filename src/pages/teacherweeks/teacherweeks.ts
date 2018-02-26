@@ -30,8 +30,8 @@ public user:User,private testProvider:TestProvider,
     public commonStatics:CommonServerStaticsProvider,
     public common:CommonServicesProvider,
     public answer:AnswersProvider,public navCtrl: NavController, public navParams: NavParams
-  
-  
+
+
   ) {
   }
   ionViewWillEnter() {
@@ -70,7 +70,7 @@ this.yearsArr=res
       this.subject_id=subject['subject_id']
       this.getWeeks()
       console.log(this.subject_id)
-      
+
       }
       getWeeks(){
         this.weeks=[]
@@ -83,10 +83,24 @@ this.testProvider.getWeeks(this.subject_id,this.grade_id,this.year_id).subscribe
     this.navCtrl.push(AddlessonsPage);
   }
   gotoexams(week){
-    if(this.weeks.length===0){
-      this.navCtrl.push(TestquestionsPage,{addNewWeek:false,weekIndex:0});
+    if(this.weeks.length===0 ||week.week_id==null){
+      this.navCtrl.push(TestquestionsPage,
+        {
+          subject_id:this.subject_id,week_id:0
+        ,year_id:this.year_id
+        ,grade_id:this.grade_id
+        });
     }else{
-      this.navCtrl.push(TestquestionsPage,{addNewWeek:true,weekIndex:week});
+// if(week.week_id==null){
+//
+//   console.log('ssssssssss')
+// return
+// }
+      this.navCtrl.push(TestquestionsPage,{subject_id:this.subject_id
+        ,week_id:week.week_id
+        ,year_id:this.year_id
+        ,grade_id:this.grade_id
+      });
     }
     // console.log(this.weeks.length)
   }
