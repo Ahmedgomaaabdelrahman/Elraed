@@ -46,6 +46,7 @@ import { AnswersProvider } from '../providers/answers/answers';
 import { TestProvider } from '../providers/test/test';
 import { Test } from '../model/TestModel';
 import { StudintTimeLineProvider } from '../providers/studint-time-line/studint-time-line';
+import { StaticsProvider } from '../providers/statics/statics';
 
 
 @NgModule({
@@ -116,7 +117,8 @@ import { StudintTimeLineProvider } from '../providers/studint-time-line/studint-
     SelectingSubjectsProvider,
     AnswersProvider,
     TestProvider,
-    StudintTimeLineProvider
+    StudintTimeLineProvider,
+    StaticsProvider
   ]
 })
 export class AppModule {}
