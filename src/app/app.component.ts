@@ -9,15 +9,17 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { EditaccountPage } from '../pages/editaccount/editaccount';
 import {User} from '../model/UserModel'
+import {FcmPushProvider} from "../providers/fcm-push/fcm-push";
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = LoginPage;
-  
+
   @ViewChild(Nav) nav: Nav;
   constructor(
+    private fcm:FcmPushProvider,
     private user:User,
     public menuCtrl:MenuController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -25,9 +27,25 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+
+
+
+      this.fcm.onTokenRecived(this.nav).then((res)=>{
+        if(res){
+          console.log(res)
+          // this.nav.setRoot(MessagesPage)
+          // alert('background')
+        }else{
+          console.log(res)
+          // alert('forground')
+
+        }
+      });
+      this.fcm.onTokenIdRefresh();
+
     });
   }
-  
+
   closeMenu(){
     this.menuCtrl.close();
   }
@@ -41,7 +59,7 @@ export class MyApp {
   }
   edit(){
     this.menuCtrl.close();
-    this.nav.push(EditaccountPage); 
+    this.nav.push(EditaccountPage);
   }
   exit(){
     this.menuCtrl.close()
