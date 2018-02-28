@@ -1,7 +1,7 @@
 import { TeachertabsPage } from './../teachertabs/teachertabs';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams,MenuController} from 'ionic-angular';
 import { StudenttabsPage } from '../studenttabs/studenttabs';
 import {User} from '../../model/UserModel'
 import {CommonServerStaticsProvider} from '../../providers/common-server-statics/common-server-statics'
@@ -29,6 +29,7 @@ email
 grade
 year
   constructor(
+    public menuCtrl: MenuController,
     private user:User,
     private common:CommonServicesProvider,
     public navCtrl: NavController,
@@ -74,7 +75,7 @@ let user={
   'year':this.year,
   'image':this.displayImage
   }
-  
+
 
   console.log(user)
   this.user.setuser(user);
@@ -99,20 +100,23 @@ afterSignUp(res){
   if(res['error']!=undefined){
     this.password=this.password_confirm=null
     this.common.loadDismess();
-  
+
     this.common.presentToast(res['error'])
-  
+
   return;
   }
   this.user.setuser(res)
   this.common.loadDismess();
   this.common.storeValue(this.statics.CURRENT_USER,res).then(()=>{
     if(res.type==2){
-    this.navCtrl.setRoot(TeachertabsPage)}else{
-
+    this.navCtrl.setRoot(TeachertabsPage)
+      this.menuCtrl.enable(true)
+    }else{
       this.navCtrl.setRoot(StudenttabsPage)
+      this.menuCtrl.enable(true)
+
     }
-  
+
   })
 }
 assignGradesAndYearslists(){
@@ -140,7 +144,7 @@ console.log(year)
 getSelectedGrade(grade){
   this.grade=grade['grade_id']
   console.log(this.grade)
-  
+
   }
   profileImage(){
     let self=this;
