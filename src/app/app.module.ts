@@ -47,7 +47,19 @@ import { TestProvider } from '../providers/test/test';
 import { Test } from '../model/TestModel';
 import { StudintTimeLineProvider } from '../providers/studint-time-line/studint-time-line';
 import { StaticsProvider } from '../providers/statics/statics';
+import firebase from 'firebase/app';
+import {FcmPushProvider} from '../providers/fcm-push/fcm-push';
+import { FCM } from '@ionic-native/fcm';
 
+const config = {
+  apiKey: "AIzaSyC6tug21Wv-fbQ_jjtxV5PA-HU1VyUQEKc",
+  authDomain: "muthber-ab8ab.firebaseapp.com",
+  databaseURL: "https://muthber-ab8ab.firebaseio.com",
+  projectId: "muthber-ab8ab",
+  storageBucket: "muthber-ab8ab.appspot.com",
+  messagingSenderId: "538382351960"
+};
+firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
@@ -107,7 +119,7 @@ import { StaticsProvider } from '../providers/statics/statics';
     TestquestionsPage
   ],
   providers: [
-    StatusBar,User,Test,Statics,FileTransfer, MediaCapture, 
+    StatusBar,User,Test,Statics,FileTransfer, MediaCapture,
     SplashScreen,Camera,ActionSheet,
     {provide: ErrorHandler, useClass: IonicErrorHandler},{ provide: IonicStorageModule, useClass: IonicStorageModule},
     AuthProvider,Base64,
@@ -118,7 +130,8 @@ import { StaticsProvider } from '../providers/statics/statics';
     AnswersProvider,
     TestProvider,
     StudintTimeLineProvider,
-    StaticsProvider
+    StaticsProvider,
+    FcmPushProvider,FCM
   ]
 })
 export class AppModule {}

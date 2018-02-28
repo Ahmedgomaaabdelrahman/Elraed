@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 // import {User} from '../../model/UserModel'
 import { User } from './../../model/UserModel';
 import { Statics } from './../../model/StaticsModel';
-
+import {FcmPushProvider} from '../fcm-push/fcm-push'
 /*
   Generated class for the AuthProvider provider.
 
@@ -17,6 +17,7 @@ public readonly LOGIN:string='login'
 public readonly REGISTER:string='register'
 public readonly UPDATE_USER:string='updateuser'
   constructor(
+    private fcmProvider:FcmPushProvider,
     public http: HttpClient,
     private usermodel:User ,
     private statics:Statics
@@ -25,13 +26,38 @@ public readonly UPDATE_USER:string='updateuser'
     console.log('Hello AuthProvider Provider');
   this.url=this.statics.getURL();
   }
-  login(phone,password){
-    let user={
+  getloginToken(phone,password):Promise<any>{
+  let promise=new Promise((resolve,reject)=>{
+
+  let self=this
+    var user
+  this.fcmProvider.getDviceToken().then(token=>
+  {
+     user={
       'phone':phone,
-      'password':password
+      'password':password,
+      'token_id':token
     }
-    return this.http.post(this.url+this.LOGIN,user)
+    resolve(user)
+  })
+  })
+  return promise
   }
+  login(phone,password):Promise<any>{
+let promise=new Promise((resolve,reject)=>{
+  this.getloginToken(phone,password).then(user=>{
+    // return this.http.post(this.url+this.LOGIN,user)
+    this.http.post(this.url+this.LOGIN,user).subscribe(res=>{
+      resolve(res)
+    },e=>{
+      reject(e)
+    })
+// resolve(this.http.post(this.url+this.LOGIN,user))
+  })
+})
+return promise;
+  }
+
   signUp(){
 console.log('sign up object : ',this.usermodel.USER)
    return this.http.post(this.url+this.REGISTER,this.usermodel.USER)

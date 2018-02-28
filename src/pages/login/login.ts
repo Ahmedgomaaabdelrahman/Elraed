@@ -38,7 +38,7 @@ export class LoginPage {
 
 logIn(){
   this.common.presentLoadingDefault()
-this.auth.login(this.phone,this.password).subscribe(res=>{
+this.auth.login(this.phone,this.password).then(res=>{
   console.log(res)
   // this.common.loadDismess()
 this.afterSignIn(res)
