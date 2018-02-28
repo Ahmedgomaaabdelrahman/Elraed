@@ -34,7 +34,7 @@ export class MyApp {
         if(res){
           console.log(res)
           // this.nav.setRoot(MessagesPage)
-          // alert('background')
+          alert('background')
         }else{
           console.log(res)
           // alert('forground')

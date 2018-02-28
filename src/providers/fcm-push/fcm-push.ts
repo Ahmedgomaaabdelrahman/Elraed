@@ -55,18 +55,23 @@ export class FcmPushProvider {
         console.log('FCM Fired : Token :: ',token)
         // this.zone.runOutsideAngular(()=>{
 
+          alert( JSON.stringify(token) );
 
           if(token.wasTapped){
 
             //Notification was received on device tray and tapped by the user.
+            // alert(token.wasTapped)
+            alert( JSON.stringify(token) );
 
             resolve(true)
           }else{
+            alert(token.wasTapped)
             // alert(token.wasTapped)
             resolve(false)
+          //  FCMPlugin. backend.registerToken(token);
 
             //Notification was received in foreground. Maybe the user needs to be notified.
-            console.log(context.getActive().name)
+            // console.log(context.getActive().name)
 
           }
         })
