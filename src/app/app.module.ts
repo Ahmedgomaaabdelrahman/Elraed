@@ -1,3 +1,4 @@
+import { TermsPage } from './../pages/terms/terms';
 import { TestresultPage } from './../pages/testresult/testresult';
 import { StudenttestPage } from './../pages/studenttest/studenttest';
 import { BankaccountsPage } from './../pages/bankaccounts/bankaccounts';
@@ -50,6 +51,7 @@ import { StaticsProvider } from '../providers/statics/statics';
 import firebase from 'firebase/app';
 import {FcmPushProvider} from '../providers/fcm-push/fcm-push';
 import { FCM } from '@ionic-native/fcm';
+import { AboutusPage } from '../pages/aboutus/aboutus';
 
 const config = {
   apiKey: "AIzaSyC6tug21Wv-fbQ_jjtxV5PA-HU1VyUQEKc",
@@ -66,6 +68,7 @@ firebase.initializeApp(config);
     MyApp,
     HomePage,
     HeaderComponent,
+    AboutusPage,
     LoginPage,
     SignupPage,
     StudenttabsPage,
@@ -84,7 +87,8 @@ firebase.initializeApp(config);
     LessonshowPage,
     TeacherquesPage,
     TeacherweeksPage,
-    TestquestionsPage
+    TestquestionsPage,
+    TermsPage
   ],
   imports: [
   BrowserModule,HttpClientModule,
@@ -97,6 +101,7 @@ firebase.initializeApp(config);
     MyApp,
     HomePage,
     HeaderComponent,
+    AboutusPage,
     LoginPage,
     SignupPage,
     StudenttabsPage,
@@ -116,7 +121,8 @@ firebase.initializeApp(config);
     LessonshowPage,
     TeacherquesPage,
     TeacherweeksPage,
-    TestquestionsPage
+    TestquestionsPage,
+    TermsPage
   ],
   providers: [
     StatusBar,User,Test,Statics,FileTransfer, MediaCapture,

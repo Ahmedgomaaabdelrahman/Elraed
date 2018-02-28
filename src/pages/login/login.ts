@@ -1,3 +1,5 @@
+import { AboutusPage } from './../aboutus/aboutus';
+import { TermsPage } from './../terms/terms';
 import { SignupPage } from './../signup/signup';
 import { Component } from '@angular/core';
 import { NavController, NavParams,MenuController } from 'ionic-angular';
@@ -88,5 +90,12 @@ afterSignIn(res){
 
   teacher(){
     this.navCtrl.push(TeachertabsPage);
+  }
+
+  goterms(){
+    this.navCtrl.push(TermsPage);
+  }
+  goabout(){
+    this.navCtrl.push(AboutusPage);
   }
 }
