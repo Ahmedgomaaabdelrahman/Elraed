@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TermsAndAboutUsProvider } from './../../providers/terms-and-about-us/terms-and-about-us';
 
 
 @Component({
@@ -7,12 +8,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'aboutus.html',
 })
 export class AboutusPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  about
+  
+  
+  constructor(public termsAndAboutProvider:TermsAndAboutUsProvider,public navCtrl: NavController, public navParams: NavParams) {
   }
-
+info
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AboutusPage');
+    this.termsAndAboutProvider.policyAndTerms().subscribe(res=>{
+      console.log(res)
+    this.info=res
+      console.log(this.info)
+     this. about=this.info[0].policy
+    
+    })
+    console.log('ionViewDidLoad ContactusPage');
   }
 
 }

@@ -1,3 +1,4 @@
+import { Events } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FCM } from '@ionic-native/fcm';
@@ -12,7 +13,8 @@ declare var FCMPlugin;
 @Injectable()
 export class FcmPushProvider {
 
-  constructor(public fcm:FCM,public http: HttpClient) {
+  constructor(public events:Events,
+    public fcm:FCM,public http: HttpClient) {
     console.log('Hello FcmPushProvider Provider');
   }
   getDviceToken():Promise<any>{
@@ -60,12 +62,17 @@ export class FcmPushProvider {
 
             //Notification was received on device tray and tapped by the user.
             // alert(token.wasTapped)
-            alert( token );
-
+            // alert( token );
+            alert('لديك رسالة جديدة');
+this.events.publish('msg',1)
             resolve(true)
           }else{
+            this.events.publish('msg',1)
+
             // alert(token.wasTapped)
-            alert( token );
+            // alert( token );
+            alert('لديك رسالة جديدة');
+
             // alert(token.wasTapped)
             resolve(false)
           //  FCMPlugin. backend.registerToken(token);

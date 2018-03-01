@@ -52,6 +52,7 @@ import firebase from 'firebase/app';
 import {FcmPushProvider} from '../providers/fcm-push/fcm-push';
 import { FCM } from '@ionic-native/fcm';
 import { AboutusPage } from '../pages/aboutus/aboutus';
+import { TermsAndAboutUsProvider } from '../providers/terms-and-about-us/terms-and-about-us';
 
 const config = {
   apiKey: "AIzaSyC6tug21Wv-fbQ_jjtxV5PA-HU1VyUQEKc",
@@ -137,7 +138,8 @@ firebase.initializeApp(config);
     TestProvider,
     StudintTimeLineProvider,
     StaticsProvider,
-    FcmPushProvider,FCM
+    FcmPushProvider,FCM,
+    TermsAndAboutUsProvider
   ]
 })
 export class AppModule {}

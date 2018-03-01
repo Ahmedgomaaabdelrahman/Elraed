@@ -1,3 +1,5 @@
+import { AboutusPage } from './../pages/aboutus/aboutus';
+import { TermsPage } from './../pages/terms/terms';
 import { ContactusPage } from './../pages/contactus/contactus';
 import { BankaccountsPage } from './../pages/bankaccounts/bankaccounts';
 import { Component, ViewChild } from '@angular/core';
@@ -45,7 +47,14 @@ export class MyApp {
 
     });
   }
-
+terms(){
+  this.menuCtrl.close();
+  this.nav.push(TermsPage);
+}
+aboutApp(){
+  this.menuCtrl.close();
+  this.nav.push(AboutusPage);
+}
   closeMenu(){
     this.menuCtrl.close();
   }

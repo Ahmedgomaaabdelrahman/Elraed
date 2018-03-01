@@ -39,15 +39,21 @@ export class LoginPage {
   }
 
 logIn(){
+  //////////////////////
+  this.navCtrl.setRoot(StudenttabsPage)
+  this.menuCtrl.enable(true)
+  this.common.loadDismess()
+
+  /////////////////////////////
   this.common.presentLoadingDefault()
 this.auth.login(this.phone,this.password).then(res=>{
   console.log(res)
   // this.common.loadDismess()
 this.afterSignIn(res)
-},(e)=>{console.log(e)
-
-
-  this.common.loadDismess()
+},(e)=>{
+  
+  console.log(e)
+this.common.loadDismess()
 
 })
 
