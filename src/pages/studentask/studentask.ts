@@ -105,7 +105,7 @@ console.log(encodedImage)
     })
   }
  ask(){
-   console.log(this.audioSend[1])
+   console.log(this.audioSend)
   var question={
      'student_id':this.user.getuser().user_id,
 'grade_id':this.grade_id,
