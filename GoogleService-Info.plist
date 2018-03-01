@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>538382351960-67ciqldg3tibkvr7spg6atqtsc2bl5m4.apps.googleusercontent.com</string>
+	<string>538382351960-u4kh8g9plvnc4kn3hbtkno5f4qtgfdjv.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.538382351960-67ciqldg3tibkvr7spg6atqtsc2bl5m4</string>
+	<string>com.googleusercontent.apps.538382351960-u4kh8g9plvnc4kn3hbtkno5f4qtgfdjv</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCttLRPGn5pRRhKSXJqKDksC3Ue6f9aL7U</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>app.muthber.com123</string>
+	<string>app.muthber.com</string>
 	<key>PROJECT_ID</key>
 	<string>muthber-ab8ab</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:538382351960:ios:1c83f80371060cc5</string>
+	<string>1:538382351960:ios:9dbe54d1bd935c1e</string>
 	<key>DATABASE_URL</key>
 	<string>https://muthber-ab8ab.firebaseio.com</string>
 </dict>
