@@ -10,7 +10,7 @@ page-studentask {
         }
     
         .input-cover{
-            // position: static;
+            position: static;
         }
     }
     
@@ -20,7 +20,7 @@ page-studentask {
         margin: 25px auto;
         padding: 0px !important;
         direction: rtl;
-        // position: static;
+        position: static;
     }
 
     .topdiv{
@@ -54,7 +54,7 @@ page-studentask {
         }
     }
    .scroll-content{
-        overflow: hidden;
+        overflow: scroll;
       }
     .answer{
         padding: 5px 10px;

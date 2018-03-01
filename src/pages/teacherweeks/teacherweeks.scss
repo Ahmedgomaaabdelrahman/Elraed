@@ -32,6 +32,8 @@ page-teacherweeks {
         direction: rtl;
         width: 95%;
         margin: 10px auto;
+        display: flex;
+        justify-content: center;
         .total{
             border: 1px solid gray;
             position: relative;

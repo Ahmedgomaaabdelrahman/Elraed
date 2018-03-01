@@ -86,7 +86,7 @@ this.testProvider.getWeeks(this.subject_id,this.grade_id,this.year_id).subscribe
     if(this.weeks.length===0 ||week.week_id==null){
       this.navCtrl.push(TestquestionsPage,
         {
-          subject_id:this.subject_id,week_id:0
+          subject_id:this.subject_id,week_id:1
         ,year_id:this.year_id
         ,grade_id:this.grade_id
         });

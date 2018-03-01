@@ -40,9 +40,10 @@ export class LoginPage {
 
 logIn(){
   //////////////////////
-  this.navCtrl.setRoot(StudenttabsPage)
-  this.menuCtrl.enable(true)
-  this.common.loadDismess()
+  // this.navCtrl.setRoot(StudenttabsPage)
+  // this.navCtrl.setRoot(TeachertabsPage)
+  // this.menuCtrl.enable(true)
+  // this.common.loadDismess()
 
   /////////////////////////////
   this.common.presentLoadingDefault()

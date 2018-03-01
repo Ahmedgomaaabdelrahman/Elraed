@@ -30,13 +30,13 @@
   <div style="
   margin-top: 70px;">
     <div *ngFor="let week of weeks;let i=index" class="topdiv">
-      <p> {{week['week']}} </p>
+    <div><p> {{week['week']}} </p></div>  
       <!-- <p (click)="golessons()"><img src="assets/imgs/lesson.png"></p> -->
-      <p (click)="gotoexams(week)"><img src="assets/imgs/exam.png"></p>
+       <div style="    padding: 5px 15px;" (click)="gotoexams(week)"><img src="assets/imgs/exam.png"></div> 
     </div>
 
   </div>
-  <div class="addItem">
-      <ion-icon *ngIf="subject_id!='' &&subject_id!=null" (click)="gotoexams(0)" class="add" name="add"></ion-icon>
+  <div *ngIf="subject_id!='' &&subject_id!=null" (click)="gotoexams(0)" class="addItem">
+      <ion-icon  class="add" name="add"></ion-icon>
     </div>
 </ion-content>
