@@ -30,7 +30,9 @@ private readonly WATCH:string='watch';
   gettimeline(subject_id,grade_id,year_id){
 
 
-    return this.http.get(this.url+this.GET_TIMELINE+'/'+subject_id+'/'+grade_id+'/'+year_id);
+    return this.http.get(this.url+this.GET_TIMELINE+'/'+subject_id+'/'+grade_id+'/'+year_id
+    +'/'+this.usermodel.USER.user_id
+  );
   }
   rateLesson(lesson_id,rate,student_id){
     //http://muthaber-admin.muthaberapp.com/api/ratethislesson/{lesson_id}/{rate]/{student_id}

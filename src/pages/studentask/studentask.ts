@@ -127,6 +127,7 @@ this.spinnerFlag=true
 
    console.log(question)
    this.askProvider.ask(question).subscribe(res=>{
+     
      this.common.presentToast('تم')
     this.spinnerFlag=false
     this.questionText=''

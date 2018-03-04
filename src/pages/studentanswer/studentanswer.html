@@ -14,6 +14,10 @@
                    
                 </ion-select>
             </ion-item>
+           
+           
+           
+           <div *ngIf="answer !=''" > 
             <p class="answer">
 {{answer}}            </p>
             <p class="audio">
@@ -25,12 +29,12 @@
             <p class="prate">
                     تقييم الاجابه
             </p>
-            <ion-row class="raterow"> 
+            <ion-row  class="raterow"> 
                 <ion-col col-1></ion-col>
                 <ion-col *ngFor='let star of rateStars;let i=index'  (click)="addRate(i)" col-2><ion-icon name={{star}}></ion-icon></ion-col>
                 <ion-col col-1></ion-col>
             </ion-row>
 
-            <button ion-button block class="enter">تم</button>
-    </div>
+            <!-- <button ion-button block class="enter">تم</button> -->
+    </div></div>
 </ion-content>
