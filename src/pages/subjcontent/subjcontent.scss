@@ -8,7 +8,7 @@ page-subjcontent {
         font-family: Helvetica, sans-serif;
         border-radius: 20px;
         border: 1px solid gray;
-        height: 55px;
+        height: 55px;    direction: rtl;
         h2 , p{
             margin: 0;
         }
@@ -30,7 +30,7 @@ page-subjcontent {
         top: 0;
         height: 70px;
         bottom: 0;
-        right: 50%;
+        right: 5%;
         margin-left: -3px;
       }
       
@@ -38,7 +38,7 @@ page-subjcontent {
       .container ,.conttrue {
         position: relative;
         background-color: inherit;
-        width: 50%;
+        width: 90%;
       }
       
       /* The circles on the timeline */
@@ -57,16 +57,32 @@ page-subjcontent {
       .conttrue::after {
         content: '';
         position: absolute;
-        width: 25px;
         height: 25px;
-        background-image: url('../assets/imgs/true.png');
-        border: 1px solid $topcolor;
+        width: 25px;
+        background-image: url(../assets/imgs/true.png);
+        border: 1px solid #017C9A;
         background-size: cover;
         top: 15px;
         border-radius: 50%;
         z-index: 1;
+        right: -65px;
       }
-      
+      @media all and (max-width: 768px) {
+        /* Place the timelime to the left */
+        .conttrue::after {
+          content: '';
+          position: absolute;
+          height: 25px;
+          width: 25px;
+          background-image: url(../assets/imgs/true.png);
+          border: 1px solid #017C9A;
+          background-size: cover;
+          top: 15px;
+          border-radius: 50%;
+          z-index: 1;
+          right: -53px;
+        }
+      }
       /* Place the container to the left */
       .left {
         left: 0;

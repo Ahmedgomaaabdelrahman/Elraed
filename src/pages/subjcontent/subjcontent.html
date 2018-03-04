@@ -57,8 +57,9 @@
 
 
                     </ion-col>
-                    <ion-col (click)="openLesson(lesson)"  col-3 style="padding-top: 15px;color:green important!;    text-align: center;">
-                        <p >
+                    <ion-col (click)="openLesson(lesson)"  col-3 style="padding-top: 15px;color:#017c9a !important;">
+                        <p style=" border:1px solid #017c9a;    text-align: center;
+                        border-radius: 10px;">
                         مشاهدة
                         </p>
                     </ion-col>
@@ -108,8 +109,10 @@
 
 
             </ion-col>
-            <ion-col col-3 (click)="openLesson(lesson)" style="padding-top: 15px;color:#017c9a;    text-align: center;">
-              <p>
+            <ion-col col-3 (click)="openLesson(lesson)" style="padding-top: 15px;color:#017c9a;    tvideot-align: center;">
+              <p style="border: 1px solid #25b7d3;
+              text-align: center;
+              border-radius: 10px;">
                 مشاهدة
               </p>
             </ion-col>
@@ -142,7 +145,7 @@
             <div    *ngIf="timeline.test[0].student_tests.length==0"  class="container left">
                 <div class="lesson">
                     <ion-row>
-                        <ion-col col-1 style="padding-top: 18px;" ><img src="assets/imgs/exam.png"></ion-col>
+                        <ion-col col-1 style="padding-top: 18px;" ><img height="25px" src="assets/imgs/exam.png"></ion-col>
                         <ion-col col-5>
                             <div>
                                 <p style="font-size: 15px;font-weight:bold" >{{timeline.week}}</p>
@@ -159,7 +162,9 @@
                             </ion-row>
                         </ion-col>
                         <ion-col  col-3 style="padding-top: 15px;color:#017c9a;    text-align: center;">
-                            <p>
+                            <p style="border: 1px solid #25b7d3;
+                            text-align: center;
+                            border-radius: 10px;">
                             اختبر
                             </p>
                         </ion-col>
@@ -173,7 +178,7 @@
       <div    *ngIf="timeline.test[0].student_tests.length>0"  class="conttrue left">
         <div class="lesson">
           <ion-row>
-            <ion-col col-1 style="padding-top: 18px;" ><img src="assets/imgs/exam.png"></ion-col>
+            <ion-col col-1 style="padding-top: 18px;" ><img height="25px" src="assets/imgs/exam.png"></ion-col>
             <ion-col col-5>
               <div>
                 <p style="font-size: 15px;font-weight:bold" >{{timeline.week}}</p>
@@ -190,7 +195,9 @@
               </ion-row>
             </ion-col>
             <ion-col  col-3 style="padding-top: 15px;color:#017c9a;    text-align: center;">
-              <p>
+              <p style="border: 1px solid #25b7d3;
+              text-align: center;
+              border-radius: 10px;">
                 اختبر
               </p>
             </ion-col>
