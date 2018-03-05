@@ -19,7 +19,7 @@ export class TestresultPage {
  this.questionsCount=this.navParams.get('questionsCount')
     console.log(this.result)
     console.log(this.questionsCount)
-  this.presentage=(this.result*100)/this.questionsCount
+  this.presentage=Math.round((this.result*100)/this.questionsCount)
   }
   finish(){
     this.navCtrl.setRoot(StudenttabsPage)  }

@@ -1,3 +1,4 @@
+import { TeachertabsPage } from './../teachertabs/teachertabs';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -41,8 +42,7 @@ year
 // this.type=this.navParams.get('type');
   // this.user.USER_TYPE=this.type
   console.log(this.user.getuser())
-  let 
-  saveduser=this.user.USER
+  let saveduser=this.user.USER
   this.name=saveduser.name
   this.phone=saveduser.phone
   this.password=null
@@ -50,7 +50,7 @@ year
   this.password_confirm=null
   this.email=saveduser.mail
   // this.statics.USER_TYPE,
-  this.grade=saveduser.grade
+  this.grade=saveduser.grade_id
   this.year=saveduser.year_id
   // this.image=saveduser.image
 
@@ -75,7 +75,7 @@ return this.password==this.password_confirm;
 console.log(this.checkPasswords())
     if(this.checkPasswords()){
 
-
+// if()
       var user={
   'name':this.name,
   'phone':this.phone,
@@ -90,11 +90,14 @@ console.log(this.checkPasswords())
   if(
     // (user.image===""||user.image===null)
   // &&
-  (this.image===""||this.image===null)){
-    delete user.image
-   
+  (this.image===""||this.image===null ||this.image==this.user.USER.image)){
+     user.image=''
+  //  this.image=''
+
+   console.log(this.image)
     }
 
+    console.log('before edit :' ,user)
 
 // return;
 this.common.presentLoadingDefault()
@@ -130,9 +133,15 @@ afterSignUp(res){
   
   return;
   }
+  console.log('response after edit: ',res)
   this.common.loadDismess();
   this.common.storeValue(this.statics.CURRENT_USER,res).then(()=>{
+    this.user.setuser(res)
+    if(this.user.USER.type=='1'){
     this.navCtrl.setRoot(StudenttabsPage)
+  }else{
+      this.navCtrl.setRoot(TeachertabsPage)
+    }
   
   })
 }

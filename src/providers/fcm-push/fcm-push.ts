@@ -63,7 +63,7 @@ export class FcmPushProvider {
             //Notification was received on device tray and tapped by the user.
             // alert(token.wasTapped)
             // alert( token );
-            alert('لديك رسالة جديدة');
+            alert(token['notification']['title']);
 this.events.publish('msg',1)
             resolve(true)
           }else{
@@ -71,7 +71,7 @@ this.events.publish('msg',1)
 
             // alert(token.wasTapped)
             // alert( token );
-            alert('لديك رسالة جديدة');
+            alert(token['notification']['title']);
 
             // alert(token.wasTapped)
             resolve(false)
