@@ -45,7 +45,7 @@
       <ion-item  *ngIf="!teacherFlag" class="editinput" >
           <ion-label>السنة الدراسية</ion-label>
           <ion-select >
-            <ion-option (ionSelect)="getSelectedYear(year)" *ngFor="let year of years;let i=index"  value={{year.year[i]}} required>{{year.year}}</ion-option>
+            <ion-option (ionSelect)="getSelectedYear(year)" *ngFor="let year of yearsArr;let i=index"  value={{year.year[i]}} required>{{year.year}}</ion-option>
           
           </ion-select>
         </ion-item>

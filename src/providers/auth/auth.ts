@@ -16,6 +16,7 @@ private url
 public readonly LOGIN:string='login'
 public readonly REGISTER:string='register'
 public readonly UPDATE_USER:string='updateuser'
+public readonly GETYEAR:string='getYear'
   constructor(
     private fcmProvider:FcmPushProvider,
     public http: HttpClient,
@@ -86,5 +87,10 @@ console.log('sign up object : ',this.usermodel.USER)
 
     return this.http.put(this.url+this.UPDATE_USER+'/'+user_id,user)
    }
+   getYears(grade_id){
+
+    return this.http.get(this.url+this.GETYEAR+'/'+grade_id)
+   }
+//http://alraedapp.com/api/getYear/grade_id
 
 }
