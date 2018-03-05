@@ -105,7 +105,6 @@ console.log(encodedImage)
     })
   }
  ask(){
-   console.log(this.audioSend)
   var question={
      'student_id':this.user.getuser().user_id,
 'grade_id':this.grade_id,
@@ -115,6 +114,8 @@ console.log(encodedImage)
 'image_url':this.image,
 'audio_url': ''
   }
+   console.log(question)
+
   if(this.audioSend=='' ||this.audioSend==null||this.audioSend==undefined){
     question.audio_url=''
   }else{
@@ -123,6 +124,7 @@ console.log(encodedImage)
 
 
   }
+
 this.spinnerFlag=true
 
    console.log(question)
