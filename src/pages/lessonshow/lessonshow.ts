@@ -13,6 +13,7 @@ video
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LessonshowPage',this.navParams.get('lesson').video_url);
+    // this.video=this.navParams.get('lesson').video_url
     this.getSafeUrl(this.navParams.get('lesson').video_url)
 }
   getSafeUrl(url) {
