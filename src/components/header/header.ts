@@ -1,5 +1,8 @@
+import { TeacherquesPage } from './../../pages/teacherques/teacherques';
 import { Component, Input } from '@angular/core';
 import { MenuController,Events , NavController } from 'ionic-angular';
+import { User } from './../../model/UserModel';
+import { StudentanswerPage } from '../../pages/studentanswer/studentanswer';
 
 
 /**
@@ -15,7 +18,7 @@ import { MenuController,Events , NavController } from 'ionic-angular';
 export class HeaderComponent {
 msgs
   @Input() name: string;
-  constructor(public events:Events,public navCtrl: NavController,public menuCtrl: MenuController) {
+  constructor(public user:User,public events:Events,public navCtrl: NavController,public menuCtrl: MenuController) {
     console.log('Hello HeaderComponent Component');
    let self=this
    this.msgs=0
@@ -26,7 +29,16 @@ msgs
     })
   }
   resetMsg(){
-this.msgs=0
+    this.msgs=0
+    if(this.user.USER.type=='1'){
+      this.navCtrl.push(StudentanswerPage)
+return;
+    }else{
+      this.navCtrl.push(TeacherquesPage)
+
+return
+    }   
+
   }
   openMenu() {
     this.menuCtrl.toggle();

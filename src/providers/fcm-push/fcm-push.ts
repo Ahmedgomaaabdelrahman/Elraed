@@ -1,3 +1,4 @@
+import { User } from './../../model/UserModel';
 import { Events } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -13,7 +14,7 @@ declare var FCMPlugin;
 @Injectable()
 export class FcmPushProvider {
 
-  constructor(public events:Events,
+  constructor(public events:Events,private user:User,
     public fcm:FCM,public http: HttpClient) {
     console.log('Hello FcmPushProvider Provider');
   }
@@ -61,17 +62,34 @@ export class FcmPushProvider {
           if(token.wasTapped){
 
             //Notification was received on device tray and tapped by the user.
-            // alert(token.wasTapped)
+            // alert(token.wasTapped)ionic serve
+          
             // alert( token );
-            alert(token['notification']['title']);
-this.events.publish('msg',1)
-            resolve(true)
-          }else{
             this.events.publish('msg',1)
 
+            if(this.user.USER.type=='1'){
+              alert('تم الاجابة علي سؤال جديد لك');
+return;
+            }else if(this.user.USER.type=='2'){
+              alert('لديك سؤال جديد');
+return;
+            }
+            alert("من فضلك تابع صفحة الاسئلة");
+            resolve(true)
+          }else{
+
+            this.events.publish('msg',1)
+            if(this.user.USER.type=='1'){
+              alert('تم الاجابة علي سؤال جديد لك');
+return;
+            }else if(this.user.USER.type=='2'){
+              alert('لديك سؤال جديد');
+return;
+            }
+            alert("من فضلك تابع صفحة الاسئلة");
             // alert(token.wasTapped)
             // alert( token );
-            alert(token['notification']['title']);
+            // alert('');
 
             // alert(token.wasTapped)
             resolve(false)

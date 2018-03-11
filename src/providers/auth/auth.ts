@@ -16,6 +16,7 @@ private url
 public readonly LOGIN:string='login'
 public readonly REGISTER:string='register'
 public readonly UPDATE_USER:string='updateuser'
+public readonly GETYEAR:string='getYear'
   constructor(
     private fcmProvider:FcmPushProvider,
     public http: HttpClient,
@@ -43,40 +44,40 @@ public readonly UPDATE_USER:string='updateuser'
   })
   return promise
   }
-//   login(phone,password):Promise<any>{
-// let promise=new Promise((resolve,reject)=>{
-//   this.getloginToken(phone,password).then(user=>{
-//     // return this.http.post(this.url+this.LOGIN,user)
-//     this.http.post(this.url+this.LOGIN,user).subscribe(res=>{
-//       resolve(res)
-//     },e=>{
-//       reject(e)
-//     })
-// // resolve(this.http.post(this.url+this.LOGIN,user))
-//   })
-// })
-// return promise;
-//   }
-
   login(phone,password):Promise<any>{
 let promise=new Promise((resolve,reject)=>{
-  // this.getloginToken(phone,password).then(user=>{
+  this.getloginToken(phone,password).then(user=>{
     // return this.http.post(this.url+this.LOGIN,user)
- let     user={
-      'phone':phone,
-      'password':password,
-      'token_id':'123'
-    }
     this.http.post(this.url+this.LOGIN,user).subscribe(res=>{
       resolve(res)
     },e=>{
       reject(e)
     })
 // resolve(this.http.post(this.url+this.LOGIN,user))
-  // })
+  })
 })
 return promise;
   }
+
+//   login(phone,password):Promise<any>{
+// let promise=new Promise((resolve,reject)=>{
+//   // this.getloginToken(phone,password).then(user=>{
+//     // return this.http.post(this.url+this.LOGIN,user)
+//  let     user={
+//       'phone':phone,
+//       'password':password,
+//       'token_id':'123'
+//     }
+//     this.http.post(this.url+this.LOGIN,user).subscribe(res=>{
+//       resolve(res)
+//     },e=>{
+//       reject(e)
+//     })
+// // resolve(this.http.post(this.url+this.LOGIN,user))
+//   // })
+// })
+// return promise;
+//   }
 
   signUp(){
 console.log('sign up object : ',this.usermodel.USER)
@@ -86,5 +87,10 @@ console.log('sign up object : ',this.usermodel.USER)
 
     return this.http.put(this.url+this.UPDATE_USER+'/'+user_id,user)
    }
+   getYears(grade_id){
+
+    return this.http.get(this.url+this.GETYEAR+'/'+grade_id)
+   }
+//http://alraedapp.com/api/getYear/grade_id
 
 }

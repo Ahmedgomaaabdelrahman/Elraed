@@ -143,10 +143,17 @@ getSelectedYear(year){
 console.log(year)
 
 }
+yearsArr
 getSelectedGrade(grade){
   this.grade=grade['grade_id']
   console.log(this.grade)
+this.auth.getYears(grade['grade_id']).subscribe(res=>{
+console.log(res)
+this.yearsArr=res
 
+},e=>{
+  console.log(e)
+})
   }
   profileImage(){
     let self=this;
