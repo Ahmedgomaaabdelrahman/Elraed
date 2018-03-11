@@ -54,9 +54,9 @@ page-testquestions {
         color: gray
     }
 
-    ion-list {
-        height: 150px !important;
-    }
+    // ion-list {
+    //     height: 150px !important;
+    // }
 
     .scroll-content{
         margin-bottom: 0  !important;
@@ -86,8 +86,8 @@ page-testquestions {
 }
 
 .answerdiv{
-    width: 30%;
-    display: inline-block;
+    width: 60%;
+    display:block;
     .item {
         padding-left: 0;
         padding-right: 0;

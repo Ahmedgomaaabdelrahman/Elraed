@@ -13,14 +13,18 @@ page-studenttest {
 
         }
     }
-
+    ion-label {
+        overflow: scroll !important;
+        text-overflow: unset;
+    } 
     .answer{
-        width: 33%;
+        width: 60%;
         float: right;
         display: inline-block;
         padding: 3px;
         font-weight: normal;
         font-size: 17px;
+        direction: ltr;
     }
 
     .queslab{
