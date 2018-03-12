@@ -28,12 +28,22 @@ $buttonBack :#dfc262;
 .ios .notify {
     padding-top: 15px;
 }
+
+.item-ios.item-block .item-inner {
+    border-bottom: none;
+}
 // .content{
 //     background-color: aliceblue;
 // }
 // .scroll-content{
 //     height: 100% !important;
 //   }
+.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+   border-bottom: 1px solid gray;;
+}
+page-testquestions .radio-md .radio-inner, page-testquestions .radio-ios .radio-inner , page-studenttest .radio-ios .radio-inner {
+  background-color: transparent !important;
+}
   .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
       background-image: none !important;
       top: 0;
@@ -62,7 +72,7 @@ $buttonBack :#dfc262;
     color: #017c9a;
    
 }
-
+//  
 .tabs-ios .tab-button {
     max-width: 100%;
 }

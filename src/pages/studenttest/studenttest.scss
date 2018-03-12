@@ -18,13 +18,14 @@ page-studenttest {
         text-overflow: unset;
     } 
     .answer{
-        width: 60%;
+        width: 100%;
         float: right;
         display: inline-block;
         padding: 3px;
         font-weight: normal;
         font-size: 17px;
         direction: ltr;
+        border-bottom: 1px solid gray;
     }
 
     .queslab{
