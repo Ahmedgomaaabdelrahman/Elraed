@@ -143,4 +143,14 @@ this.spinnerFlag=true
      console.log(e)
    })
  }
+cleanImage(){
+ this.image=''
+    this.audioRecord=''
+    this.audioSend=''
+}
+cleanVoice(){
+   this.image=''
+    this.audioRecord=''
+    this.audioSend=''
+}
 }

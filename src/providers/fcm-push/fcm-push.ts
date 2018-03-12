@@ -54,10 +54,18 @@ export class FcmPushProvider {
 
       console.log('fcm subscribtion starts')
 
-      FCMPlugin.onNotification( (token)=>{
-        console.log('FCM Fired : Token :: ',token)
-        // this.zone.runOutsideAngular(()=>{
+      FCMPlugin.onNotification(token=>{
+       
+    // if(data.wasTapped){
+    //   //Notification was received on device tray and tapped by the user.
+    //   alert( JSON.stringify(data) );
+    // }else{
+    //   //Notification was received in foreground. Maybe the user needs to be notified.
+    //   alert( JSON.stringify(data) );
+    // }
 
+        console.log('FCM Fired : Token :: ',JSON.stringify(token) )
+        // this.zone.runOutsideAngular(()=>{
 
           if(token.wasTapped){
 
@@ -77,7 +85,7 @@ return;
             alert("من فضلك تابع صفحة الاسئلة");
             resolve(true)
           }else{
-
+      // alert( token );
             this.events.publish('msg',1)
             if(this.user.USER.type=='1'){
               alert('تم الاجابة علي سؤال جديد لك');
@@ -105,7 +113,7 @@ return;
       FCMPlugin.onTokenRefresh(function (token){
         FCMPlugin.onTokenRefresh(function (token){
           alert('لديك رسالة جديدة');
-
+      // alert( token );
         })
       })
 

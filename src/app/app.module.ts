@@ -53,6 +53,7 @@ import {FcmPushProvider} from '../providers/fcm-push/fcm-push';
 import { FCM } from '@ionic-native/fcm';
 import { AboutusPage } from '../pages/aboutus/aboutus';
 import { TermsAndAboutUsProvider } from '../providers/terms-and-about-us/terms-and-about-us';
+import { MaxImagePage } from './../pages/max-image/max-image';
 
 const config = {
   apiKey: "AIzaSyC6tug21Wv-fbQ_jjtxV5PA-HU1VyUQEKc",
@@ -66,7 +67,7 @@ firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
-    MyApp,
+    MyApp,MaxImagePage,
     HomePage,
     HeaderComponent,
     AboutusPage,
@@ -99,7 +100,7 @@ firebase.initializeApp(config);
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    MyApp,MaxImagePage,
     HomePage,
     HeaderComponent,
     AboutusPage,
