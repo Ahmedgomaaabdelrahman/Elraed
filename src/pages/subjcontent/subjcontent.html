@@ -34,21 +34,20 @@
 
                       <!--<div *ngIf="weekrate !={} && weekrate!=null&&weekrate!=''"  class="raterow">-->
                         <ion-row class="raterow">
-                            <ion-col  *ngIf="lesson.rate>=1" (click)="doRate(lesson,1)" col-2><ion-icon name='star'></ion-icon></ion-col>
-                            <ion-col  *ngIf="lesson.rate<1" (click)="doRate(lesson,1)" col-2><ion-icon name='star-outline'></ion-icon></ion-col>
-
+                          <ion-col  *ngIf="lesson.rate>=1" (click)="doRate(lesson,1)" col-2><ion-icon name='star'></ion-icon></ion-col>
+                          <ion-col  *ngIf="lesson.rate<1" (click)="doRate(lesson,1)" col-2><ion-icon name='star-outline'></ion-icon></ion-col>
 
                           <ion-col  *ngIf="lesson.rate>=2" (click)="doRate(lesson,2)" col-2><ion-icon name='star'></ion-icon></ion-col>
                           <ion-col  *ngIf="lesson.rate<2" (click)="doRate(lesson,2)" col-2><ion-icon name='star-outline'></ion-icon></ion-col>
 
-                            <ion-col  *ngIf="lesson.rate>=3" (click)="doRate(lesson,3)" col-2><ion-icon name='star'></ion-icon></ion-col>
-                            <ion-col  *ngIf="lesson.rate<3" (click)="doRate(lesson,3)" col-2><ion-icon name='star-outline'></ion-icon></ion-col>
+                          <ion-col  *ngIf="lesson.rate>=3" (click)="doRate(lesson,3)" col-2><ion-icon name='star'></ion-icon></ion-col>
+                          <ion-col  *ngIf="lesson.rate<3" (click)="doRate(lesson,3)" col-2><ion-icon name='star-outline'></ion-icon></ion-col>
 
-                              <ion-col  *ngIf="lesson.rate>=4" (click)="doRate(lesson,4)" col-2><ion-icon name='star'></ion-icon></ion-col>
-                              <ion-col  *ngIf="lesson.rate<4" (click)="doRate(lesson,4)" col-2><ion-icon name='star-outline'></ion-icon></ion-col>
+                          <ion-col  *ngIf="lesson.rate>=4" (click)="doRate(lesson,4)" col-2><ion-icon name='star'></ion-icon></ion-col>
+                          <ion-col  *ngIf="lesson.rate<4" (click)="doRate(lesson,4)" col-2><ion-icon name='star-outline'></ion-icon></ion-col>
 
-                                <ion-col  *ngIf="lesson.rate>=5" (click)="doRate(lesson,5)" col-2><ion-icon name='star'></ion-icon></ion-col>
-                                <ion-col  *ngIf="lesson.rate<5" (click)="doRate(lesson,5)" col-2><ion-icon name='star-outline'></ion-icon></ion-col>
+                          <ion-col  *ngIf="lesson.rate>=5" (click)="doRate(lesson,5)" col-2><ion-icon name='star'></ion-icon></ion-col>
+                          <ion-col  *ngIf="lesson.rate<5" (click)="doRate(lesson,5)" col-2><ion-icon name='star-outline'></ion-icon></ion-col>
 
                             <!--<ion-col col-2><ion-icon name="star-outline"></ion-icon></ion-col>-->
                         </ion-row>
