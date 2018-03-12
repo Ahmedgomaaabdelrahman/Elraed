@@ -103,6 +103,7 @@ this.navCtrl.push(MaxImagePage,{'img':image})
     getQuestions(){
       console.log(this.grade_id,this.subject_id,this.year_id)
       this.answer.questions(this.grade_id,this.subject_id,this.year_id).subscribe(questions=>{
+          console.log(questions)
 console.log(questions['length'])
 this.questionText=[]
 this.audioAnswer=[];
@@ -121,12 +122,15 @@ this.questionsArr=questions
       })
     }
     answerAQuestion(question,textAnswer,index){
-
+this.common.presentLoadingDefault('');
 console.log(question.quetison_id,this.audioAnswer[index],this.imageAnswer[index])
 this.answer.answerQuestion(question.quetison_id,this.audioAnswer[index],this.imageAnswer[index],textAnswer).subscribe(res=>{
   console.log(res)
+  
   this.common.presentToast('تم الارسال','اغلاق')
+ this.common.loadDismess()
 },e=>{
+  this.common.loadDismess()
   console.log(e)
   this.common.presentToast(' خطأ ! لم يتم الارسال','اغلاق')
 
