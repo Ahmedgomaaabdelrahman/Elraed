@@ -1,3 +1,4 @@
+import { MaxImagePage } from './../max-image/max-image';
 import { User } from './../../model/UserModel';
 import { CommonServicesProvider } from './../../providers/common-services/common-services';
 import { CommonServerStaticsProvider } from './../../providers/common-server-statics/common-server-statics';
@@ -95,7 +96,10 @@ this.yearsArr=res
       this.getQuestions()
       console.log(this.subject_id)
       
-      }
+    }
+    imageMax(image){
+this.navCtrl.push(MaxImagePage,{'img':image})
+    }
     getQuestions(){
       console.log(this.grade_id,this.subject_id,this.year_id)
       this.answer.questions(this.grade_id,this.subject_id,this.year_id).subscribe(questions=>{

@@ -208,7 +208,7 @@ return promise
     camPic(source):Promise<any>{
         let promise=new Promise((resolve,reject)=>{
             const options: CameraOptions = {
-                quality: 100,
+                quality: 50,
                 sourceType:source,
   destinationType: this.camera.DestinationType.DATA_URL,
   encodingType: this.camera.EncodingType.JPEG,
