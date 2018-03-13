@@ -1,10 +1,14 @@
 <ion-header>
     <ion-title><header></header></ion-title>
+
+    <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/4.12/video.js"></script>
+
 </ion-header>
 
 
 <ion-content >
-     
+
     <div class="topdiv">
                 <p class="divtitle">{{grade}} </p>
                 <ion-item  class="editinput" >
@@ -13,50 +17,70 @@
                         <ion-option   (ionSelect)="selectSubject( subj )"   *ngFor="let subj of subs;
                         let i=index"  value={{subj.name}}>{{subj.name}}
                            </ion-option>
-                       
+
                     </ion-select>
                 </ion-item>
                 <form #f="ngForm">
 
-                <ion-textarea [(ngModel)]="questionText" name="questionText" 
+                <ion-textarea [(ngModel)]="questionText" name="questionText"
                 class="question"
                  placeholder="اكتب سؤالك هنا">
                 </ion-textarea>
 
                 <ion-row style="text-align:center">
                     <ion-col col-6>
-                        <div >
-                           
-                            <img (click)='record()' src="assets/imgs/uploadvioce.png"><br>
-                            <p (click)='record()'>اضافة ملف صوت</p>
-                            <br>
- <ion-icon (click)="cleanVoice()" name="trash"></ion-icon>
-                        </div>
+                        <!--<div >-->
+                           <!---->
+                            <!--<img (click)='record()' src="assets/imgs/uploadvioce.png"><br>-->
+                            <!--<p (click)='record()'>اضافة ملف صوت</p>-->
+                            <!--<br>-->
+ <!--<ion-icon (click)="cleanVoice()" name="trash"></ion-icon>-->
+                        <!--</div>-->
+                      <img class="upload" (click)="serviceVideo()" src="assets/imgs/video.png">
+                      <p (click)="serviceVideo()">اضافة فيديو</p>
+
+                      <!--<video  id="MY_VIDEO_1" class="video-js vjs-default-skin" controls-->
+                             <!--preload="auto" width="320" height="240" poster="MY_VIDEO_POSTER.jpg"-->
+                             <!--data-setup="{}">-->
+                        <!--<source [src]='image' type='video/mp4'>-->
+                        <!--<source  [src]='image' type='video/webm'>-->
+                        <!--&lt;!&ndash;<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>&ndash;&gt;-->
+                      <!--</video>-->
                     </ion-col>
                     <!-- <ion-col col-3> -->
 
-                  
+
 <!-- </ion-col> -->
                            <ion-col col-6>
                             <div >
                                 <img (click)="addImage()" *ngIf="image ==''" src="assets/imgs/uploadimg.png">
                                 <img (click)="addImage()" *ngIf="image !=''" src={{image}}>
-                          
+
                                 <p (click)="addImage()">اضافة صوره</p>
                                 <br>
- <ion-icon (click)="cleanImage()" name="trash"></ion-icon>
                             </div>
                         </ion-col>
-                     
+
                 </ion-row>
-                
-                <p class="audio">
-                        <audio src={{audioRecord}} controls></audio>
-                       </p>  
+                  <!--<img class="upload" (click)="serviceVideo()" src="assets/imgs/video.png">-->
+
+                  <video  id="MY_VIDEO_1" class="video-js vjs-default-skin" controls
+                          preload="auto" width="320" height="240" poster="MY_VIDEO_POSTER.jpg"
+                          data-setup="{}">
+                    <source [src]='image' type='video/mp4'>
+                    <source  [src]='image' type='video/webm'>
+                    <!--<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>-->
+                  </video>
+                <!--<p class="audio">-->
+                        <!--<audio src={{audioRecord}} controls></audio>-->
+                       <!--</p>-->
+                  <ion-icon (click)="cleanImage()" name="trash"></ion-icon>
+
                        <ion-spinner class="spinners" *ngIf="spinnerFlag" name="bubbles"></ion-spinner>
 
-    
+
                 <button *ngIf="!spinnerFlag"  (click)="ask()" ion-button block class="enter">اطرح السؤال</button>
+
             </form>
 
             </div>
