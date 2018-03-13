@@ -53,10 +53,10 @@
             </ion-row>
             <ion-row>
                     <ion-col *ngIf="question.image_url ==null" col-2 style="text-align: center;"><img height="100%" width="100%" src="assets/imgs/uploadimg.png"></ion-col>
-                    <ion-col *ngIf="question.image_url !=null" col-2 style="text-align: center;"><img height="100%" width="100%" src={{question.image_url}}></ion-col>
+                    <ion-col *ngIf="question.image_url !=null" col-2 style="text-align: center;"><img height="100%" width="100%" (click)='imageMax(question.image_url)' src={{question.image_url}}></ion-col>
 
                     <ion-col col-10>
-                        <div class="aud">
+                        <div *ngIf="question.audio_url != ''" class="aud">
                             <audio src={{question.audio_url}} controls></audio>
                        </div>
                 </ion-col>
