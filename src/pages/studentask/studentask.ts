@@ -165,7 +165,7 @@ cleanVoice(){
     let self=this
     this.common.media().then(res=>{
       console.log('video res ',res)
-      this.common.toDataURL(res[0]['fullPath'])
+      this.common.toDataURL(res[0]['localURL'])
       this.common.toBase64(res[0]['fullPath']).then(base64=>{
         var str = base64;
 
