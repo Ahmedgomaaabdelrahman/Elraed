@@ -41,7 +41,7 @@ $buttonBack :#dfc262;
 .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
    border-bottom: 1px solid gray;;
 }
-page-testquestions .radio-md .radio-inner, page-testquestions .radio-ios .radio-inner , page-studenttest .radio-ios .radio-inner {
+page-testquestions .radio-ios .radio-inner , page-studenttest .radio-ios .radio-inner {
   background-color: transparent !important;
 }
   .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
@@ -70,9 +70,9 @@ page-testquestions .radio-md .radio-inner, page-testquestions .radio-ios .radio-
     font-size: 30px;
     padding-top: 2px;
     color: #017c9a;
-   
+
 }
-//  
+//
 .tabs-ios .tab-button {
     max-width: 100%;
 }
@@ -83,7 +83,7 @@ page-testquestions .radio-md .radio-inner, page-testquestions .radio-ios .radio-
     padding: 0 16px;
 }
 .item-md.item-block .item-inner ,.item-ios.item-block .item-inner{
-    padding-right: 0px; 
+    padding-right: 0px;
 }
 .input-wrapper {
     border-bottom: 1px solid gray;
@@ -102,7 +102,7 @@ button.item-ios:not([detail-none]) .item-inner{
 //     direction: rtl;
 //     color: #4e4e4e;
 //     font-weight: normal;
-//    
+//
 // }
 // App Global Sass
 // --------------------------------------------------

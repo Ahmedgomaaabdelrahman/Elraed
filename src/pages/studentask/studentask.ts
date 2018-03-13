@@ -25,6 +25,7 @@ export class StudentaskPage {
   image:string='';
   audioRecord:string=''
   audioSend:any
+  video:string=''
 questionText:string=''
   phone
   subs:object;
@@ -112,24 +113,24 @@ console.log(encodedImage)
 'subject_id':this.subject_id,
 'question':this.questionText,
 'image_url':this.image,
-'audio_url': ''
+'audio_url': this.video
   }
    console.log(question)
 
-  if(this.audioSend=='' ||this.audioSend==null||this.audioSend==undefined){
-    question.audio_url=''
-  }else{
-
- question.audio_url=this.audioSend[1]
-
-
-  }
+ //  if(this.audioSend=='' ||this.audioSend==null||this.audioSend==undefined){
+ //    question.audio_url=''
+ //  }else{
+ //
+ // question.audio_url=this.audioSend[1]
+ //
+ //
+ //  }
 
 this.spinnerFlag=true
 
    console.log(question)
    this.askProvider.ask(question).subscribe(res=>{
-     
+
      this.common.presentToast('تم')
     this.spinnerFlag=false
     this.questionText=''
@@ -153,4 +154,27 @@ cleanVoice(){
     this.audioRecord=''
     this.audioSend=''
 }
+  serviceVideo(){
+    // this.show=false
+
+    let self=this
+    this.common.media().then(res=>{
+      console.log('video',res[0]['fullPath'])
+
+      this.common.toBase64(res[0]['fullPath']).then(base64=>{
+        var str = base64;
+        var res = str.split("data:image/*;charset=utf-8;base64,");
+        this.video=res[1]
+
+        console.log(res[1])
+      }).catch(e=>{
+        console.log(e)
+        this.common.presentToast('خطأ')
+      })
+    }).catch(e=>{
+      console.log(e)
+      this.common.presentToast('خطأ')
+    })
+
+  }
 }
