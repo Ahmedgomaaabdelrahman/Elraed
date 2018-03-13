@@ -15,8 +15,8 @@ import { ActionSheet, ActionSheetOptions } from '@ionic-native/action-sheet';
 import { IonicStorageModule,Storage } from '@ionic/storage';
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { Base64 } from '@ionic-native/base64';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-// import { File } from '@ionic-native/file';
+// import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 /*
   Generated class for the CommonservicesProvider provider.
 
@@ -29,7 +29,7 @@ export class CommonServicesProvider {
   constructor(
               private mediaCapture: MediaCapture,
               public event:Events,
-              private transfer: FileTransfer,
+              private file: File,
               public actionSheetCtrl: ActionSheetController,
               private actionSheet: ActionSheet,
               private camera: Camera,
@@ -39,6 +39,7 @@ export class CommonServicesProvider {
               public http: HttpClient,
               private toast: ToastController) {
     console.log('Hello CommonservicesProvider Provider');
+
   }
   media():Promise<any>{
     let promise =new Promise((resolve,reject)=>{
@@ -264,9 +265,13 @@ return promise
 
 
 
+    this.file.readAsDataURL(filePath, 'file').then(res=>{
+        console.log('file 64',res)
+ resolve(res)
+    })
 
 
-        resolve(base64File)
+        // resolve(base64File)
         console.log(base64File);
       }, (err) => {
         console.log(err);
@@ -274,39 +279,26 @@ return promise
     });
     return promise
   }
-  toDataURL(url) {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-      var reader = new FileReader();
-      reader.onloadend = function() {
-        console.log('base result',reader.result);
-      }
-      reader.readAsDataURL(xhr.response);
-    };
-    xhr.open('GET', url);
-    xhr.responseType = 'blob';
-    xhr.send();
-  }
 
 
-    fileUpload(filepath,endpoint){
-        const fileTransfer: FileTransferObject = this.transfer.create();
-        let options: FileUploadOptions = {
-            fileKey: 'image',
-            httpMethod:'GET',
-            fileName: 'test.3gp',
-            // headers: {}
-            }
-            fileTransfer.upload(filepath,endpoint,options)
-                .then((data) => {
-    console.log(data)
-                    // success
-                }, (err) => {
-                    // error
-                    console.log(err)
+    // fileUpload(filepath,endpoint){
+    //     const fileTransfer: FileTransferObject = this.transfer.create();
+    //     let options: FileUploadOptions = {
+    //         fileKey: 'image',
+    //         httpMethod:'GET',
+    //         fileName: 'test.3gp',
+    //         // headers: {}
+    //         }
+    //         fileTransfer.upload(filepath,endpoint,options)
+    //             .then((data) => {
+    // console.log(data)
+    //                 // success
+    //             }, (err) => {
+    //                 // error
+    //                 console.log(err)
 
-                })
-        }
+    //             })
+    //     }
 // filedownload(endpoin){
 //
 //         const url =endpoin;

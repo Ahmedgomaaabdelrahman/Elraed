@@ -158,22 +158,22 @@ cleanVoice(){
     this.audioRecord=''
     this.audioSend=''
 }
-
+videoPath
   serviceVideo(){
     // this.show=false
 
     let self=this
     this.common.media().then(res=>{
       console.log('video res ',res)
-      this.common.toDataURL(res[0]['localURL'])
+      this.videoPath=res[0]['fullPath']
+      // this.common.toDataURL(res[0]['fullPath'])
       this.common.toBase64(res[0]['fullPath']).then(base64=>{
         var str = base64;
-
         var res = str.split("data:image/*;charset=utf-8;base64,");
         var res = base64
         self.video=base64
-
-        console.log('res',base64)
+alert(res)
+    console.log('res',base64)
       }).catch(e=>{
         console.log(e)
         this.common.presentToast('خطأ')

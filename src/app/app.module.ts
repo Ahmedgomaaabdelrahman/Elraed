@@ -37,7 +37,7 @@ import { CommonServicesProvider } from '../providers/common-services/common-serv
 import { Base64 } from '@ionic-native/base64';
 import { ActionSheet, ActionSheetOptions } from '@ionic-native/action-sheet';
 // import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+// import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 // import { File } from '@ionic-native/file';
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { IonicStorageModule } from '@ionic/storage';
@@ -54,6 +54,7 @@ import { FCM } from '@ionic-native/fcm';
 import { AboutusPage } from '../pages/aboutus/aboutus';
 import { TermsAndAboutUsProvider } from '../providers/terms-and-about-us/terms-and-about-us';
 import { MaxImagePage } from './../pages/max-image/max-image';
+import { File } from '@ionic-native/file';
 
 const config = {
   apiKey: "AIzaSyC6tug21Wv-fbQ_jjtxV5PA-HU1VyUQEKc",
@@ -127,7 +128,10 @@ firebase.initializeApp(config);
     TermsPage
   ],
   providers: [
-    StatusBar,User,Test,Statics,FileTransfer, MediaCapture,
+    StatusBar,User,Test,Statics
+    ,
+    // FileTransfer,
+     MediaCapture,File,
     SplashScreen,Camera,ActionSheet,
     {provide: ErrorHandler, useClass: IonicErrorHandler},{ provide: IonicStorageModule, useClass: IonicStorageModule},
     AuthProvider,Base64,
