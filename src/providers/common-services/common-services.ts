@@ -46,7 +46,7 @@ let promise =new Promise((resolve,reject)=>{
 
 
       // let options: CaptureVideoOptions = { duration: 60 };
-      this.mediaCapture.captureAudio()
+      this.mediaCapture.captureVideo()
           .then(
               (data: MediaFile[]) => resolve(data),
               (err: CaptureError) => console.error(reject(err))

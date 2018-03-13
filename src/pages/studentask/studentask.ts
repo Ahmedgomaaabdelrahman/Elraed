@@ -112,11 +112,9 @@ self.image='data:image/jpeg;base64,'+encodedImage
 'subject_id':this.subject_id,
 'question':this.questionText,
 'image_url':this.image,
-<<<<<<< HEAD
-'audio_url': this.audioSend[1]
-=======
+
 'audio_url': this.video
->>>>>>> e188118ddde905c17b25c7a9f67c9f65e558ba54
+
   }
   //  console.log('before send :: ',question)
 
@@ -133,13 +131,9 @@ this.spinnerFlag=true
 
    console.log(question)
    this.askProvider.ask(question).subscribe(res=>{
-<<<<<<< HEAD
-     
-  
-=======
+
 
      this.common.presentToast('تم')
->>>>>>> e188118ddde905c17b25c7a9f67c9f65e558ba54
     this.spinnerFlag=false
     this.questionText=''
     this.image=''
