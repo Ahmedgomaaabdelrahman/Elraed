@@ -40,20 +40,33 @@ export class CommonServicesProvider {
               private toast: ToastController) {
     console.log('Hello CommonservicesProvider Provider');
   }
-
   media():Promise<any>{
-let promise =new Promise((resolve,reject)=>{
+    let promise =new Promise((resolve,reject)=>{
 
 
       // let options: CaptureVideoOptions = { duration: 60 };
-      this.mediaCapture.captureVideo()
-          .then(
-              (data: MediaFile[]) => resolve(data),
-              (err: CaptureError) => console.error(reject(err))
-          );})
+      this.mediaCapture.captureVideo({ duration: 15 })
+        .then(
+          (data: MediaFile[]) => resolve(data),
+          (err: CaptureError) => console.error(reject(err))
+        );})
 
-        return promise;
+    return promise;
   }
+
+//   media():Promise<any>{
+// let promise =new Promise((resolve,reject)=>{
+//
+//
+//       // let options: CaptureVideoOptions = { duration: 60 };
+//       this.mediaCapture.captureVideo()
+//           .then(
+//               (data: MediaFile[]) => resolve(data),
+//               (err: CaptureError) => console.error(reject(err))
+//           );})
+//
+//         return promise;
+//   }
     storeValue(key:any,value:any):Promise<any>{
 let promise=new Promise((resolve,reject)=>{
     console.log('store',key,value)
@@ -213,7 +226,7 @@ return promise
   destinationType: this.camera.DestinationType.DATA_URL,
   encodingType: this.camera.EncodingType.JPEG,
   mediaType: this.camera.MediaType.PICTURE
-               
+
                 // quality: 100,
                 // sourceType:source,
                 // destinationType: this.camera.DestinationType.DATA_URL,
@@ -241,18 +254,18 @@ return promise
         return callback
         });
     }
-    toBase64(filepath):Promise<any>{
-        let promise=new Promise((resolve,reject)=> {
-            let filePath: string = filepath;
-            this.base64.encodeFile(filePath).then((base64File: string) => {
-                resolve(base64File)
-                console.log(base64File);
-            }, (err) => {
-                console.log(err);
-            });
-        });
+  toBase64(filepath):Promise<any>{
+    let promise=new Promise((resolve,reject)=> {
+      let filePath: string = filepath;
+      this.base64.encodeFile(filePath).then((base64File: string) => {
+        resolve(base64File)
+        console.log(base64File);
+      }, (err) => {
+        console.log(err);
+      });
+    });
     return promise
-    }
+  }
     fileUpload(filepath,endpoint){
         const fileTransfer: FileTransferObject = this.transfer.create();
         let options: FileUploadOptions = {
