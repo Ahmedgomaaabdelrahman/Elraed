@@ -158,17 +158,17 @@ cleanVoice(){
     this.audioRecord=''
     this.audioSend=''
 }
- 
+
   serviceVideo(){
     // this.show=false
 
     let self=this
     this.common.media().then(res=>{
-      console.log('video',res[0]['fullPath'])
-
+      console.log('video res ',res)
+      this.common.toDataURL(res[0]['fullPath'])
       this.common.toBase64(res[0]['fullPath']).then(base64=>{
         var str = base64;
-        
+
         var res = str.split("data:image/*;charset=utf-8;base64,");
         var res = base64
         self.video=base64

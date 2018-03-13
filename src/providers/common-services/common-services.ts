@@ -258,6 +258,14 @@ return promise
     let promise=new Promise((resolve,reject)=> {
       let filePath: string = filepath;
       this.base64.encodeFile(filePath).then((base64File: string) => {
+
+
+
+
+
+
+
+
         resolve(base64File)
         console.log(base64File);
       }, (err) => {
@@ -266,6 +274,21 @@ return promise
     });
     return promise
   }
+  toDataURL(url) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        console.log('base result',reader.result);
+      }
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
+  }
+
+
     fileUpload(filepath,endpoint){
         const fileTransfer: FileTransferObject = this.transfer.create();
         let options: FileUploadOptions = {
