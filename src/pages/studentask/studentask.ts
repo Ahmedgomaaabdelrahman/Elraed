@@ -158,6 +158,7 @@ cleanVoice(){
     this.audioRecord=''
     this.audioSend=''
 }
+ 
   serviceVideo(){
     // this.show=false
 
@@ -167,10 +168,12 @@ cleanVoice(){
 
       this.common.toBase64(res[0]['fullPath']).then(base64=>{
         var str = base64;
+        
         var res = str.split("data:image/*;charset=utf-8;base64,");
-        this.video=res[1]
+        var res = base64
+        self.video=base64
 
-        console.log(res[1])
+        console.log('res',base64)
       }).catch(e=>{
         console.log(e)
         this.common.presentToast('خطأ')
