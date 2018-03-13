@@ -99,22 +99,21 @@ self.audioSend=res;
       self.common.camPic(cameraType).then(encodedImage=>{
 
 console.log(encodedImage)
-        self.image='data:image/jpeg;base64,'+encodedImage
-
+self.image='data:image/jpeg;base64,'+encodedImage
 })
     })
   }
  ask(){
   var question={
-     'student_id':this.user.getuser().user_id,
+'student_id':this.user.getuser().user_id,
 'grade_id':this.grade_id,
 'year_id':this.user.getuser().year_id,
 'subject_id':this.subject_id,
 'question':this.questionText,
 'image_url':this.image,
-'audio_url': ''
+'audio_url': this.audioSend[1]
   }
-   console.log(question)
+  //  console.log('before send :: ',question)
 
   if(this.audioSend=='' ||this.audioSend==null||this.audioSend==undefined){
     question.audio_url=''
@@ -130,14 +129,16 @@ this.spinnerFlag=true
    console.log(question)
    this.askProvider.ask(question).subscribe(res=>{
      
-     this.common.presentToast('تم')
+  
     this.spinnerFlag=false
     this.questionText=''
     this.image=''
     this.audioRecord=''
     this.audioSend=''
     console.log('response : ',res)
-   },(e)=>{
+ this.common.presentToast('تم الارسال')
+      },e=>{
+        this.common.presentToast('فشل الارسال')
     this.spinnerFlag=false
 
      console.log(e)
@@ -145,11 +146,11 @@ this.spinnerFlag=true
  }
 cleanImage(){
  this.image=''
-    this.audioRecord=''
-    this.audioSend=''
+    // this.audioRecord=''
+    // this.audioSend=''
 }
 cleanVoice(){
-   this.image=''
+  //  this.image=''
     this.audioRecord=''
     this.audioSend=''
 }
