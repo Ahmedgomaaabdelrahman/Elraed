@@ -89,7 +89,12 @@ self.audioRecord=audioFile[0].fullPath
 //   'audio_url': this.video
 //
 // })
-this.common.toBase64(audioFile[0].fullPath).then(base64=>{
+
+      this.gotFile(audioFile[0].fullPath).then(base64=>{
+
+
+
+      // this.common.toBase64(audioFile[0].fullPath).then(base64=>{
 
   var str = base64;
   var res = str.split("data:image/*;charset=utf-8;base64,");
@@ -194,4 +199,28 @@ videoPath
 //     })
 //
 //   }
+
+    gotFile(fileEntry) :Promise<any>{
+
+  let promise=new Promise((resolve,reject)=>{
+
+
+      fileEntry.file(function(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(e) {
+
+          var content = this.result;
+          console.log( 'result',e)
+          console.log( 'result',this.result)
+          resolve( this.result)
+          // callback(content);
+        };
+        // The most important point, use the readAsDatURL Method from the file plugin
+        reader.readAsDataURL(file);
+        console.log('file',file)
+      });
+  })
+return promise;
+}
+
 }

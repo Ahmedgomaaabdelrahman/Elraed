@@ -29,13 +29,13 @@
 
                 <ion-row style="text-align:center">
                     <ion-col col-6>
-                        <div >
+                        <!--<div >-->
 
-                            <img (click)='record()' src="assets/imgs/uploadvioce.png"><br>
-                            <p (click)='record()'>اضافة ملف صوت</p>
-                            <br>
- <ion-icon  *ngIf="audioRecord !=''" (click)="cleanVoice()" name="trash"></ion-icon>
-                        </div>
+                            <!--<img (click)='record()' src="assets/imgs/uploadvioce.png"><br>-->
+                            <!--<p (click)='record()'>اضافة ملف صوت</p>-->
+                            <!--<br>-->
+ <!--<ion-icon  *ngIf="audioRecord !=''" (click)="cleanVoice()" name="trash"></ion-icon>-->
+                        <!--</div>-->
                       <!--<img class="upload" (click)="serviceVideo()" src="assets/imgs/video.png">-->
                       <!--<p (click)="serviceVideo()">اضافة فيديو</p>-->
 
@@ -72,9 +72,9 @@
                     <!--<source  src={{videoPath}} type='video/webm'>-->
                     <!--&lt;!&ndash;<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>&ndash;&gt;-->
                   <!--</video>-->
-                <p *ngIf="audioRecord !=''" class="audio">
-                        <audio [src]=audioRecord controls></audio>
-                       </p>
+                <!--<p *ngIf="audioRecord !=''" class="audio">-->
+                        <!--<audio [src]=audioRecord controls></audio>-->
+                       <!--</p>-->
 
 
                        <ion-spinner class="spinners" *ngIf="spinnerFlag" name="bubbles"></ion-spinner>

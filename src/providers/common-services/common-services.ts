@@ -273,7 +273,7 @@ return promise
 
 
         resolve(base64File)
-        console.log(base64File);
+        // console.log(base64File);
       }, (err) => {
         reject(err)
         console.log(err);
@@ -342,4 +342,5 @@ return promise
         // this.presentToast(err);
       });
   }
+
 }
