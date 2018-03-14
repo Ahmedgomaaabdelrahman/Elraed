@@ -10,7 +10,7 @@
 
 <ion-content>
     <div class="topdiv">
-       
+
         <div id="profileImage" >
           <img *ngIf="image==''&&image==null"  height="25px" class="simg" (click)="profileImage()" src="assets/imgs/editicon.png" ></div>
           <img *ngIf="image!=''"  height="25px" class="simg" (click)="profileImage()" src={{image}} >
@@ -18,7 +18,7 @@
         </div>
 
     <button ion-button class="upload" (click)="profileImage()" clear>تحميل الصوره الشخصيه</button>
-   
+
     <form #f="ngForm">
       <ion-input [(ngModel)]="name" name="name" class="editinput" type="text" placeholder="اسم الكامل"></ion-input>
      <!-- <ion-input  [(ngModel)]="phone" name="phone"class="editinput" type="text" placeholder="اسم المستخدم"></ion-input> -->
@@ -39,13 +39,13 @@
       <ion-item *ngIf="this.user.USER_TYPE==1"  class="editinput" >
           <ion-label>السنة الدراسية</ion-label>
           <ion-select >
-            <ion-option (ionSelect)="getSelectedYear(year)" *ngFor="let year of years;let i=index"  value={{year.year[i]}} required>{{year.year}}</ion-option>
-          
+            <ion-option (ionSelect)="getSelectedYear(yeara)" *ngFor="let yeara of years;let i=index"  value={{yeara.year[i]}} required>{{yeara.year}}</ion-option>
+
           </ion-select>
         </ion-item>
 
-  
-   
+
+
        <button ion-button block  [disabled]="!f.valid" class="btn" (click)="home()">تعديل</button>
    </form>
 </ion-content>

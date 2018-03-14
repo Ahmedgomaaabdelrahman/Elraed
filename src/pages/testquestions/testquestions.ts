@@ -33,10 +33,10 @@ this.answer_1=[]
 this.question=[]
 this.answer_2=[]
 this.answer_3=[]
-    this.answer_1[0]=''
-    this.question[0]=''
-    this.answer_2[0]=''
-    this.answer_3[0]=''
+    // this.answer_1[0]=''
+    // this.question[0]=''
+    // this.answer_2[0]=''
+    // this.answer_3[0]=''
 
     this.questions[0]={'questaion':this.question[0],'answer_1':this.answer_1[0],'answer_2':this.answer_2[0],'answer_3':this.answer_3[0],'correct':''}
 

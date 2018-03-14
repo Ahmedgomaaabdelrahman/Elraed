@@ -55,7 +55,7 @@ import { AboutusPage } from '../pages/aboutus/aboutus';
 import { TermsAndAboutUsProvider } from '../providers/terms-and-about-us/terms-and-about-us';
 import { MaxImagePage } from './../pages/max-image/max-image';
 import { File } from '@ionic-native/file';
-
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 const config = {
   apiKey: "AIzaSyC6tug21Wv-fbQ_jjtxV5PA-HU1VyUQEKc",
   authDomain: "muthber-ab8ab.firebaseapp.com",
@@ -143,7 +143,8 @@ firebase.initializeApp(config);
     TestProvider,
     StudintTimeLineProvider,
     StaticsProvider,
-    FcmPushProvider,FCM,
+    FcmPushProvider,FCM,  FileTransfer,
+    FileTransferObject,
     TermsAndAboutUsProvider
   ]
 })

@@ -108,8 +108,10 @@ afterSignUp(res){
   this.user.setuser(res)
   this.common.loadDismess();
   this.auth.login(res.phone,res.password)
+  res.password=this.password
+
   this.common.storeValue(this.statics.CURRENT_USER,res).then(()=>{
-    
+
     if(res.type==2){
     this.navCtrl.setRoot(TeachertabsPage)
       this.menuCtrl.enable(true)

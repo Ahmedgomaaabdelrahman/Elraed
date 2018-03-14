@@ -74,10 +74,23 @@ grade_id:any=''
   record(){
     let self=this
     this.common.media().then(audioFile=>{
-console.log(audioFile[0].fullPath)
-self.audioRecord=audioFile[0].fullPath
 
+console.log(audioFile)
+self.audioRecord=audioFile[0].fullPath
+// this.common.uploadFile(audioFile[0].localURI)
+// this.common.uploadFile(audioFile[0].localURL,{
+//   'student_id':this.user.getuser().user_id,
+//   'grade_id':this.grade_id,
+//   'year_id':this.user.getuser().year_id,
+//   'subject_id':this.subject_id,
+//   'question':this.questionText,
+//   'image_url':this.image,
+//
+//   'audio_url': this.video
+//
+// })
 this.common.toBase64(audioFile[0].fullPath).then(base64=>{
+
   var str = base64;
   var res = str.split("data:image/*;charset=utf-8;base64,");
   // var str = res;
@@ -118,14 +131,11 @@ self.image='data:image/jpeg;base64,'+encodedImage
   }
   //  console.log('before send :: ',question)
 
- //  if(this.audioSend=='' ||this.audioSend==null||this.audioSend==undefined){
- //    question.audio_url=''
- //  }else{
- //
- // question.audio_url=this.audioSend[1]
- //
- //
- //  }
+  if(this.audioSend=='' ||this.audioSend==null||this.audioSend==undefined){
+    question.audio_url=''
+  }else{
+ question.audio_url=this.audioSend[1]
+  }
 
 this.spinnerFlag=true
 
@@ -159,29 +169,29 @@ cleanVoice(){
     this.audioSend=''
 }
 videoPath
-  serviceVideo(){
-    // this.show=false
-
-    let self=this
-    this.common.media().then(res=>{
-      console.log('video res ',res)
-      this.videoPath=res[0]['fullPath']
-      // this.common.toDataURL(res[0]['fullPath'])
-      this.common.toBase64(res[0]['fullPath']).then(base64=>{
-        var str = base64;
-        var res = str.split("data:image/*;charset=utf-8;base64,");
-        var res = base64
-        self.video=base64
-alert(res)
-    console.log('res',base64)
-      }).catch(e=>{
-        console.log(e)
-        this.common.presentToast('خطأ')
-      })
-    }).catch(e=>{
-      console.log(e)
-      this.common.presentToast('خطأ')
-    })
-
-  }
+//   serviceVideo(){
+//     // this.show=false
+//
+//     let self=this
+//     this.common.media().then(res=>{
+//       console.log('video res ',res)
+//       this.videoPath=res[0]['fullPath']
+//       // this.common.toDataURL(res[0]['fullPath'])
+//       this.common.toBase64(res[0]['fullPath']).then(base64=>{
+//         var str = base64;
+//         var res = str.split("data:image/*;charset=utf-8;base64,");
+//         var res = base64
+//         self.video=base64
+// // alert(res)
+//     console.log('res',base64)
+//       }).catch(e=>{
+//         console.log(e)
+//         this.common.presentToast('خطأ')
+//       })
+//     }).catch(e=>{
+//       console.log(e)
+//       this.common.presentToast('خطأ')
+//     })
+//
+//   }
 }

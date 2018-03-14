@@ -128,21 +128,22 @@ afterSignUp(res){
   if(res['error']!=undefined){
     this.password=this.password_confirm=null
     this.common.loadDismess();
-  
+
     this.common.presentToast(res['error'])
-  
+
   return;
   }
   console.log('response after edit: ',res)
   this.common.loadDismess();
   this.common.storeValue(this.statics.CURRENT_USER,res).then(()=>{
     this.user.setuser(res)
+    this.user.USER.password=this.password;
     if(this.user.USER.type=='1'){
     this.navCtrl.setRoot(StudenttabsPage)
   }else{
       this.navCtrl.setRoot(TeachertabsPage)
     }
-  
+
   })
 }
 assignGradesAndYearslists(){
@@ -170,7 +171,13 @@ console.log(year)
 getSelectedGrade(grade){
   this.grade=grade['grade_id']
   console.log(this.grade)
-  
+  this.auth.getYears(grade['grade_id']).subscribe(res=>{
+    console.log(res)
+    this.years=res
+
+  },e=>{
+    console.log(e)
+  })
   }
   profileImage(){
     let self=this;
@@ -179,7 +186,7 @@ getSelectedGrade(grade){
       self.common.camPic(cameraType).then(encodedImage=>{
         // self.image=encodedImage
         self.image='data:image/jpeg;base64,'+encodedImage
-        
+
 
 })
     })

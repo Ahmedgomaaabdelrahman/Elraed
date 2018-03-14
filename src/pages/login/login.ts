@@ -52,7 +52,7 @@ this.auth.login(this.phone,this.password).then(res=>{
   // this.common.loadDismess()
 this.afterSignIn(res)
 },(e)=>{
-  
+
   console.log(e)
 this.common.loadDismess()
 
@@ -73,6 +73,7 @@ afterSignIn(res){
 
 
   this.common.loadDismess();
+  res.password=this.password
   this.common.storeValue(this.statics.CURRENT_USER,res).then(()=>{
     console.log(res.type)
     if(res.type=='1'){

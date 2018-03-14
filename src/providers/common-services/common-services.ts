@@ -15,8 +15,10 @@ import { ActionSheet, ActionSheetOptions } from '@ionic-native/action-sheet';
 import { IonicStorageModule,Storage } from '@ionic/storage';
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { Base64 } from '@ionic-native/base64';
-// import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+
 import { File } from '@ionic-native/file';
+import {Statics} from "../../model/StaticsModel";
 /*
   Generated class for the CommonservicesProvider provider.
 
@@ -25,6 +27,7 @@ import { File } from '@ionic-native/file';
 */
 @Injectable()
 export class CommonServicesProvider {
+  private url
 
   constructor(
               private mediaCapture: MediaCapture,
@@ -34,11 +37,15 @@ export class CommonServicesProvider {
               private actionSheet: ActionSheet,
               private camera: Camera,
               private base64: Base64,
+              private transfer: FileTransfer,
+              private statics:Statics,
+
               public loadingCtrl: LoadingController,
               private store: Storage,
               public http: HttpClient,
               private toast: ToastController) {
     console.log('Hello CommonservicesProvider Provider');
+    this.url=this.statics.getURL();
 
   }
   media():Promise<any>{
@@ -46,7 +53,7 @@ export class CommonServicesProvider {
 
 
       // let options: CaptureVideoOptions = { duration: 60 };
-      this.mediaCapture.captureVideo({ duration: 15 })
+      this.mediaCapture.captureAudio()
         .then(
           (data: MediaFile[]) => resolve(data),
           (err: CaptureError) => console.error(reject(err))
@@ -259,21 +266,16 @@ return promise
     let promise=new Promise((resolve,reject)=> {
       let filePath: string = filepath;
       this.base64.encodeFile(filePath).then((base64File: string) => {
+ //    this.file.readAsDataURL(filePath, 'file').then(res=>{
+ //        console.log('file 64',res)
+ // resolve(res)
+ //    })
 
 
-
-
-
-
-    this.file.readAsDataURL(filePath, 'file').then(res=>{
-        console.log('file 64',res)
- resolve(res)
-    })
-
-
-        // resolve(base64File)
+        resolve(base64File)
         console.log(base64File);
       }, (err) => {
+        reject(err)
         console.log(err);
       });
     });
@@ -311,4 +313,33 @@ return promise
 //         });
 //
 // }
+  uploadFile(fileURI,params) {
+
+    const fileTransfer: FileTransferObject = this.transfer.create();
+
+    let options: FileUploadOptions = {
+      fileKey: 'ionicfile',
+      fileName: 'ionicfile',
+      params:params,
+      chunkedMode: false,
+      httpMethod : 'post',
+
+      mimeType: "audio/m4a",
+      headers: {
+        // 'content-type': 'application/x-www-form-urlencoded'
+      }
+    }
+
+    fileTransfer.upload(fileURI, this.url+'askfile', options)
+      .then((data) => {
+        console.log(data+" Uploaded Successfully");
+        // let fileName = "http://192.168.0.7:8080/static/images/ionicfile."
+        // loader.dismiss();
+        // this.presentToast("Image uploaded successfully");
+      }, (err) => {
+        console.log(err);
+        // loader.dismiss();
+        // this.presentToast(err);
+      });
+  }
 }
