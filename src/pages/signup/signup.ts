@@ -8,6 +8,7 @@ import {CommonServerStaticsProvider} from '../../providers/common-server-statics
 import { AuthProvider } from '../../providers/auth/auth';
 import { Statics } from '../../model/StaticsModel';
 import { CommonServicesProvider } from '../../providers/common-services/common-services';
+import {FcmPushProvider} from "../../providers/fcm-push/fcm-push";
 
 @Component({
   selector: 'page-signup',
@@ -34,7 +35,7 @@ year
     private common:CommonServicesProvider,
     public navCtrl: NavController,
     public navParams: NavParams,
-    public statics:Statics,
+    public statics:Statics,public fcmProvider:FcmPushProvider,
     public commonServerStaticsProvider:CommonServerStaticsProvider,
     private auth:AuthProvider
     ) {
@@ -63,32 +64,38 @@ return this.password==this.password_confirm;
   home(){
     document.getElementById("passwordCheck").style.display = "none"
 console.log(this.checkPasswords())
-    if(this.checkPasswords()){
-let user={
-  'name':this.name,
-  'phone':this.phone,
-  'password':this.password,
-  'password_confirm':this.password_confirm,
-  'mail':this.email,
-  'type':this.navParams.get('type'),
-  'grade':this.grade,
-  'year':this.year,
-  'image':this.displayImage
-  }
+    if(this.checkPasswords()) {
+      this.fcmProvider.getDviceToken().then(token=>{
+
+      let user = {
+        'name': this.name,
+        'phone': this.phone,
+        'token_id':token,
+        'password': this.password,
+        'password_confirm': this.password_confirm,
+        'mail': this.email,
+        'type': this.navParams.get('type'),
+        'grade': this.grade,
+        'year': this.year,
+        'image': this.displayImage
+      }
 
 
-  console.log(user)
-  this.user.setuser(user);
-  this.user.USER_TYPE=this.navParams.get('type')
+      console.log(user)
+      this.user.setuser(user);
+      this.user.USER_TYPE = this.navParams.get('type')
 // return;
-this.common.presentLoadingDefault()
-    this.auth.signUp().subscribe(res=>{
-this.afterSignUp(res)
-    },(e)=>{
-      this.common.loadDismess();
+      this.common.presentLoadingDefault()
+      this.auth.signUp().subscribe(res => {
+        this.afterSignUp(res)
+      }, (e) => {
+        this.common.loadDismess();
 
-      console.log('error',e)
-    });
+        console.log('error', e)
+      });
+
+
+    })
     // this.navCtrl.push(StudenttabsPage);
   }else{
     document.getElementById("passwordCheck").style.display = "block"
