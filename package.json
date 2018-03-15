@@ -76,7 +76,8 @@
       "cordova-plugin-ionic-keyboard": {},
       "com-badrit-base64": {},
       "cordova-plugin-fcm": {},
-      "cordova-plugin-file": {}
+      "cordova-plugin-file": {},
+      "cordova-plugin-firebase": {}
     },
     "platforms": [
       "browser",

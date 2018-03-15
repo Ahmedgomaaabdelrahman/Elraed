@@ -3,6 +3,7 @@ import { Events } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FCM } from '@ionic-native/fcm';
+
 declare var FCMPlugin;
 
 /*
@@ -55,8 +56,9 @@ export class FcmPushProvider {
       console.log('fcm subscribtion starts')
 
       FCMPlugin.onNotification(token=>{
-       
-    // if(data.wasTapped){
+        // firebase.setBadgeNumbr(0);
+
+        // if(data.wasTapped){
     //   //Notification was received on device tray and tapped by the user.
     //   alert( JSON.stringify(data) );
     // }else{
@@ -71,7 +73,7 @@ export class FcmPushProvider {
 
             //Notification was received on device tray and tapped by the user.
             // alert(token.wasTapped)ionic serve
-          
+
             // alert( token );
             this.events.publish('msg',1)
 

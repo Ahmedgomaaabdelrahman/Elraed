@@ -16,6 +16,7 @@ import { IonicStorageModule,Storage } from '@ionic/storage';
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { Base64 } from '@ionic-native/base64';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import firebase from 'firebase/app';
 
 import { File } from '@ionic-native/file';
 import {Statics} from "../../model/StaticsModel";
@@ -341,6 +342,27 @@ return promise
         // loader.dismiss();
         // this.presentToast(err);
       });
+  }
+  uploadToFirebase(bath){
+    // Create a root reference
+    var storageRef = firebase.storage().ref();
+
+// Create a reference to 'mountains.jpg'
+    var mountainsRef = storageRef.child(firebase.database.ServerValue.TIMESTAMP+'.m4a');
+
+// // Create a reference to 'images/mountains.jpg'
+//     var mountainImagesRef = storageRef.child('images/mountains.jpg');
+//
+// // While the file names are the same, the references point to different files
+//     mountainsRef.name === mountainImagesRef.name            // true
+//     // mountainsRef.fullPath === mountainImagesRef.fullPath    // false
+
+    var file =bath// use the Blob or File API
+    mountainsRef.put(file).then(function(snapshot) {
+      console.log('Uploaded a blob or file!',snapshot);
+    }).catch(e=>{
+      console.log(e)
+    });
   }
 
 }
