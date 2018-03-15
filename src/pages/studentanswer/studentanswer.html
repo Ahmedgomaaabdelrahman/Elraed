@@ -11,26 +11,26 @@
                     <ion-option   (ionSelect)="selectSubject( subj )"   *ngFor="let subj of questions;
                     let i=index"  value={{subj.question}}>{{subj.question}}
                        </ion-option>
-                   
+
                 </ion-select>
             </ion-item>
-           
-           
-           
-           <div *ngIf="answer !=''" > 
+
+
+
+           <div *ngIf="answer !=''" >
             <p class="answer">
 {{answer}}            </p>
-            <p class="audio">
-             <audio src={{audio_url}} controls></audio>
-            </p>
-         
+            <!--<p class="audio">-->
+             <!--<audio src={{audio_url}} controls></audio>-->
+            <!--</p>-->
+
             <div *ngIf="image_url!=null && image_url!=''"  class="imgdiv">
                 <img src={{image_url}}>
             </div>
             <p class="prate">
                     تقييم الاجابه
             </p>
-            <ion-row  class="raterow"> 
+            <ion-row  class="raterow">
                 <ion-col col-1></ion-col>
                 <ion-col *ngFor='let star of rateStars;let i=index'  (click)="addRate(i)" col-2><ion-icon name={{star}}></ion-icon></ion-col>
                 <ion-col col-1></ion-col>

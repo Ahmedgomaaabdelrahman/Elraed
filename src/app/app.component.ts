@@ -168,5 +168,17 @@ self.rootPage=TeachertabsPage
 
     // })
   }
+  goHomePage(){
+    if(this.user.USER.type=='1'){
+      this.menuCtrl.close();
+
+      this.nav.setRoot(StudenttabsPage)
+
+    }else if(this.user.USER.type=='2'){
+      this.menuCtrl.close();
+
+      this.nav.setRoot(TeachertabsPage)
+    }
+  }
 }
 
