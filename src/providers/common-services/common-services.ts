@@ -344,6 +344,7 @@ return promise
       });
   }
   uploadToFirebase(bath){
+
     // Create a root reference
     var storageRef = firebase.storage().ref();
 
@@ -359,8 +360,10 @@ return promise
 
     var file =bath// use the Blob or File API
     mountainsRef.put(file).then(function(snapshot) {
+      alert('done')
       console.log('Uploaded a blob or file!',snapshot);
     }).catch(e=>{
+      alert('e : '+e)
       console.log(e)
     });
   }
