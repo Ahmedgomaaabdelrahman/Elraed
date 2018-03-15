@@ -84,7 +84,12 @@ page-testquestions {
     
     }
 }
-
+.list-md .item-block .item-inner {
+    border-bottom: none;
+}
+.list-md .item-input:last-child{
+    border-bottom: none;
+}
 .answerdiv{
     width: 90%;
     display: block;
