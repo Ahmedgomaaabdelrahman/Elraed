@@ -44,40 +44,40 @@ public readonly GETYEAR:string='getYear'
   })
   return promise
   }
-//   login(phone,password):Promise<any>{
-// let promise=new Promise((resolve,reject)=>{
-//   this.getloginToken(phone,password).then(user=>{
-//     // return this.http.post(this.url+this.LOGIN,user)
-//     this.http.post(this.url+this.LOGIN,user).subscribe(res=>{
-//       resolve(res)
-//     },e=>{
-//       reject(e)
-//     })
-// // resolve(this.http.post(this.url+this.LOGIN,user))
-//   })
-// })
-// return promise;
-//   }
-
   login(phone,password):Promise<any>{
 let promise=new Promise((resolve,reject)=>{
-  // this.getloginToken(phone,password).then(user=>{
+  this.getloginToken(phone,password).then(user=>{
     // return this.http.post(this.url+this.LOGIN,user)
- let     user={
-      'phone':phone,
-      'password':password,
-      'token_id':'123'
-    }
     this.http.post(this.url+this.LOGIN,user).subscribe(res=>{
       resolve(res)
     },e=>{
       reject(e)
     })
 // resolve(this.http.post(this.url+this.LOGIN,user))
-  // })
+  })
 })
 return promise;
   }
+
+  // login(phone,password):Promise<any>{
+// let promise=new Promise((resolve,reject)=>{
+//   // this.getloginToken(phone,password).then(user=>{
+//     // return this.http.post(this.url+this.LOGIN,user)
+//  let     user={
+//       'phone':phone,
+//       'password':password,
+//       'token_id':'123'
+//     }
+//     this.http.post(this.url+this.LOGIN,user).subscribe(res=>{
+//       resolve(res)
+//     },e=>{
+//       reject(e)
+//     })
+// // resolve(this.http.post(this.url+this.LOGIN,user))
+//   // })
+// })
+// return promise;
+//   }
 
   signUp(){
 console.log('sign up object : ',this.usermodel.USER)
