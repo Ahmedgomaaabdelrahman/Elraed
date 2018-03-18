@@ -4,39 +4,53 @@
 
 
 <ion-content >
-    <div class="grade">
-        <ion-item (click)="reset()" class="editinput" >
-            <ion-label>المرحلة</ion-label>
-            <ion-select >
-              <ion-option (ionSelect)="getSelectedGrade(grade)" *ngFor="let grade of gradeArr;let i=index"  value={{grade.grade[i]}} required>{{grade.grade}}</ion-option>
 
-            </ion-select>
-          </ion-item>
-              <ion-item *ngIf="grade_id!=''" class="editinput" >
-                <ion-label>السنة الدراسية</ion-label>
-                <ion-select >
-                  <ion-option (ionSelect)="getSelectedYear(year)" *ngFor="let year of yearsArr;let i=index"  value={{year.year[i]}} required>{{year.year}}</ion-option>
+    <ion-buttons style="margin: 100px auto 0;
+    width: 70%;
+    font-size: 25px;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 15px;">
 
-                </ion-select>
-              </ion-item>
-              <ion-item   *ngIf="year_id!=''" class="editinput" >
-                <ion-label>المواد</ion-label>
-                <ion-select >
-                  <ion-option (ionSelect)="getSelectedSubject(subject)" *ngFor="let subject of subjectsArr;let i=index"  value={{subject.name[i]}} required>{{subject.name}}</ion-option>
+      <a href="http://teacher.muthaberapp.com">الذهاب الي الموقع لوضع الاختبار</a>
 
-                </ion-select>
-              </ion-item>
-        </div>
-  <div style="
-  margin-top: 70px;">
-    <div *ngFor="let week of weeks;let i=index" class="topdiv">
-    <div><p> {{week['week']}} </p></div>  
-      <!-- <p (click)="golessons()"><img src="assets/imgs/lesson.png"></p> -->
-       <div style="    padding: 5px 15px;" (click)="gotoexams(week)"><img src="assets/imgs/exam.png"></div> 
-    </div>
+    </ion-buttons>
 
-  </div>
-  <div *ngIf="subject_id!='' &&subject_id!=null" (click)="gotoexams(0)" class="addItem">
-      <ion-icon  class="add" name="add"></ion-icon>
-    </div>
+
+    <!--<div class="grade">-->
+        <!--<ion-item (click)="reset()" class="editinput" >-->
+            <!--<ion-label>المرحلة</ion-label>-->
+            <!--<ion-select >-->
+              <!--<ion-option (ionSelect)="getSelectedGrade(grade)" *ngFor="let grade of gradeArr;let i=index"  value={{grade.grade[i]}} required>{{grade.grade}}</ion-option>-->
+
+            <!--</ion-select>-->
+          <!--</ion-item>-->
+              <!--<ion-item *ngIf="grade_id!=''" class="editinput" >-->
+                <!--<ion-label>السنة الدراسية</ion-label>-->
+                <!--<ion-select >-->
+                  <!--<ion-option (ionSelect)="getSelectedYear(year)" *ngFor="let year of yearsArr;let i=index"  value={{year.year[i]}} required>{{year.year}}</ion-option>-->
+
+                <!--</ion-select>-->
+              <!--</ion-item>-->
+              <!--<ion-item   *ngIf="year_id!=''" class="editinput" >-->
+                <!--<ion-label>المواد</ion-label>-->
+                <!--<ion-select >-->
+                  <!--<ion-option (ionSelect)="getSelectedSubject(subject)" *ngFor="let subject of subjectsArr;let i=index"  value={{subject.name[i]}} required>{{subject.name}}</ion-option>-->
+
+                <!--</ion-select>-->
+              <!--</ion-item>-->
+        <!--</div>-->
+  <!--<div style="-->
+  <!--margin-top: 70px;">-->
+    <!--<div *ngFor="let week of weeks;let i=index" class="topdiv">-->
+    <!--<div><p> {{week['week']}} </p></div>  -->
+      <!--&lt;!&ndash; <p (click)="golessons()"><img src="assets/imgs/lesson.png"></p> &ndash;&gt;-->
+       <!--<div style="    padding: 5px 15px;" (click)="gotoexams(week)"><img src="assets/imgs/exam.png"></div> -->
+    <!--</div>-->
+
+  <!--</div>-->
+  <!--<div *ngIf="subject_id!='' &&subject_id!=null" (click)="gotoexams(0)" class="addItem">-->
+      <!--<ion-icon  class="add" name="add"></ion-icon>-->
+    <!--</div>-->
 </ion-content>
