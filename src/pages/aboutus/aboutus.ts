@@ -9,8 +9,8 @@ import { TermsAndAboutUsProvider } from './../../providers/terms-and-about-us/te
 })
 export class AboutusPage {
   about
-  
-  
+
+
   constructor(public termsAndAboutProvider:TermsAndAboutUsProvider,public navCtrl: NavController, public navParams: NavParams) {
   }
 info
@@ -19,8 +19,8 @@ info
       console.log(res)
     this.info=res
       console.log(this.info)
-     this. about=this.info[0].policy
-    
+     this. about=this.info[0].about
+
     })
     console.log('ionViewDidLoad ContactusPage');
   }
