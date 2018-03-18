@@ -22,5 +22,8 @@ export class TestresultPage {
   this.presentage=Math.round((this.result*100)/this.questionsCount)
   }
   finish(){
+
     this.navCtrl.setRoot(StudenttabsPage)  }
-}
+  ionViewWillLeave() {
+    this.navCtrl.setRoot(StudenttabsPage)
+  }}

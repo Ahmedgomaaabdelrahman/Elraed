@@ -110,6 +110,7 @@ self.audioSend=res;
     })
   }
   sendImage:string=''
+
   addImage(){
     let self=this;
 
@@ -222,5 +223,7 @@ cleanVoice(){
 //   })
 // return promise;
 // }
-
+  ionViewWillLeave() {
+this.navCtrl.setRoot(StudenttabsPage)
+  }
 }

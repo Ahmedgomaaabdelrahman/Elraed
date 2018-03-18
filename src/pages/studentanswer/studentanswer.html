@@ -25,7 +25,7 @@
             <!--</p>-->
 
             <div *ngIf="image_url!=null && image_url!=''"  class="imgdiv">
-                <img src={{image_url}}>
+                <img (click)="maxImage(image_url)" src={{image_url}}>
             </div>
             <p class="prate">
                     تقييم الاجابه

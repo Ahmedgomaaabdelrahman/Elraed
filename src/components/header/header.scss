@@ -1,6 +1,6 @@
 header {
     div{
-        background-color:$topcolor; 
+        background-color:$topcolor;
         background-repeat: no-repeat;
         background-size: cover;
         height: 55px;
@@ -33,8 +33,9 @@ header {
         height: 35px !important;
     }
     .notify{
-        font-size: 23px;
+      font-size: 33px;
         padding-top: 10px;
+      padding-left: 4px;
     }
     .menu{
         font-size: 30px;
@@ -49,6 +50,5 @@ header {
             margin: 0;
         }
     }
-    
+
     }
-    

@@ -14,10 +14,13 @@ page-studenttest {
         }
     }
     ion-label {
-        overflow: scroll !important;
-        text-overflow: unset;
-    } 
-    .answer{
+      width: 100%;
+      white-space: unset;
+      height: auto;
+      //overflow: scroll !important;
+               //text-overflow: unset;
+             }
+  .answer{
         width: 100%;
         float: right;
         display: inline-block;
@@ -40,7 +43,7 @@ page-studenttest {
     }
     .radio-md .radio-checked ,.radio-ios .radio-checked{
         border-color: gray;
-       
+
     }
     .item-radio-checked.item-md ion-label , .item-radio-checked.item-ios ion-label{
         color:gray
@@ -54,7 +57,7 @@ page-studenttest {
     }
 
     ion-list {
-        height: 130px !important;
+        //height: 130px !important;
     }
 
     .scroll-content{

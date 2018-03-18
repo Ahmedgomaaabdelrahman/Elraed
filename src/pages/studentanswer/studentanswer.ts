@@ -12,6 +12,7 @@ import {CommonServerStaticsProvider} from '../../providers/common-server-statics
 import { AuthProvider } from '../../providers/auth/auth';
 import { Statics } from '../../model/StaticsModel';
 import { CommonServicesProvider } from '../../providers/common-services/common-services';
+import {MaxImagePage} from "../max-image/max-image";
 
 
 @Component({
@@ -19,7 +20,7 @@ import { CommonServicesProvider } from '../../providers/common-services/common-s
   templateUrl: 'studentanswer.html',
 })
 export class StudentanswerPage {
-  user_id:any; 
+  user_id:any;
   questions:object;
 
 /////////////////////////////////////
@@ -39,7 +40,7 @@ rateStars:string[]
     public navCtrl: NavController,
     public navParams: NavParams,
     public statics:Statics,
-    
+
     public askProvider:AskProvider,
     public supjectsProvider:SelectingSubjectsProvider,
     public commonServerStaticsProvider:CommonServerStaticsProvider,
@@ -110,5 +111,8 @@ if(rateValue>=i){
     console.log(res)
   });
 
+  }
+  maxImage(url){
+    this.navCtrl.push(MaxImagePage,{'img':url})
   }
 }
