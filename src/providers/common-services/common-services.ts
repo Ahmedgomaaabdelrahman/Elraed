@@ -16,8 +16,8 @@ import { IonicStorageModule,Storage } from '@ionic/storage';
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { Base64 } from '@ionic-native/base64';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import firebase from 'firebase/app';
-
+// import firebase from 'firebase/app';
+import * as firebase from 'firebase'; 
 import { File } from '@ionic-native/file';
 import {Statics} from "../../model/StaticsModel";
 /*
@@ -346,10 +346,7 @@ return promise
   uploadToFirebase(bath){
 
     // Create a root reference
-    var storageRef = firebase.storage().ref();
-
-// Create a reference to 'mountains.jpg'
-    var mountainsRef = storageRef.child(firebase.database.ServerValue.TIMESTAMP+'.m4a');
+ 
 
 // // Create a reference to 'images/mountains.jpg'
 //     var mountainImagesRef = storageRef.child('images/mountains.jpg');
@@ -359,13 +356,67 @@ return promise
 //     // mountainsRef.fullPath === mountainImagesRef.fullPath    // false
 
     var file =bath// use the Blob or File API
-    mountainsRef.put(file).then(function(snapshot) {
+    this.dataURItoBlob(file).then(data=>{
+
+        var storageRef = firebase.storage().ref();
+
+        // Create a reference to 'mountains.jpg'
+            var mountainsRef = storageRef.child(''+'.m4a');
+    mountainsRef.put(data,{contentType:'audio/m4a'}).then((snapshot)=> {
       alert('done')
+      console.log(' timestamp :: ',firebase.database.ServerValue.TIMESTAMP);
       console.log('Uploaded a blob or file!',snapshot);
+
     }).catch(e=>{
       alert('e : '+e)
       console.log(e)
     });
-  }
+    })  
+}
+  dataURItoBlob(dataURI):Promise<any> {
+    // code adapted from: http://stackoverflow.com/questions/33486352/cant-upload-image-to-aws-s3-from-ionic-camera
+    let promise=new Promise((resolve,reject)=>{
+        console.log('url ',dataURI)
 
+        console.log('data blob : ',new Blob([new Uint8Array(dataURI)], {type: 'audio/mpeg'}))
+
+    // let binary = atob(dataURI.split(',')[1]);
+    // let array = [];
+    // for (let i = 0; i < binary.length; i++) {
+    //   array.push(binary.charCodeAt(i));
+    // }
+    // console.log('arr',array)
+    resolve(new Blob([new Uint8Array(dataURI)], {type: 'audio/m4a'}));
+})
+return promise;
+  }
+//   upload() {
+//       var uploadTask = firebase.storage()
+//       .ref()
+//       .child('images/uploaded.png')
+//       .put(this.dataURItoBlob('data:image/jpeg;base64,' + imageData));
+//       uploadTask.then(s=>{}, e=>{});
+    
+//   }
+
+
+
+
+
+
+//   addAssignmentFile(sbaid, file:any):any{
+
+//     return   this.sbaList.child(file.filename)
+// //Saves the file to storage
+//           .put(file.blob,{contentType:file.type}).then((savedFile) => {
+// //Gets the file url and saves it in the database
+//                this.sbaList.child('sbafiles').push({
+//                file: savedFile.downloadURL,
+//                name: file.filename,
+//                ext: file.fileext,
+//                type: file.type
+//           });
+//       })
+
+//   }
 }
