@@ -93,16 +93,16 @@ self.audioRecord=audioFile[0].fullPath
 
 
 this.common.uploadToFirebase(audioFile[0].fullPath)
-      this.common.toBase64(audioFile[0].fullPath).then(base64=>{
-
-  var str = base64;
-  var res = str.split("data:image/*;charset=utf-8;base64,");
-  // var str = res;
-self.audioSend=res;
-}).catch(e=>{
-  console.log(e)
-  this.common.presentToast('خطأ')
-})
+//       this.common.toBase64(audioFile[0].fullPath).then(base64=>{
+//
+//   var str = base64;
+//   var res = str.split("data:image/*;charset=utf-8;base64,");
+//   // var str = res;
+// self.audioSend=res;
+// }).catch(e=>{
+//   console.log(e)
+//   this.common.presentToast('خطأ')
+// })
 
 }).catch(e=>{
 
