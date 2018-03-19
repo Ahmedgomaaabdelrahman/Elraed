@@ -343,28 +343,31 @@ return promise
         // this.presentToast(err);
       });
   }
+
   uploadToFirebase(bath){
 
-    // Create a root reference
- 
 
-// // Create a reference to 'images/mountains.jpg'
-//     var mountainImagesRef = storageRef.child('images/mountains.jpg');
-//
-// // While the file names are the same, the references point to different files
-//     mountainsRef.name === mountainImagesRef.name            // true
-//     // mountainsRef.fullPath === mountainImagesRef.fullPath    // false
 
-    var file =bath// use the Blob or File API
-    this.dataURItoBlob(file).then(data=>{
+    var f =bath// use the Blob or File API
+    // file: File
 
+
+    this.dataURItoBlob(f).then(data=>{
+        var reader = new FileReader();
+        reader.onloadend = function (e) {
+            // do your parsing here
+            console.log('file reader e : ' ,e)
+
+        };
+        reader.readAsText(data);
+        console.log('file reader' ,reader.readAsText(f))
         var storageRef = firebase.storage().ref();
 
         // Create a reference to 'mountains.jpg'
             var mountainsRef = storageRef.child(''+'.m4a');
-    mountainsRef.put(data,{contentType:'audio/m4a'}).then((snapshot)=> {
+    mountainsRef.put(reader.readAsText(data),{contentType:'audio/m4a'}).then((snapshot)=> {
       alert('done')
-      console.log(' timestamp :: ',firebase.database.ServerValue.TIMESTAMP);
+    //   console.log(' timestamp :: ',mountainsRef.TIMESTAMP);
       console.log('Uploaded a blob or file!',snapshot);
 
     }).catch(e=>{

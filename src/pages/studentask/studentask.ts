@@ -92,7 +92,7 @@ self.audioRecord=audioFile[0].fullPath
 
 
 
-this.common.uploadToFirebase(audioFile[0].localURL)
+this.common.uploadToFirebase(audioFile[0].fullPath)
 // this.common.uploadToFirebase(audioFile[0].fullPath)
 
 //       this.common.toBase64(audioFile[0].fullPath).then(base64=>{
