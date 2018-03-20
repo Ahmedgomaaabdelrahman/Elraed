@@ -77,6 +77,8 @@ grade_id:any=''
 
 console.log(audioFile)
 self.audioRecord=audioFile[0].fullPath
+      var fi = document.getElementById("file");
+      console.log(fi);
 // this.common.uploadFile(audioFile[0].localURI)
 // this.common.uploadFile(audioFile[0].localURL,{
 //   'student_id':this.user.getuser().user_id,
@@ -89,9 +91,14 @@ self.audioRecord=audioFile[0].fullPath
 //   'audio_url': this.video
 //
 // })
+//       var $ = jQuery;
 
+      // var fil = event.target.files[0];
 
-
+      // const file = document.querySelector('.a');
+      // const f = document.getElementById('.a');
+      // console.log('f',f)
+      // console.log('file',file)
 this.common.uploadToFirebase(audioFile[0].fullPath)
 // this.common.uploadToFirebase(audioFile[0].fullPath)
 
@@ -175,57 +182,35 @@ cleanVoice(){
     this.audioRecord=''
     this.audioSend=''
 }
-// videoPath
-//   serviceVideo(){
-//     // this.show=false
-//
-//     let self=this
-//     this.common.media().then(res=>{
-//       console.log('video res ',res)
-//       this.videoPath=res[0]['fullPath']
-//       // this.common.toDataURL(res[0]['fullPath'])
-//       this.common.toBase64(res[0]['fullPath']).then(base64=>{
-//         var str = base64;
-//         var res = str.split("data:image/*;charset=utf-8;base64,");
-//         var res = base64
-//         self.video=base64
-// // alert(res)
-//     console.log('res',base64)
-//       }).catch(e=>{
-//         console.log(e)
-//         this.common.presentToast('خطأ')
-//       })
-//     }).catch(e=>{
-//       console.log(e)
-//       this.common.presentToast('خطأ')
-//     })
-//
-//   }
 
-//     gotFile(fileEntry) :Promise<any>{
-//
-//   let promise=new Promise((resolve,reject)=>{
-//
-//
-//       fileEntry.file(function(file) {
-//         var reader = new FileReader();
-//         reader.onloadend = function(e) {
-//
-//           var content = this.result;
-//
-//           console.log( 'result',e)
-//           console.log( 'result',this.result)
-//           resolve( this.result)
-//           // callback(content);
-//         };
-//         // The most important point, use the readAsDatURL Method from the file plugin
-//         reader.readAsDataURL(file);
-//         console.log('file',file)
-//       });
-//   })
-// return promise;
-// }
+
   ionViewWillLeave() {
 this.navCtrl.setRoot(StudenttabsPage)
   }
+
+
+
+//function to save file
+//   previewFile(){
+//   var storage = firebase.storage();
+//
+//   var file = document.getElementById("files").files[0];
+//   console.log(file);
+//
+//   var storageRef = firebase.storage().ref();
+//
+//   //dynamically set reference to the file name
+//   var thisRef = storageRef.child(file.name);
+//
+//   //put request upload file to firebase storage
+//   thisRef.put(file).then(function(snapshot) {
+//     console.log('Uploaded a blob or file!');
+//   });
+//
+//   //get request to get URL for uploaded file
+//   thisRef.getDownloadURL().then(function(url) {
+//     console.log(url);
+//   })
+//
+// }
 }
