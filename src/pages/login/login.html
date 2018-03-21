@@ -6,6 +6,7 @@
 </div>
 
 <form class="forma" #f="ngForm">
+  <div id="logindiv">
     <ion-item class="logitem" style="background-image:url('assets/imgs/phone.png');background-repeat: no-repeat;background-position: 96%;" >
       <!--<ion-label ></ion-label>-->
       <ion-input [(ngModel)]="phone" id="phone" name="phone" type="tel" placeholder="رقم الهاتف" required></ion-input>
@@ -16,15 +17,25 @@
       <ion-input [(ngModel)]="password" id="password" name="password" type="password" placeholder="كلمه المرور" required></ion-input>
     </ion-item>
 
-    <button (click)='logIn()' ion-button clear class="enter">الدخول</button>
+    <button (click)='logIn()' id="loginButton" ion-button clear class="enter">الدخول</button>
     <ion-row>
       <ion-col col-6>   <button clear class="btn" (click)="signup(1)" ion-button block>تسجيل كطالب</button></ion-col>
       <ion-col col-6>   <button clear class="btn" (click)="signup(2)" ion-button block>تسجيل كمعلم</button></ion-col>
     </ion-row>
-   <!-- <button clear  class="btn" ion-button block>نسيت كلمه المرور؟</bustton> -->
+    <button clear (click)="forgetPasswor()" class="btn" ion-button block>نسيت كلمه المرور؟</button>
    <!-- <button clear  class="btn" ion-button block (click)="teacher()">تست للمدرس</button> -->
-  </form>
-   
+  </div>
+  <div id="forgetPassDiv">
+    <ion-item class="logitem" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;">
+      <!--<ion-label ></ion-label>-->
+      <ion-input [(ngModel)]="emailpass" id="emailpass" name="emailpass" type="text" placeholder="اكتب عنوان بريدك الالكتروني" ></ion-input>
+    </ion-item>
+
+    <button clear (click)="resetPassword()" class="btn" ion-button block>ارسال كلمة المرور</button>
+<p (click)="back()">رجوع</p>
+  </div>
+</form>
+
 
   <!-- <button ion-button block class="btn" (click)="goterms()">الشروط والاحكام</button> -->
 

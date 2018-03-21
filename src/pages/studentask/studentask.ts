@@ -78,7 +78,7 @@ grade_id:any=''
 console.log(audioFile)
 self.audioRecord=audioFile[0].fullPath
       var fi = document.getElementById("file");
-      console.log(fi);
+      console.log('file',fi);
 // this.common.uploadFile(audioFile[0].localURI)
 // this.common.uploadFile(audioFile[0].localURL,{
 //   'student_id':this.user.getuser().user_id,

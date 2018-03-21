@@ -14,6 +14,7 @@ import {FcmPushProvider} from '../fcm-push/fcm-push'
 export class AuthProvider {
 private url
 public readonly LOGIN:string='login'
+public readonly FORGETPASSWORD:string='forgetpassword'
 public readonly REGISTER:string='register'
 public readonly UPDATE_USER:string='updateuser'
 public readonly GETYEAR:string='getYear'
@@ -58,8 +59,10 @@ let promise=new Promise((resolve,reject)=>{
 })
 return promise;
   }
-
-  // login(phone,password):Promise<any>{
+  forgetpassword(mail){
+   return this.http.post(this.url+this.FORGETPASSWORD,{'mail':mail})
+  }
+//   login(phone,password):Promise<any>{
 // let promise=new Promise((resolve,reject)=>{
 //   // this.getloginToken(phone,password).then(user=>{
 //     // return this.http.post(this.url+this.LOGIN,user)

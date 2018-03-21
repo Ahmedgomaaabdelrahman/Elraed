@@ -12,6 +12,7 @@ import {CommonServerStaticsProvider} from '../../providers/common-server-statics
 import { AuthProvider } from '../../providers/auth/auth';
 import { Statics } from '../../model/StaticsModel';
 import { CommonServicesProvider } from '../../providers/common-services/common-services';
+import {ForgetPasswordPage} from "../forget-password/forget-password";
 
 
 @Component({
@@ -21,6 +22,7 @@ import { CommonServicesProvider } from '../../providers/common-services/common-s
 export class LoginPage {
   password
   phone
+  emailpass
   constructor(public menuCtrl: MenuController,
 
     private user:User,
@@ -35,17 +37,44 @@ export class LoginPage {
   }
 
   ionViewWillEnter(){
+    document.getElementById('forgetPassDiv').style.display ="none"
+    document.getElementById('logindiv').style.display = "block"
+  }
+  forgetPasswor(){
+    var elem = document.getElementById("forgetPassDiv");
+    var pos = 0;
+    elem.style.top = pos + 'px';
+    document.getElementById('forgetPassDiv').style.display ="block"
+    document.getElementById('logindiv').style.display = "none"
 
   }
+  back(){
+    document.getElementById('forgetPassDiv').style.display ="none"
+    document.getElementById('logindiv').style.display = "block"
+  }
+  resetPassword(){
+    this.auth.forgetpassword(this.emailpass).subscribe(res=>{
+      console.log(res)
+if(res['Error']) {
+  this.common.presentToast(res['Error'])
+}else{
+        alert(res['Success'])
+      var elem = document.getElementById("forgetPassDiv");
+      var pos = 250;
 
+      elem.style.top = pos + 'px';
+
+      document.getElementById('forgetPassDiv').style.display ="none"
+      document.getElementById('logindiv').style.display = "block"}
+    },e=>{
+      console.log(e)
+      this.common.presentToast('فشلت المحاولة من فضلك المحاولة مرة اخري')
+
+    })
+
+  }
 logIn(){
-  //////////////////////
-  // this.navCtrl.setRoot(StudenttabsPage)
-  // this.navCtrl.setRoot(TeachertabsPage)
-  // this.menuCtrl.enable(true)
-  // this.common.loadDismess()
 
-  /////////////////////////////
   this.common.presentLoadingDefault()
 this.auth.login(this.phone,this.password).then(res=>{
   console.log(res)

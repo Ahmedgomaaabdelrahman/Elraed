@@ -52,6 +52,7 @@ import firebase from 'firebase/app';
 import {FcmPushProvider} from '../providers/fcm-push/fcm-push';
 import { FCM } from '@ionic-native/fcm';
 import { AboutusPage } from '../pages/aboutus/aboutus';
+import { ForgetPasswordPage } from '../pages/forget-password/forget-password';
 import { TermsAndAboutUsProvider } from '../providers/terms-and-about-us/terms-and-about-us';
 import { MaxImagePage } from './../pages/max-image/max-image';
 import { File } from '@ionic-native/file';
@@ -72,6 +73,7 @@ firebase.initializeApp(config);
     HomePage,
     HeaderComponent,
     AboutusPage,
+    ForgetPasswordPage,
     LoginPage,
     SignupPage,
     StudenttabsPage,
@@ -109,6 +111,7 @@ firebase.initializeApp(config);
     SignupPage,
     StudenttabsPage,
     StudenttabsPage,
+    ForgetPasswordPage,
     StudentanswerPage,
     StudentaskPage,
     StudentsubsPage,
