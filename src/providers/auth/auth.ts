@@ -45,6 +45,9 @@ public readonly GETYEAR:string='getYear'
   })
   return promise
   }
+
+
+
   login(phone,password):Promise<any>{
 let promise=new Promise((resolve,reject)=>{
   this.getloginToken(phone,password).then(user=>{
@@ -59,6 +62,9 @@ let promise=new Promise((resolve,reject)=>{
 })
 return promise;
   }
+
+
+
   forgetpassword(mail){
    return this.http.post(this.url+this.FORGETPASSWORD,{'mail':mail})
   }

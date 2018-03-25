@@ -74,29 +74,30 @@ export class FcmPushProvider {
             //Notification was received on device tray and tapped by the user.
             // alert(token.wasTapped)ionic serve
 
-            // alert( token );
-            this.events.publish('msg',1)
 
-            if(this.user.USER.type=='1'){
-              alert('تم الاجابة علي سؤال جديد لك');
-return;
-            }else if(this.user.USER.type=='2'){
-              alert('لديك سؤال جديد');
-return;
-            }
-            alert("من فضلك تابع صفحة الاسئلة");
+            this.events.publish('msg',1)
+            alert( token );
+//
+//             if(this.user.USER.type=='1'){
+//               alert('تم الاجابة علي سؤال جديد لك');
+// return;
+//             }else if(this.user.USER.type=='2'){
+//               alert('لديك سؤال جديد');
+// return;
+//             }
+//             alert("من فضلك تابع صفحة الاسئلة");
             resolve(true)
           }else{
-      // alert( token );
+      alert( token );
             this.events.publish('msg',1)
-            if(this.user.USER.type=='1'){
-              alert('تم الاجابة علي سؤال جديد لك');
-return;
-            }else if(this.user.USER.type=='2'){
-              alert('لديك سؤال جديد');
-return;
-            }
-            alert("من فضلك تابع صفحة الاسئلة");
+            // if(this.user.USER.type=='1'){
+            //   alert('تم الاجابة علي سؤال جديد لك');
+            //   return;
+            // }else if(this.user.USER.type=='2'){
+            //   alert('لديك سؤال جديد');
+            //   return;
+            // }
+            // alert("من فضلك تابع صفحة الاسئلة");
             // alert(token.wasTapped)
             // alert( token );
             // alert('');
