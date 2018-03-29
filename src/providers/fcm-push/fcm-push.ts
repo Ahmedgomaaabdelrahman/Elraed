@@ -90,7 +90,7 @@ export class FcmPushProvider {
 //             alert("من فضلك تابع صفحة الاسئلة");
             resolve(true)
           }else{
-            alert( JSON.stringify(token) );
+            alert( JSON.stringify(token)['aps']['alert']['body'] );
 
       // alert( token );
             this.events.publish('msg',1)

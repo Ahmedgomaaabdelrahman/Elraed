@@ -53,6 +53,12 @@ page-login {
         position: static;
 
     }
+   .img {
+      /* max-width: 100%; */
+      width: 75%;
+      height: 75%;
+      border: 0;
+  }
     .text-input-md ,.text-input-ios{
         direction: rtl;
         height: 38px;
