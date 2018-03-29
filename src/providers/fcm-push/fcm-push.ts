@@ -76,7 +76,9 @@ export class FcmPushProvider {
 
 
             this.events.publish('msg',1)
-            alert( token );
+            // alert( token );
+            alert( JSON.stringify(token) );
+
 //
 //             if(this.user.USER.type=='1'){
 //               alert('تم الاجابة علي سؤال جديد لك');
@@ -88,7 +90,9 @@ export class FcmPushProvider {
 //             alert("من فضلك تابع صفحة الاسئلة");
             resolve(true)
           }else{
-      alert( token );
+            alert( JSON.stringify(token) );
+
+      // alert( token );
             this.events.publish('msg',1)
             // if(this.user.USER.type=='1'){
             //   alert('تم الاجابة علي سؤال جديد لك');
