@@ -155,7 +155,10 @@ this.spinnerFlag=true
 
    console.log(question)
    this.askProvider.ask(question).subscribe(res=>{
-
+if(res['error']){
+  this.common.presentToast(res['error'])
+return
+}
 
     //  this.common.presentToast('تم')
     this.spinnerFlag=false

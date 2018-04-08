@@ -34,6 +34,7 @@ export class SubjcontentPage {
       this.user.USER.grade_id,
       this.user.USER.year_id
     ).subscribe(res=>{
+      this.error(res)
         console.log(res)
       this.timelineArr=res
 // this.rate(res)
@@ -43,6 +44,7 @@ export class SubjcontentPage {
   test(timeline){
     console.log(timeline.test[0].test_id)
     this.timeLineProvider.assignTestToWatched(timeline.test[0].test_id).subscribe(res=>{
+    this.error(res)
       this.navCtrl.push(StudenttestPage,{'test':timeline});
       console.log('e',res)
      
@@ -55,6 +57,7 @@ export class SubjcontentPage {
 
     console.log(lesson.lesson_id)
     this.timeLineProvider.assignVideoToWatched(lesson.lesson_id).subscribe(res=>{
+this.error(res)
       this.navCtrl.push(LessonshowPage,{'lesson':lesson})
       console.log(res)
     },e=>{
@@ -63,6 +66,12 @@ export class SubjcontentPage {
 
 
 
+  }
+  error(res){
+    if(res['error']){
+      this.common.presentToast(res['error'])
+    return
+    }
   }
   doRate(lesson,rate){
     console.log(lesson.studentlessons.length,rate,this.user.USER.user_id)
