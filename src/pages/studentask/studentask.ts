@@ -157,6 +157,11 @@ this.spinnerFlag=true
    this.askProvider.ask(question).subscribe(res=>{
 if(res['error']){
   this.common.presentToast(res['error'])
+  this.spinnerFlag=false
+  this.questionText=''
+  this.image=''
+  this.audioRecord=''
+  this.audioSend=''
 return
 }
 
