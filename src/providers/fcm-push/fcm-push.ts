@@ -77,7 +77,7 @@ export class FcmPushProvider {
 
             this.events.publish('msg',1)
             // alert( token );
-            alert( JSON.stringify(token) );
+            // alert( JSON.stringify(token) );
 
 //
 //             if(this.user.USER.type=='1'){
@@ -90,7 +90,7 @@ export class FcmPushProvider {
 //             alert("من فضلك تابع صفحة الاسئلة");
             resolve(true)
           }else{
-            alert( JSON.stringify(token)['aps']['alert']['body'] );
+            alert(token['aps']['alert']['body'] );
 
       // alert( token );
             this.events.publish('msg',1)
